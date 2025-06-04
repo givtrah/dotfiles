@@ -1,0 +1,1 @@
+/home/ohm/.dotfiles/Configs/waybar/scripts/maestral-status.sh
