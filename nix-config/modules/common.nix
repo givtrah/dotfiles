@@ -129,6 +129,7 @@ programs.bash = {
   ripgrep
   fd
 
+  tuckr # dotfile management (dots outside of nix for compatibility purposes!)
   ];
 
 
