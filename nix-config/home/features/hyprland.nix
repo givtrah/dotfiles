@@ -39,6 +39,7 @@
 
     pywal16
     hellwal
+    wallust
 
     swaynotificationcenter # notification daemon
 	libsForQt5.qt5.qtwayland
@@ -74,7 +75,8 @@
     #    hyprpanel
 
     swww # wallpaper daemon
-
+    waypaper
+    swaybg
 
     # Ensure plasma-applications.menu appears (to help mime associations in dolphin)
     kdePackages.plasma-workspace
