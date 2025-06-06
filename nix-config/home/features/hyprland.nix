@@ -74,10 +74,9 @@
 
     #    hyprpanel
 
-    swww # wallpaper daemon
     waypaper
-    swaybg
 
+    wl-gammactl # wayland contrast, brightness and gamma adjustments
 
     # Ensure plasma-applications.menu appears (to help mime associations in dolphin)
     kdePackages.plasma-workspace

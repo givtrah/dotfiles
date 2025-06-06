@@ -30,14 +30,7 @@
         "clock"
     ],
 
-
-    "hyprland/workspaces": {
-    "format": "{id}",
-    "persistent-workspaces": {
-      "DP-1": [1, 2, 3, 4, 5, 6],
-      "DP-2": [7, 8, 9, 10]
-        },
-    },
+    "include": [ "$HOME/.config/waybar/hypr-workspaces.jsonc" ],
 
     "hyprland/window": {
         "separate-outputs": true,
