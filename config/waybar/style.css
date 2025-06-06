@@ -4,7 +4,7 @@
 
 * {
     font-family: JetBrainsMono, otf-font-awesome;
-    font-size: 14px;
+    font-size: 12px;
 /*    padding: 2px 4px; */
 }
 
@@ -155,11 +155,10 @@ button:hover {
 
 
 
-
-
 #mpris {
-    background: @background;
+    background: alpha(@background, 0.4);
     color: @foreground;
+    font-size: 10px;
 }
 
 #cava {

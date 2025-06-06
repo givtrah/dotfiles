@@ -78,6 +78,7 @@
 		"paused": "⏸"
 	},
         "dynamic-order": ["artist", "title"],
+        "format-len": 30,
 
 	// "ignored-players": ["firefox"]
     },
@@ -90,7 +91,7 @@
         "format-icons": ["", "", ""]
     },
     "network": {
-        "format": "Up:{bandwidthUpBytes} Down:{bandwidthDownBytes}"
+        "format": "U:{bandwidthUpBytes} D:{bandwidthDownBytes}"
         // "interface": "wlp2*", // (Optional) To force the use of this interface
 //        "format-wifi": "{essid} ({signalStrength}%) ",
 //        "format-ethernet": "{ipaddr}/{cidr} ",
