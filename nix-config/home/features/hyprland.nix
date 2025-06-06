@@ -78,8 +78,29 @@
     waypaper
     swaybg
 
+
     # Ensure plasma-applications.menu appears (to help mime associations in dolphin)
     kdePackages.plasma-workspace
+
+    # QT theming
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qt6ct
+    kdePackages.qtstyleplugin-kvantum
+
+    kdePackages.breeze
+    kdePackages.breeze-gtk
+    kdePackages.breeze-icons
+
+    # standard font for KDE? (I think)
+    nerd-fonts.hack
+
+    #    libsForQt5.breeze-qt5
+    # libsForQt5.breeze-gtk
+    # libsForQt5.breeze-icons
+
+    
+
 
   ];
 
