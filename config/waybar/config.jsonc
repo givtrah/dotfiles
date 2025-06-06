@@ -30,7 +30,7 @@
         "clock"
     ],
 
-    "include": [ "$HOME/.config/waybar/hypr-workspaces.jsonc" ],
+    "include": [ "~/.config/waybar/hypr-workspaces.jsonc" ],
 
     "hyprland/window": {
         "separate-outputs": true,

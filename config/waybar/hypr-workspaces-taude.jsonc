@@ -1,4 +1,4 @@
-
+{
     "hyprland/workspaces": {
     "format": "{id}",
     "persistent-workspaces": {
@@ -6,4 +6,4 @@
       "DP-2": [7, 8, 9, 10]
         },
     },
-
+}
