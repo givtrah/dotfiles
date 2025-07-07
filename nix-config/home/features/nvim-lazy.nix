@@ -41,7 +41,9 @@
       php
       phpPackages.composer
 
-      (python3.withPackages (ps: with ps; [ pip ipython radian ]))
+      radian
+
+      (python3.withPackages (ps: with ps; [ pip ipython ]))
       #      python3Packages.pip
 
       ghostscript
