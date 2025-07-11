@@ -29,17 +29,14 @@
     zotero-nix = {
       url = "github:camillemndn/zotero-nix";
     };
-    hyprpanel = { 
-      url = "github:Jas-SinghFSU/HyprPanel";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, hyprpanel, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, ... }@inputs: 
 
     let
       specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix hyprpanel; };
       overlays = [
-	inputs.hyprpanel.overlay
+	#	inputs.hyprpanel.overlay
       ];
       shared-modules = [
         {
@@ -52,7 +49,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-	  home-manager.extraSpecialArgs = { inherit inputs nixpkgs zotero-nix hyprpanel; };
+	  home-manager.extraSpecialArgs = { inherit inputs nixpkgs zotero-nix; };
 	  home-manager.users.ohm.imports = [ 
 	    nix-flatpak.homeManagerModules.nix-flatpak
 	    ./home/common.nix
@@ -71,7 +68,7 @@
         modules =  shared-modules ++ [
 	  ./hosts/taumac
 	  inputs.apple-silicon.nixosModules.apple-silicon-support
-	  {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
+	  {nixpkgs.overlays = [];}
           home-manager.nixosModules.home-manager {
 	    home-manager.users.ohm = {
 	      home.stateVersion = "24.05";
@@ -87,7 +84,7 @@
 	specialArgs = specialArgs;
 	modules = shared-modules ++ [
 	  ./hosts/taupa
-	  {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
+	  {nixpkgs.overlays = [];}
 	  home-manager.nixosModules.home-manager { 
 	    home-manager.users.ohm = {
 	      home.stateVersion = "24.05";
@@ -103,7 +100,7 @@
 	specialArgs = specialArgs;
 	modules = shared-modules ++ [
 	  ./hosts/taude
-	  {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
+	  {nixpkgs.overlays = [];}
 	 home-manager.nixosModules.home-manager { 
 	   home-manager.users.ohm = {
 	     home.stateVersion = "24.11";

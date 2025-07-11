@@ -107,6 +107,14 @@ programs.bash = {
   curl
   wget
 
+  cups-browsed
+  canon-cups-ufr2
+  cups-bjnp
+  carps-cups
+  gutenprint
+  gutenprintBin
+
+
   neovim
   vim
 
