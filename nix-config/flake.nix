@@ -34,7 +34,7 @@
   outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, ... }@inputs: 
 
     let
-      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix hyprpanel; };
+      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix; };
       overlays = [
 	#	inputs.hyprpanel.overlay
       ];
