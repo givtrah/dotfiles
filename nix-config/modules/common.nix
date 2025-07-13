@@ -38,6 +38,8 @@
   services.tailscale.enable = true;
 
 
+  #  services.printing.drivers = [ gutenprint canon-cups-ufr2 ];
+
   # fix non-nix programs not working (taken from https://nix.dev/guides/faq.html) 
 #  programs.nix-ld.enable = true;
 #  programs.nix-ld.libraries = with pkgs; [
@@ -108,11 +110,6 @@ programs.bash = {
   wget
 
   cups-browsed
-  canon-cups-ufr2
-  cups-bjnp
-  carps-cups
-  gutenprint
-  gutenprintBin
 
 
   neovim
