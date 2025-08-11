@@ -64,6 +64,14 @@
 
   maestral 
  # maestral-gui
+
+      # Videorip encoding etc.
+  makemkv
+  mkvtoolnix
+  
+
+
+
   ]
 
  ++

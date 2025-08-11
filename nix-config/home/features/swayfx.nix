@@ -10,7 +10,6 @@
     nwg-launchers
     mako
 
-    ulauncher
 
   ];
 
