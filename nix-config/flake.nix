@@ -18,16 +18,14 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #    nixos-cosmic = {
-    #  url = "github:lilyinstarlight/nixos-cosmic";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?";
-#      inputs.nixpkgs.follows = "nixpkgs";
     };
     zotero-nix = {
       url = "github:camillemndn/zotero-nix";
+    };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
     };
   };
 
