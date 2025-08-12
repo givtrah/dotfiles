@@ -40,7 +40,7 @@
   # HARDWARE SPECIFIC STUFF
 
   # enable GPU support and audio
-  hardware.asahi.useExperimentalGPUDriver = true;
+  hardware.asahi.useExperimentalGPUDriver = false;
   hardware.asahi.experimentalGPUInstallMode = "replace";
   hardware.asahi.setupAsahiSound = true;
 
