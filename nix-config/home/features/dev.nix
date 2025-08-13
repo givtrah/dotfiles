@@ -5,6 +5,7 @@
   [
   vscode
   yarn
+  opencode
 
       #  devenv # for python development (any..) 
   direnv 
