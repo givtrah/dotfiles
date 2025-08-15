@@ -39,8 +39,8 @@
       shared-modules = [
         {
           nix.settings = {
-	    #            substituters = [ "https://cosmic.cachix.org/" ]; # nixos-cosmic build repo
-	    #            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+	                substituters = [ "https://nix-community.cachix.org/" ]; # nixos-cosmic build repo
+	                trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
           };
         }
 	home-manager.nixosModules.home-manager {

@@ -112,8 +112,7 @@ programs.bash = {
   cups-browsed
 
 
-  neovim
-  vim
+  vim # so we at least have vi - for neovim, see home-manager
 
   tailscale
   rclone
