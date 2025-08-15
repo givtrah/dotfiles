@@ -35,9 +35,11 @@
   ./features/desktop.nix
   ./features/qemu.nix
 
+		./features/nvim12.nix
 
-  ./features/nvim-fix.nix
-  ./features/nvim-lazy.nix
+#  ./features/nvim-fix.nix
+
+# ./features/nvim-lazy.nix
 
   ./features/swayfx.nix
    
