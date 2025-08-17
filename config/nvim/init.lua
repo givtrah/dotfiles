@@ -36,7 +36,7 @@ vim.opt.timeoutlen = 300 -- Decrease mapped sequence wait time
 -- sync clipboard between OS and Neovim
 -- schedule setting after 'UiEnter' because it can increase startup-time (TEST!)
 vim.schedule(function()
-	vim.opt.clipboard = 'unnamedplus'
+	vim.opt.clipboard = {'unnamed', 'unnamedplus'}
 end)
 
 
