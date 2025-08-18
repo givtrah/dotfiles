@@ -14,6 +14,7 @@
 
         "SUPER, Q, killactive,"
         "SUPER, E, exec, $filemanager"
+				"SUPER, B, exec, $browser"
 
         # End active session
         "SUPER, ESCAPE, exec, swaylock"

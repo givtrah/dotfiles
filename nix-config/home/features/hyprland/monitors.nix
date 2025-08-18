@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: 
+{ config, pkgs, hostName,...}: 
 
 ##############################
 ### MONITORS  & Workspaces ###
@@ -7,7 +7,7 @@
 # See https://wiki.hyprland.org/Configuring/Monitors/
 # monitor=,preferred,auto,auto
 
-let hostName = builtins.getEnv "HOSTNAME";
+let hostname = hostName;
 
   monitorConfigs = {
     taude = [
@@ -77,8 +77,8 @@ in
 
 {
   wayland.windowManager.hyprland.settings = {
-    monitor = monitorConfigs.${hostName} or monitorConfigs.default;
-    workspace = workspaceConfigs.${hostName} or workspaceConfigs.default;
+    monitor = monitorConfigs.${hostname} or monitorConfigs.default;
+    workspace = workspaceConfigs.${hostname} or workspaceConfigs.default;
   };
 
 }
