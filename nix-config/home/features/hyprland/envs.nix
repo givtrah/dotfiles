@@ -1,5 +1,7 @@
 { config, pkgs, ...}: {
 
+# DO THESE NEED TO BE GLOBAL?!?!?
+
 
   # Hint electron apps to use Wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";

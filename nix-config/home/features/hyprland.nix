@@ -1,13 +1,15 @@
 { inputs, lib, config, pkgs, ... }:
 {
 
+
+
+
+
+
   # Hint electron apps to use Wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";
   # Disable hardware cursors
   home.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-
-
-
 
 
 

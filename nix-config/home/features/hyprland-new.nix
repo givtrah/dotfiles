@@ -9,6 +9,16 @@
   
 	services.hyprpolkitagent.enable = true; # Polkit auth agent written in QT/QML
 
+	imports = [
+		./hypridle.nix # needs swaylock (hyprlock currently broken on aarch64 apple silicon)
+		./swaylock.nix
+		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
+
+
+	];
+
+
+
 
 
 
@@ -20,7 +30,6 @@
 
     # hyprprop # An xprop replacement for Hyprland - no idea what this does
 
-    hypridle # Screen idle utility 
     hyprlock # Screen lock utility
 
     hyprsunset # Application to enable a blue-light filter on Hyprland
