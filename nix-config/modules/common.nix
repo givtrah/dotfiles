@@ -67,9 +67,10 @@
 
 # FORCE libreoffice (non-QT!) / all GTK apps.. to use a white theme! for my sanity...
 #  environment.variables.GTK_THEME = "Adwaita"; 
-  environment.sessionVariables = {
-    GTK_THEME = "Adwaita";
-    };
+# OBSOLETE - OVERRULED BY HOME-MANAGER, this will FUCK THINGS UP
+#  environment.sessionVariables = {
+#    GTK_THEME = "Adwaita";
+#    };
 
 
   # Make BASH the default user shell

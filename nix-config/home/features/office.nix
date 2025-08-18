@@ -23,9 +23,19 @@
     then [ ] # libreoffice ] # libreoffice from flatpaks - due to compile error on 2025-02-18
   else
     (if (pkgs.system == "x86_64-linux")
-      then [ libreoffice-fresh onlyoffice-bin_latest pdfsam-basic ]
-      else []));
+      then [ 
+ # Wrap libreoffice-fresh to use the Adwaita theme
+           (writeShellScriptBin "libreoffice" ''
+             export GTK_THEME="Adwaita"
+             exec ${libreoffice-fresh}/bin/libreoffice "$@"
+           '')
 
+#			libreoffice-fresh 
+
+			onlyoffice-bin_latest
+			pdfsam-basic 
+			]
+      else []));
 
 
 
