@@ -14,8 +14,8 @@ wayland.windowManager.hyprland.settings = {
 
 
     	# https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-      "col.active_border" = $color14 $color3 45deg;
-      "col.inactive_border" = $color0;
+      "col.active_border" = "$color14 $color3 45deg";
+      "col.inactive_border" = "$color0";
 
     	# Set to true enable resizing windows by clicking and dragging on borders and gaps
       resize_on_border = true;

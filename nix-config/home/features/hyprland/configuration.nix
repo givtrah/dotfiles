@@ -1,8 +1,5 @@
 { config, pkgs, ...}: {
 
-
-
-
   imports = [
     ./autostart.nix
     ./bindings.nix
@@ -26,7 +23,7 @@
 		# https://discourse.nixos.org/t/install-shell-script-on-nixos/6849
 		# https://ertt.ca/nix/shell-scripts/
 		# using https://github.com/numtide/flake-utils
-		"$random_wall" = "~/.dotfiles/nix-config/home/features/hyprland/scripts/wall-random.sh"
+		"$random_wall" = "~/.dotfiles/nix-config/home/features/hyprland/scripts/wall-random.sh";
 
 		"$terminal" =  "kitty";
     "$fileManager" = "dolphin";
@@ -51,4 +48,3 @@ home.packages = with pkgs;
 
 
 }
-/home/ohm/.dotfiles/nix-config/home/features/hyprland

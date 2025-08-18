@@ -1,6 +1,11 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, ...}: 
 
 
+let
+	hostName = builtins.getEnv "HOSTNAME";
+	in
+
+{
 wayland.windowManager.hyprland.settings = {
   exec-once = [
     # "hypridle & mako & waybar & fcitx5"
@@ -20,12 +25,20 @@ wayland.windowManager.hyprland.settings = {
 		"walker --gapplication-service"
 		"sleep 1 && $random_wall &> /dev/null"
 		"remmina -i"
-		"hyprpaper"
+		"hyprpaper"	
+
+ 	#	''ln -f -s "$HOME/.config/waybar/hypr-workspaces-$HOSTNAME.jsonc" ~/.config/waybar/hypr-workspaces.jsonc &> /dev/null''
+
+#		"sh -c \"ln -f -s \\\"$HOME/.config/waybar/hypr-workspaces-${hostName}.jsonc\\\" $HOME/.config/waybar/hypr-workspaces.jsonc &> /dev/null\""
+
+		 ''ln -f -s "$HOME/.config/waybar/hypr-workspaces-$HOSTNAME.jsonc" ~/.config/waybar/hypr-workspaces.jsonc &> /dev/null''
+      
+
 
     ];
 
     exec = [
-      "pkill -SIGUSR2 waybar || waybar" # reload waybar everytime hyprland reloads
+      "pkill -SIGUSR2 waybar || waybar" # reload waybar everytime hyprland reloads - this doesn't work all the time! FIX
     ];
 };
 

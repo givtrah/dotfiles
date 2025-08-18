@@ -1,23 +1,15 @@
 { inputs, lib, config, pkgs, ... }:
 {
 
- 	wayland.windowManager.hyprland = {
-   	enable = true;
- #  	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  	};
-  
-	services.hyprpolkitagent.enable = true; # Polkit auth agent written in QT/QML
-
-	imports = [
-		./hyprland/configuration.nix
-		./hypridle.nix # needs swaylock (hyprlock currently broken on aarch64 apple silicon)
-		./swaylock.nix
-		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 
 
-	];
 
 
+
+  # Hint electron apps to use Wayland
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Disable hardware cursors
+  home.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
 
 
@@ -30,11 +22,13 @@
 
     # hyprprop # An xprop replacement for Hyprland - no idea what this does
 
+    hypridle # Screen idle utility 
     hyprlock # Screen lock utility
 
     hyprsunset # Application to enable a blue-light filter on Hyprland
 
     hyprsysteminfo # A tiny qt6/qml application to display information about the running system
+    hyprpolkitagent # Polkit authentication agent written in QT/QML
 
     hyprland-qtutils # Hyprland QT/qml utility apps
     hyprland-protocols # Wayland protocol extensions for Hyprland

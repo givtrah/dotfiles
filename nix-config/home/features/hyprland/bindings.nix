@@ -3,12 +3,11 @@
   wayland.windowManager.hyprland.settings = {
 		bind = [
 				"SUPER, Return, exec, $terminal"
-				"SUPER SHIFT, Return, exec $random_wall &> /dev/null" # SCRIPT MISSING
+#				"SUPER SHIFT, Return, exec $random_wall &> /dev/null" # SCRIPT MISSING
 			  "SUPER, space, exec, $menu"
-				"SUPER, W, exec, "pkill -SIGUSR2 waybar || waybar""
-    ];
+				# "SUPER, W, exec, "pkill -SIGUSR2 waybar || waybar""
 
-				
+
 				# "SUPER SHIFT, SPACE, exec, pkill -SIGUSR1 waybar"
         # "SUPER CTRL, SPACE, exec, ~/.local/share/omarchy/bin/swaybg-next"
         # "SUPER SHIFT CTRL, SPACE, exec, ~/.local/share/omarchy/bin/omarchy-theme-next"

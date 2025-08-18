@@ -16,54 +16,8 @@
   # exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
   # Although i use polkit-kde but it should work with polkit-gnome as well
 
-  programs.swaylock = { 
-    enable = true;
-    package = pkgs.swaylock-effects;
-    settings = {
-      screenshots = true;
-      effect-blur = "7x3";
-      effect-greyscale = true;
-      clock = true;
-      timestr = "%H:%M";
-      datestr = "%Y-%m-%d";
-      show-failed-attempts = true;
-      font = "JetbrainsMono Nerd Font";
-      indicator = true;
-      indicator-radius = "150";
-      indicator-thickness = "20";     
-      
-      color = "1f1d2e80";
-      line-color = "1f1d2e";
-      ring-color = "191724";
-      inside-color= "1f1d2e";
-      key-hl-color="eb6f92";
-      separator-color="00000000";
-      text-color="e0def4";
-      text-caps-lock-color="";
-      line-ver-color="eb6f92";
-      ring-ver-color="eb6f92";
-      inside-ver-color="1f1d2e";
-      text-ver-color="e0def4";
-      ring-wrong-color="31748f";
-      text-wrong-color="31748f";
-      inside-wrong-color="1f1d2e";
-      inside-clear-color="1f1d2e";
-      text-clear-color="e0def4";
-      ring-clear-color="9ccfd8";
-      line-clear-color="1f1d2e";
-      line-wrong-color="1f1d2e";
-      bs-hl-color="31748f";
 
 
-
-
-      };
-
-
-
-
-
-  };
 
 
 
