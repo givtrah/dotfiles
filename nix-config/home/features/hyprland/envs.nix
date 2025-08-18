@@ -8,72 +8,94 @@
   # Disable hardware cursors
   home.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
-##################
-# ENV VARIABLES ##
-##################
-# some from https://bbs.archlinux.org/viewtopic.php?id=285373
-# some from hyprland wiki
+	wayland.windowManager.hyprland.settings = {
+		
+		env = [
+		##################
+		# ENV VARIABLES ##
+		##################
+		# some from https://bbs.archlinux.org/viewtopic.php?id=285373
+		# some from hyprland wiki
+		# See https://wiki.hyprland.org/Configuring/Environment-variables/
 
-# Scale GTK apps
-env = GDK_SCALE,2
+		# Scale GTK apps
+		"GDK_SCALE,2"
 
-# GTK: Use wayland if available. If not: try x11, then any other GDK backend.
-env = GDK_BACKEND,wayland,x11,*
+		# Cursor size (32 or 24?)
+		"XCURSOR_SIZE,24"
+		"HYPRCURSOR_SIZE,24"
 
-# Qt: Use wayland if available, fall back to x11 if not.
-env = QT_QPA_PLATFORM,wayland;xcb
+		# Cursor theme
+		"XCURSOR_THEME,Adwaita" # Do I need to install these?
+		"HYPRCURSOR_THEME,Adwaita"
 
-# use QT5 theme for KDE apps (QT6 apps should use qt6ct automatically)
-env = QT_QPA_PLATFORMTHEME,qt5ct
+		# Force (all?) apps to use Wayland and misc other fixes below
 
-# Run SDL2 applications on Wayland. Set to x11 if old games cause compatibility issues
-# env = SDL_VIDEODRIVER,wayland
+		# GTK: Use wayland if available. If not: try x11, then any other GDK backend.
+		"GDK_BACKEND,wayland,x11,*"
 
-# Force Clutter applications to try and use the Wayland backend
-env = CLUTTER_BACKEND,wayland
+		# Qt: Use wayland if available, fall back to x11 if not.
+		"QT_QPA_PLATFORM,wayland;xcb"
+		# #QT_QPA_PLATFORM,wayland"
 
-# Fix Java apps rendering on Wayland
-env = _JAVA_AWT_WM_NONREPARENTING,1
+		# use QT5 theme for KDE apps (QT6 apps should use qt6ct automatically)
+		"QT_QPA_PLATFORMTHEME,qt5ct"
 
-# Fix QT apps on hi-DPI displays (so they don't appear tiny)
-env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+		# ????
+		"QT_STYLE_OVERRIDE,kvantum"
 
-# QT apps should use the Wayland backend
-env = QT_QPA_PLATFORM,wayland
+		# Run SDL2 applications on Wayland. Set to x11 if old games cause compatibility issues
+		"SDL_VIDEODRIVER,wayland"
 
-# QT apps should not draw their own window decorations
-env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+		# Force Clutter applications to try and use the Wayland backend
+		"CLUTTER_BACKEND,wayland"
+		
+		# Mozilla apps should use Wayland
+		"MOZ_ENABLE_WAYLAND,1"
 
-# Mozilla apps should use Wayland
-env = MOZ_ENABLE_WAYLAND,1
+		# Make Chromium use XCompose and all Wayland
+    "CHROMIUM_FLAGS,\"--enable-features=UseOzonePlatform --ozone-platform=wayland --gtk-version=4\""
 
-# Mozilla apps use the GPU accelerated 2D rendering engine
-env = MOZ_WEBRENDER,1
+		# Electron apps
+		"ELECTRON_OZONE_PLATFORM_HINT,wayland"	
 
-# Enable apps use hardware acceleration
-env = MOZ_ACCELERATED,1
+		# ???
+		"OZONE_PLATFORM,wayland"
 
-# Make KDE/Dolphin menus work outside of KDE
-env = XDG_MENU_PREFIX,plasma-
+		# Fix Java apps rendering on Wayland
+		"_JAVA_AWT_WM_NONREPARENTING,1"
 
-# Cursor size
-env = XCURSOR_SIZE,32
-env = HYPRCURSOR_SIZE,32
+		# Fix QT apps on hi-DPI displays (so they don't appear tiny)
+		"QT_AUTO_SCREEN_SCALE_FACTOR,1"
 
-# unscale XWayland
-xwayland {
-  force_zero_scaling = true
-}
+		# QT apps should not draw their own window decorations
+		"QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+
+		# Mozilla apps use the GPU accelerated 2D rendering engine
+		"MOZ_WEBRENDER,1"
+
+		# Enable apps use hardware acceleration
+		"MOZ_ACCELERATED,1"
+
+		# Make KDE/Dolphin menus work outside of KDE
+		"XDG_MENU_PREFIX,plasma-"
+
+		# Not needed? (using walker)
+    "XDG_DATA_DIRS,$XDG_DATA_DIRS:$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share"
+
+		# GTK theme
+    "GTK_THEME,Adwaita:dark"
 
 
-#
+		];
 
 
-# See https://wiki.hyprland.org/Configuring/Environment-variables/
+		# unscale XWayland
+		xwayland = {
+  		force_zero_scaling = true;
+		};
 
-env = XCURSOR_SIZE,24
-env = HYPRCURSOR_SIZE,24
-
+	};
 
 
   home.packages = with pkgs; 
