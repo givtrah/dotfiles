@@ -13,7 +13,7 @@
 		./hypridle.nix # needs swaylock (hyprlock currently broken on aarch64 apple silicon)
 		./swaylock.nix
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
-
+		./waybar.nix
 
 	];
 
@@ -61,7 +61,7 @@
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gnome
 
-    waybar
+#    waybar # activated inside waybar.nix
     cava # console based audio visualizer (plugin for waybar)
 
     zathura

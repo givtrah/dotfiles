@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, hostName, ...}: 
 
 # https://github.com/henrysipp/omarchy-nix/blob/main/modules/home-manager/waybar.nix
 
@@ -12,46 +12,221 @@
 # https://git.allpurposem.at/mat/Computer/src/commit/2ec271dad1a54b7678644318504c4e76d8a3d204/home-manager/modules/walker.nix
 
 
- WAYBAR_CONFIG_DIRECTORY = ./files/waybar;
+
+let hostname = hostName;
+
+	workspacesConfigs = {
+		taude = [
+			on-click = "activate";
+			format = "{id}";
+			persistent-workspaces = {
+				"DP-1" = [1, 2, 3, 4, 5, 6, 7];
+      	"DP-2" = [8, 9, 10];
+			};
+    ];
+    
+		taupa = [
+			on-click = "activate";
+			format = "{id}";
+			persistent-workspaces = {
+      	"DP-2" = [1, 2, 3, 4, 5, 6, 7];
+      	"DP-3" = [8, 9, 10];
+			};
+		];
+    
+		taumac = [
+  		on-click = "activate";
+			format = "{id}";
+			persistent-workspaces = {
+	    	"eDP-1" = [1, 2, 3, 4, 5, 6, 7];
+			};
+		];
+
+    default = [
+			on-click = "activate";
+			format = "{id}";
+    ];
+	
+	};
+
+in {
+
+  home.file = {
+    ".config/waybar/" = {
+      source = ../../config/waybar;
+      recursive = true;
+    };
+  };
 
 
- file = lib.mkMerge [
-          # copy resources from `./files`
-          {
-            ".config/waybar" = {
-              source = WAYBAR_CONFIG_DIRECTORY;
-              recursive = true;
-            };
-          }
-          {
-          # ensure scripts are executable
-          {
-            ".config/waybar/waybar.sh" = {
-              source = WAYBAR_CONFIG_DIRECTORY + "/waybar.sh";
-              executable = true;
-            };
-          }
-          {
-            ".config/waybar/modules/mediaplayer.py" = {
-              source = WAYBAR_CONFIG_DIRECTORY + "/modules/mediaplayer.py";
-              executable = true;
-            };
-          }
-        ];
-      };
+  programs.waybar = {
+  	enable = true;
+		settings = [
+			{
+				layer = "top";
+				position = "bottom";
+				height = ""; # left blank for dynamic value
+				width = ""; # left blank for dynamic value
+				margin-left = "12";
+				margin-right = "12";
 
-      programs = {
-        waybar = {
-          enable = true;
+				modules-left = [
+					"custom/distrologo"
+					"hyprland/workspaces"
+					"hyprland/window"
+				];
+				
+				modules-center = [
+					"cava"
+					"mpris"
+				];
+				
+				modules-right = [
+					"network"
+					"memory"
+					"cpu"
+					"temperature"
+					"pulseaudio"
+					"battery"
+					# "custom/maestral" # Currently not working, script needs fixing
+					"tray"
+					"clock"
+				];
+				
+				"hyprland/workspaces" = persistentConfigs.${hostname} or persistentConfig.default;
+			};
+
+			"hyprland/window" = {
+				separate-outputs = true;
+				icon = true;
+				icon-size = 24;
+			};
+
+			tray = {
+				icon-size = 24;
+				spacing = 13;
+			};
+
+			cpu = {
+        format = "{usage}% ";
+        tooltip = false;
+				interval = 5;
+				on-click = "kitty --hold bash -c btop"
+			};
+
+			memory = {
+        format =  "{used:0.1f}G/{total:0.1f}G ";
+				format-alt = "{}% ";
+			};
+
+			network = {
+        format = "U:{bandwidthUpBytes} D:{bandwidthDownBytes}";
+			};
+			
+    	clock = {
+        format = "{:%H:%M %a %b %d}";
+    	};
+
+    	temperature =  {
+        hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input"; # might not work for taude!
+        critical-threshold = 80;
+        format = "{temperatureC}°C {icon}";
+        format-icons = ["", "", ""];
+			};
+
+    	"custom/distrologo" = {
+        format = "{icon}";
+        tooltip-format = "Nix OS BTW";
+        tooltip = true;
+        format-icons = {
+          default = " ";
         };
+        on-click = "kitty --hold bash -c fastfetch";
+   		};
+
+   		mpris = {
+				format = "{player_icon} {dynamic}";
+				format-paused = "{status_icon} <i>{dynamic}</i>";
+				player-icons = {
+					default = "▶";
+					mpv = "🎵";
+				};
+				status-icons = {
+					paused = "⏸";
+				};
+        dynamic-order = ["artist", "title"];
+        format-len = 30;
+			};
 
 
-  home.packages = with pkgs; 
+    	bluetooth = {
+				format = " {status}";
+				format-connected = " {device_alias}";
+				format-connected-battery = " {device_alias} {device_battery_percentage}%";
+				tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+				tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+				tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+				tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+        on-click = "blueman-manager";
+    	};
 
-  [
+    	pulseaudio = {
+        format = "{volume}% {icon} {format_source}";
+        format-bluetooth = "{volume}% {icon} {format_source}";
+        format-bluetooth-muted = " {icon} {format_source}";
+        format-muted = " {format_source}";
+        format-source = "{volume}% ";
+        format-source-muted = "";
+        format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["", "", ""];
+        };
+        on-click = "pavucontrol";
+			};
 
 
-  ];
+			cava = {
+        framerate = 30;
+        autosens = 1;
+        bars = 12;
+        lower_cutoff_freq = 50;
+        higher_cutoff_freq = 10000;
+        method = "pulse";
+        source = "auto";
+        stereo = true;
+        reverse = false;
+        bar_delimiter = 0;
+        monstercat = false;
+        waves = false;
+        noise_reduction = 0.6;
+        input_delay = 2;
+        format-icons = ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ];
+        actions = {
+        	on-click-right = "mode";
+        };
+    	};
 
+
+			
+#			"custom/maestral" = {
+#    		format = "{}";
+#    		return-type = "json";
+#    		exec = "~/.config/waybar/scripts/maestral-status.sh";
+#    		interval = 120; # Run the script every 120 seconds (2 minutes)
+#			};
+
+
+
+  };
+
+
+
+
+};
 
 }
