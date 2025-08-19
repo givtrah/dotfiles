@@ -87,6 +87,11 @@
 
     #    hyprpanel
 
+
+		amarok
+		bitwarden-desktop
+		signal-desktop
+
     waypaper
 
     wl-gammactl # wayland contrast, brightness and gamma adjustments
