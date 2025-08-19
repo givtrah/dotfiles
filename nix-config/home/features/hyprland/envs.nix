@@ -41,8 +41,8 @@
 		# use QT5 theme for KDE apps (QT6 apps should use qt6ct automatically)
 		"QT_QPA_PLATFORMTHEME,qt5ct"
 
-		# ????
-		"QT_STYLE_OVERRIDE,kvantum"
+		# ???? - seems to completely mess up dolphin
+#		"QT_STYLE_OVERRIDE,kvantum"
 
 		# Run SDL2 applications on Wayland. Set to x11 if old games cause compatibility issues
 		"SDL_VIDEODRIVER,wayland"
