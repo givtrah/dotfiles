@@ -7,9 +7,11 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-		defaultSession = "Hyprland";
 #    theme = "catppuccin-mocha";
   };
+
+# set default session to Hyprland
+	services.displayManager.defaultSession = "hyprland";
 
 
 # Auto login to kwallet upon login using sddm
