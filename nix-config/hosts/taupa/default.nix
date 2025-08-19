@@ -21,9 +21,9 @@
       ../../modules/sddm.nix
 
       ../../modules/plasma6.nix
-      ../../modules/sway.nix
+#      ../../modules/sway.nix
       ../../modules/hyprland.nix
-      ../../modules/cosmic.nix
+#      ../../modules/cosmic.nix
 
       ../../modules/libs.nix
 

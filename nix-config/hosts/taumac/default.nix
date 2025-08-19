@@ -18,10 +18,10 @@
       ../../modules/plasma6.nix
       ../../modules/hyprland.nix
       ../../modules/users.nix
-     ../../modules/cosmic.nix
+#     ../../modules/cosmic.nix
       ../../modules/distrobox.nix
       ../../modules/libs.nix
-      ../../modules/sway.nix
+#      ../../modules/sway.nix
       ../../modules/hosts.nix
     ];
 

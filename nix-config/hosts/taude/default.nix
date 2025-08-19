@@ -19,7 +19,7 @@
       ../../modules/sddm.nix
       ../../modules/plasma6.nix
 
-      ../../modules/cosmic.nix
+#      ../../modules/cosmic.nix
 
       #      ../../modules/ollama.nix
       
