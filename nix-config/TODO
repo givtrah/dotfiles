@@ -1,0 +1,5 @@
+fix hyprland scripts so they work (and are nixified)
+
+fix walker
+
+consider fixing nvim (or leave at is, but nixify the structe using home.file)
