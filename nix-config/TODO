@@ -3,3 +3,7 @@ fix hyprland scripts so they work (and are nixified)
 fix walker
 
 consider fixing nvim (or leave at is, but nixify the structe using home.file)
+
+Add automatic garbage collection, general cleanup of hyprland
+
+Add nixified hyprlock for when it no longer crashes on aarch64
