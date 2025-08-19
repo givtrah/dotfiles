@@ -1,13 +1,16 @@
 { pkgs, ... }:
 {
-  # disable default sound module. see https://nixos.wiki/wiki/PipeWire
+
+	# Find the name of themes for sddm:
+
+	# ls /run/current-system/sw/share/sddm/themes
 
   services.xserver.enable = true;
   
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-#    theme = "catppuccin-mocha";
+    theme = "breeze"; # The only theme working?!?!?
   };
 
 # set default session to Hyprland
@@ -23,15 +26,18 @@ security.pam.services.sddm = {
 };
 
 
-environment.systemPackages = with pkgs; [(
-  catppuccin-sddm.override {
-    flavor = "mocha";
+environment.systemPackages = with pkgs; [
+  sddm-chili-theme
+	elegant-sddm
+	sddm-sugar-dark
+#	catppuccin-sddm.override {
+#    flavor = "mocha";
 #    font  = "Noto Sans";
 #    fontSize = "9";
 #    background = "${./wallpaper.png}";
-    loginBackground = true;
-  }  
-)];
+#    loginBackground = true;
+#	  } 
+];
 
 
   # Modify the SDDM theme to chili by getting it directly from github (todo: use the sddm-chili-theme which is a nix pkg)
