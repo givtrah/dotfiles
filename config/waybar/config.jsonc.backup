@@ -10,8 +10,8 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/distrologo",
-        "sway/workspaces",
-        "sway/window"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [
         "cava",
@@ -30,10 +30,10 @@
         "clock"
     ],
 
-    "include": [ "~/.config/waybar/sway-workspaces.jsonc" ],
+    "include": [ "~/.config/waybar/hypr-workspaces.jsonc" ],
 
-    "sway/window": {
-        "all-outputs": false,
+    "hyprland/window": {
+        "separate-outputs": true,
         "icon": true,
         "icon-size": 24
         },

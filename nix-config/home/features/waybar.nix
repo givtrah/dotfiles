@@ -16,36 +16,36 @@
 let hostname = hostName;
 
 	workspacesConfigs = {
-		taude = [
+		taude = {
 			on-click = "activate";
 			format = "{id}";
 			persistent-workspaces = {
-				"DP-1" = [1, 2, 3, 4, 5, 6, 7];
-      	"DP-2" = [8, 9, 10];
+				"DP-1" = [1 2 3 4 5 6 7];
+      	"DP-2" = [8 9 10];
 			};
-    ];
+    };
     
-		taupa = [
+		taupa = {
 			on-click = "activate";
 			format = "{id}";
 			persistent-workspaces = {
-      	"DP-2" = [1, 2, 3, 4, 5, 6, 7];
-      	"DP-3" = [8, 9, 10];
+      	"DP-2" = [1 2 3 4 5 6 7];
+      	"DP-3" = [8 9 10];
 			};
-		];
+		};
     
-		taumac = [
+		taumac = {
   		on-click = "activate";
 			format = "{id}";
 			persistent-workspaces = {
-	    	"eDP-1" = [1, 2, 3, 4, 5, 6, 7];
+	    	"eDP-1" = [1 2 3 4 5 6 7];
 			};
-		];
+		};
 
-    default = [
+    default = {
 			on-click = "activate";
 			format = "{id}";
-    ];
+    };
 	
 	};
 
@@ -65,10 +65,10 @@ in {
 			{
 				layer = "top";
 				position = "bottom";
-				height = ""; # left blank for dynamic value
-				width = ""; # left blank for dynamic value
-				margin-left = "12";
-				margin-right = "12";
+				height = null; # left blank for dynamic value
+				width = null; # left blank for dynamic value
+				margin-left = 12;
+				margin-right = 12;
 
 				modules-left = [
 					"custom/distrologo"
@@ -93,8 +93,7 @@ in {
 					"clock"
 				];
 				
-				"hyprland/workspaces" = persistentConfigs.${hostname} or persistentConfig.default;
-			};
+				"hyprland/workspaces" = workspacesConfigs.${hostname} or workspacesConfigs.default;
 
 			"hyprland/window" = {
 				separate-outputs = true;
@@ -111,7 +110,7 @@ in {
         format = "{usage}% ";
         tooltip = false;
 				interval = 5;
-				on-click = "kitty --hold bash -c btop"
+				on-click = "kitty --hold bash -c btop";
 			};
 
 			memory = {
@@ -131,7 +130,7 @@ in {
         hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input"; # might not work for taude!
         critical-threshold = 80;
         format = "{temperatureC}°C {icon}";
-        format-icons = ["", "", ""];
+        format-icons = ["" "" ""];
 			};
 
     	"custom/distrologo" = {
@@ -154,7 +153,7 @@ in {
 				status-icons = {
 					paused = "⏸";
 				};
-        dynamic-order = ["artist", "title"];
+        dynamic-order = ["artist" "title"];
         format-len = 30;
 			};
 
@@ -184,7 +183,7 @@ in {
             phone = "";
             portable = "";
             car = "";
-            default = ["", "", ""];
+            default = ["" "" ""];
         };
         on-click = "pavucontrol";
 			};
@@ -205,14 +204,12 @@ in {
         waves = false;
         noise_reduction = 0.6;
         input_delay = 2;
-        format-icons = ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ];
+        format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
         actions = {
         	on-click-right = "mode";
         };
     	};
 
-
-			
 #			"custom/maestral" = {
 #    		format = "{}";
 #    		return-type = "json";
@@ -220,13 +217,13 @@ in {
 #    		interval = 120; # Run the script every 120 seconds (2 minutes)
 #			};
 
-
-
-  };
-
-
-
-
-};
-
+			}
+		];
+	};
 }
+
+
+
+
+
+
