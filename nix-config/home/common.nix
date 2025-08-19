@@ -19,6 +19,9 @@
 
 #  ./features/gaming.nix
 
+
+  ./features/hyprland.nix
+
   ./features/bash.nix
   ./features/terminals.nix
 
@@ -37,14 +40,14 @@
 
 		./features/nvim12.nix
 
+
+
 #  ./features/nvim-fix.nix
 
 # ./features/nvim-lazy.nix
 
-  ./features/swayfx.nix
+#  ./features/swayfx.nix - don't do both hyprland and swayfx! choose one!
    
-  ./features/hyprland.nix
-#  ./features/swayfx.nix
 
   ];
 
