@@ -7,3 +7,5 @@ consider fixing nvim (or leave at is, but nixify the structe using home.file)
 Add automatic garbage collection, general cleanup of hyprland
 
 Add nixified hyprlock for when it no longer crashes on aarch64
+
+setup zoxide correctly (YT)
