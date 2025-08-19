@@ -7,6 +7,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
+		defaultSession = "Hyprland";
 #    theme = "catppuccin-mocha";
   };
 
