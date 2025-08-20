@@ -45,7 +45,7 @@
 #		"QT_STYLE_OVERRIDE,kvantum"
 
 		# Run SDL2 applications on Wayland. Set to x11 if old games cause compatibility issues
-		"SDL_VIDEODRIVER,wayland"
+#		"SDL_VIDEODRIVER,wayland"
 
 		# Force Clutter applications to try and use the Wayland backend
 		"CLUTTER_BACKEND,wayland"
