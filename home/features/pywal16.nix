@@ -9,12 +9,12 @@
 
 # Nixification NOT possible, question is if the kitty-colors.conf is needed?
 
-  home.file = {
-    ".config/wal/" = {
-      source = ../../config/wal;
-      recursive = true;
-    };
-  };
+#  home.file = {
+#    ".config/wal/" = {
+#      source = ../../config/wal;
+#      recursive = true;
+#    };
+#  };
 
 
 

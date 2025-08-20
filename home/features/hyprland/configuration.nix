@@ -23,7 +23,7 @@
 		# https://discourse.nixos.org/t/install-shell-script-on-nixos/6849
 		# https://ertt.ca/nix/shell-scripts/
 		# using https://github.com/numtide/flake-utils
-		"$random_wall" = "~/.dotfiles/nix-config/home/features/hyprland/scripts/wall-random.sh";
+		"$random_wall" = "~/.dotfiles/home/features/hyprland/scripts/wall-random.sh";
 
 		"$terminal" =  "kitty";
     "$filemanager" = "dolphin --new-window";

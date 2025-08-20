@@ -23,6 +23,7 @@
 			rPackages.languageserver # R
 			tinymist # typst
 
+# Misc stuff that might be needed for dev shit (should prob go somewhere else)
 
 			doq
       sqlite
@@ -39,4 +40,13 @@
 
     extraLuaPackages = ls: with ls; [ luarocks ];
   };
+
+home.file."${config.home.homeDirectory}/.config/nvim".source =
+config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/.dotfiles/config/nvim";
+
+
+
+
+
 }

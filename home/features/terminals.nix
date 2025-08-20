@@ -35,7 +35,7 @@
         modify_font cell_width 100%
         modify_font cell_height -1px
 
-				include ~/.cache/wal/colors-kitty.conf
+#				include ~/.cache/wal/colors-kitty.conf # already included due to programs.wal.enable = true in pywal16.nix? 
  
       '';
 
@@ -75,7 +75,7 @@
 
       shellIntegration.enableBashIntegration = true;
       shellIntegration.mode = "enabled";
-      themeFile = "OneHalfDark";
+#      themeFile = "OneHalfDark"; # kinda stupid to do when using pywal16
 
       # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
 
