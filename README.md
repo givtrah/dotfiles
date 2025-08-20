@@ -69,6 +69,10 @@ git stash pop
 
 # Overall directory structure
 
+config: .config files I for some reason won't or can't nixify
+home: Home-manager stuff
+hosts: Host-specific files (note that part of home-manager is also host specific)
+modules: Nix modules (e.g. non home-manager programs/services etc.)
 
 # Nix os commands in dir
 
