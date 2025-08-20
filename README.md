@@ -26,12 +26,12 @@ git config --global user.email "THESECRET@email.com"
 ```
 mkdir ~/.dotfiles
 cd ~/.dotfiles
-git clone git@github.com:givtrah/nix-config
+git clone git@github.com:givtrah/dotfiles
 ```
 or use https 
 (note: Change git repo from https to ssh afterwards in git config!)
 ```
-git clone https://github.com/givtrah/nix-config
+git clone https://github.com/givtrah/dotfiles
 ```
 # add all (new) files
 ```
@@ -115,7 +115,7 @@ git clone repo
 export TMPDIR=/tmp
 (or you WILL run out of space during installation).
 
-CHANGE THE STATE VERSION IN THE GIT REPO nix-config/nixos/hosts/*/default.nix to MATCH /etc/nixos/configuration.nix!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+CHANGE THE STATE VERSION IN THE GIT REPO hosts/*/default.nix to MATCH /etc/nixos/configuration.nix!!!!!!!!!!!!!!!!!!!
 
 Add experimental flake and nix settings to configuration.nix in /etc/nixos/configuration.nix by adding the line
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -123,7 +123,7 @@ Add experimental flake and nix settings to configuration.nix in /etc/nixos/confi
 Then run
 nixos-rebuild switch
 
-Finally do (while standing in the nix-config dir)
+Finally do (while standing in the dotfiles dir)
 
 nixos-rebuild switch --flake ./#HOSTNAME-WANTED --impure
 
