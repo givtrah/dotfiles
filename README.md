@@ -26,12 +26,12 @@ git config --global user.email "THESECRET@email.com"
 ```
 mkdir ~/.dotfiles
 cd ~/.dotfiles
-git clone git@github.com:givtrah/dotfiles
+git clone git@github.com:givtrah/dotfiles .
 ```
 or use https 
 (note: Change git repo from https to ssh afterwards in git config!)
 ```
-git clone https://github.com/givtrah/dotfiles
+git clone https://github.com/givtrah/dotfiles .
 ```
 # add all (new) files
 ```
