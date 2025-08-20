@@ -1,8 +1,8 @@
 { config, pkgs, ...}: {
 
-  programs.walker = {
+  services.walker = {
     enable = true;
-    runAsService = true;
+#    runAsService = true;
 
     # prevent it from trying to build from source
     package = pkgs.walker;

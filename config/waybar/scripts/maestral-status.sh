@@ -1,1 +1,0 @@
-/nix/store/wadl2y5k8lyab1paam9940r66h9xlcy9-home-manager-files/.config/waybar/scripts/maestral-status.sh

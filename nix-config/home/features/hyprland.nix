@@ -14,6 +14,7 @@
 		./swaylock.nix
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix
+		./pywal16.nix
 		./walker.nix
 	];
 
@@ -50,7 +51,7 @@
     hyprcursor # Hyprland cursor format, library and utilities
     hyprpaper # Blazing fast wayland wallpaper utility
 
-    pywal16
+#    pywal16
     hellwal
     wallust
 
