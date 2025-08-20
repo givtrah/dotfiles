@@ -8,9 +8,7 @@ let
 {
 wayland.windowManager.hyprland.settings = {
   exec-once = [
-    # "hypridle & mako & waybar & fcitx5"
-    # "waybar"
-    # "swaybg -i ~/.config/omarchy/current/background -m fill"
+    # mako & fcitx5"
     "dbus-update-activation-environment --systemd --all"
     "exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR QT_WAYLAND_DISABLE_WINDOWDECORATION"
     "systemctl --user start hyprpolkitagent"
@@ -22,17 +20,14 @@ wayland.windowManager.hyprland.settings = {
 
     "swaync" # notification daemon
 		"swaync-client -df" # turn dnd off and print new dnd state
-		"walker --gapplication-service"
+#		"walker --gapplication-service" # is done in walker.nix now
 		"sleep 1 && $random_wall &> /dev/null"
 		"remmina -i"
 		"hyprpaper"	
 
- 	#	''ln -f -s "$HOME/.config/waybar/hypr-workspaces-$HOSTNAME.jsonc" ~/.config/waybar/hypr-workspaces.jsonc &> /dev/null''
 
-#		"sh -c \"ln -f -s \\\"$HOME/.config/waybar/hypr-workspaces-${hostName}.jsonc\\\" $HOME/.config/waybar/hypr-workspaces.jsonc &> /dev/null\""
-
-		 ''ln -f -s "$HOME/.config/waybar/hypr-workspaces-$HOSTNAME.jsonc" ~/.config/waybar/hypr-workspaces.jsonc &> /dev/null''
-      
+#		 ''ln -f -s "$HOME/.config/waybar/hypr-workspaces-$HOSTNAME.jsonc" ~/.config/waybar/hypr-workspaces.jsonc &> /dev/null''
+# no longer needed     
 
 
     ];

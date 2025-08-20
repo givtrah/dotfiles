@@ -14,7 +14,7 @@
 		./swaylock.nix
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix
-
+		./walker.nix
 	];
 
 
@@ -70,7 +70,7 @@
     
     # extra...
     wofi # menu
-    walker # menu
+#    walker # menu
     yazi # file-manager
 
     #    bluez
