@@ -12,10 +12,15 @@
 # Nixify later (it's 100% possible), this will work for now
 
   home.file = {
-    ".config/walker/" = {
-      source = ../../config/walker;
-      recursive = true;
+    ".config/walker/config.toml" = {
+      	source = ../../config/walker/config.toml;
     };
+		".config/walker/themes/wal.css" = {
+				source = ../../config/walker/themes/wal.css;
+		};
+		"config/walker/themes/wal.toml" = {
+				source = ../../config/walker/themes/wal.toml;
+		};
   };
 
 

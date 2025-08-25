@@ -52,9 +52,8 @@ let hostname = hostName;
 in {
 
   home.file = {
-    ".config/waybar/" = {
-      source = ../../config/waybar;
-      recursive = true;
+    ".config/waybar/style.css" = {
+      source = ../../config/waybar/style.css;
     };
   };
 
