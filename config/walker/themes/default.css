@@ -1,0 +1,177 @@
+@define-color foreground #bfc4ca;
+@define-color background #02152D;
+@define-color cursor #bfc4ca;
+
+@define-color color0 #02152D;
+@define-color color1 #1B5C92;
+@define-color color2 #195FBC;
+@define-color color3 #596FA0;
+@define-color color4 #9D73AF;
+@define-color color5 #648CB7;
+@define-color color6 #7398C4;
+@define-color color7 #91959b;
+@define-color color8 #5d6672;
+@define-color color9 #4d84b3;
+@define-color color10 #6289bb;
+@define-color color11 #758ec3;
+@define-color color12 #b88bcd;
+@define-color color13 #87a7cb;
+@define-color color14 #95b0d2;
+@define-color color15 #bfc4ca;
+/* AUTO GENERATED. DO NOT EDIT. CHANGES WILL BE OVERWRITTEN. */
+
+#window,
+#box,
+#aiScroll,
+#aiList,
+#search,
+#password,
+#input,
+#prompt,
+#clear,
+#typeahead,
+#list,
+child,
+scrollbar,
+slider,
+#item,
+#text,
+#label,
+#bar,
+#sub,
+#activationlabel {
+  all: unset;
+}
+
+#cfgerr {
+  background: rgba(255, 0, 0, 0.4);
+  margin-top: 20px;
+  padding: 8px;
+  font-size: 1.2em;
+}
+
+#window {
+  color: @foreground;
+}
+
+#box {
+  border-radius: 2px;
+  background: @background;
+  padding: 32px;
+  border: 1px solid lighter(@background);
+  box-shadow:
+    0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+#search {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.22);
+  background: lighter(@background);
+  padding: 8px;
+}
+
+#prompt {
+  margin-left: 4px;
+  margin-right: 12px;
+  color: @foreground;
+  opacity: 0.2;
+}
+
+#clear {
+  color: @foreground;
+  opacity: 0.8;
+}
+
+#password,
+#input,
+#typeahead {
+  border-radius: 2px;
+}
+
+#input {
+  background: none;
+}
+
+#password {
+}
+
+#spinner {
+  padding: 8px;
+}
+
+#typeahead {
+  color: @foreground;
+  opacity: 0.8;
+}
+
+#input placeholder {
+  opacity: 0.5;
+}
+
+#list {
+}
+
+child {
+  padding: 8px;
+  border-radius: 2px;
+}
+
+child:selected,
+child:hover {
+  background: alpha(@color1, 0.4);
+}
+
+#item {
+}
+
+#icon {
+  margin-right: 8px;
+}
+
+#text {
+}
+
+#label {
+  font-weight: 500;
+}
+
+#sub {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+#activationlabel {
+}
+
+#bar {
+}
+
+.barentry {
+}
+
+.activation #activationlabel {
+}
+
+.activation #text,
+.activation #icon,
+.activation #search {
+  opacity: 0.5;
+}
+
+.aiItem {
+  padding: 10px;
+  border-radius: 2px;
+  color: @foreground;
+  background: @background;
+}
+
+.aiItem.user {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.aiItem.assistant {
+  background: lighter(@background);
+}

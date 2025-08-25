@@ -23,6 +23,7 @@ home.pointerCursor = {
   moonlight-qt
   sunshine
 
+
   # Emulation
   
 #  retroarchFull # multi system with all cores (should be changed to NOT mame, but everything else)
@@ -40,7 +41,7 @@ home.pointerCursor = {
 #  snes9x-gtk # SNES
 #  nanoboyadvance # Nintendo Gameboy Advance - not compiling 2024-12-29
   dolphin-emu # Nintendo Gamecube / Wii / triforce
-  ryujinx # Nintendo Switch
+  ryubing # Nintendo Switch
 
 #  duckstation # PS1 # moved to x86 only as it does not compile on aarch64 2024-12-31
 #  pcsxr # PS1
@@ -57,7 +58,7 @@ home.pointerCursor = {
   flycast # Sega Dreamcast, Naomi and Atomiswave emulator
 
   stella # Atari 2600
-  openmsx # MSX
+#  openmsx # MSX - not compiling 2025-08-23
 #  fsuae # Amiga, not working right now
 #  uae # Amiga - failed to build on 2024-12-29
   vice # C-64
@@ -88,7 +89,7 @@ home.pointerCursor = {
         pcsx2 # PS2
         cemu # Wii x86 only
         zsnes # SNES x86 only
-        duckstation # does not compile on aarch64 2024-12-31
+#        duckstation # does not compile on aarch64 2024-12-31
 #        heroic - failed to build 2024-12-29
 
 
