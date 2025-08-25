@@ -24,7 +24,7 @@
 
     gnome-multi-writer
 
-
+		rmapi # remarkable interface
     qbittorrent
 
     telegram-desktop
