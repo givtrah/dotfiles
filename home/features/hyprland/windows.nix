@@ -43,6 +43,18 @@
 			 # fix mpv no video only audio
 			"content none, class:^(mpv)$"
 
+			# hide and fix xwaylandvideobridge
+			"opacity 0.0 override, class:^(xwaylandvideobridge)$"
+			"noanim, class:^(xwaylandvideobridge)$"
+			"noinitialfocus, class:^(xwaylandvideobridge)$"
+			"maxsize 1 1, class:^(xwaylandvideobridge)$"
+			"noblur, class:^(xwaylandvideobridge)$"
+			"nofocus, class:^(xwaylandvideobridge)$"
+
+
+
+
+
 # STUFF I MIGHT NEED LATER
 
 # Firefox: class: firefox - title contains: "Mozilla Firefox". initialTitle: Mozilla Firefox

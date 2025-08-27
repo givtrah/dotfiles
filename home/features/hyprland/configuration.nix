@@ -10,7 +10,8 @@
     ./windows.nix
   ];
 
-	wayland.windowManager.hyprland.sourceFirst = true;
+	# Load user config first, then system-wide defaults, not working?
+#	wayland.windowManager.hyprland.sourcefirst = true;
 
   wayland.windowManager.hyprland.settings = {
     # Default applications (if you want to define again elsewhere to change, use $.. = lib.mkDefault "program")

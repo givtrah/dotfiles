@@ -14,7 +14,7 @@
   };
 
 # set default session to Hyprland
-	services.displayManager.defaultSession = "hyprland";
+	services.displayManager.defaultSession = "hyprland-uwsm";
 
 
 # Auto login to kwallet upon login using sddm
