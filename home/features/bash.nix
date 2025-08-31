@@ -6,6 +6,7 @@
   };
 
   programs.bash.shellAliases = {
+    nboot = "sudo nixos-rebuild boot --flake . --impure";
     nswitch = "sudo nixos-rebuild switch --flake . --impure";
     nsgc = "sudo nix-store --gc";
     ngc = "sudo nix-collect-garbage -d";

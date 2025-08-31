@@ -63,7 +63,7 @@
   vlc
 
   maestral 
- # maestral-gui
+  maestral-gui
 
       # Videorip encoding etc.
   mkvtoolnix

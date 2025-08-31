@@ -12,7 +12,7 @@ wayland.windowManager.hyprland.settings = {
     "dbus-update-activation-environment --systemd --all"
     "exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR QT_WAYLAND_DISABLE_WINDOWDECORATION"
     "systemctl --user start hyprpolkitagent"
-
+		"kwallet-query -l kdewallet &> /dev/null" # force opening of kdewallet
 		"wl-clip-persist --clipboard regular & clipse -listen" # keep clipboard available even if apps close
 
 		"nm-applet" # network-manager applet
