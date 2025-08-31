@@ -1,9 +1,9 @@
 { config, pkgs, ...}: {
 
   imports = [
-    ./autostart.nix
+		./envs.nix
+		./autostart.nix
     ./bindings.nix
-    ./envs.nix
     ./input.nix
     ./looknfeel.nix
 		./monitors.nix

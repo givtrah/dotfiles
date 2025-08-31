@@ -40,8 +40,8 @@
   # HARDWARE SPECIFIC STUFF
 
   # enable GPU support and audio
-  hardware.asahi.useExperimentalGPUDriver = false;
-  hardware.asahi.experimentalGPUInstallMode = "replace";
+#  hardware.asahi.useExperimentalGPUDriver = false;
+#  hardware.asahi.experimentalGPUInstallMode = "replace";
   hardware.asahi.setupAsahiSound = true;
 
 
@@ -61,8 +61,10 @@
   } ];
 
 
-  # displaylink
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  # displaylink, not able to compile since 2025-08-30 kernel 6.15.10-asahi
+#  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+
+
 
   # Use latest kernel - already defined in apple-silicon-support
   # boot.kernelPackages = pkgs.linuxPackages_latest;

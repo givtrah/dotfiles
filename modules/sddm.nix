@@ -24,6 +24,12 @@ security.pam.services.sddm = {
     package = pkgs.kdePackages.kwallet-pam;
   };
 };
+# Enable kwallet (might be needed?)
+security.pam.services.kwallet = {
+  name = "kwallet";
+  enableKwallet = true;
+};
+
 
 
 environment.systemPackages = with pkgs; [

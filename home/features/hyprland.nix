@@ -8,6 +8,7 @@
   
 	services.hyprpolkitagent.enable = true; # Polkit auth agent written in QT/QML
 
+
 	# Make screen sharing work? (from wiki.nixos.org 2025-08-27)
 	xdg.portal = {
 		enable = true;
