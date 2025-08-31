@@ -105,6 +105,8 @@
 
     wl-gammactl # wayland contrast, brightness and gamma adjustments
 
+		brightnessctl # brightness control
+
     # Ensure plasma-applications.menu appears (to help mime associations in dolphin)
     kdePackages.plasma-workspace
 
