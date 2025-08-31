@@ -62,7 +62,7 @@
 
 
   # displaylink, not able to compile since 2025-08-30 kernel 6.15.10-asahi
-#  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
 
 
 
