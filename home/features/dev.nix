@@ -7,7 +7,7 @@
   yarn
   opencode
 
-      #  devenv # for python development (any..) 
+  devenv # for python development (any..) 
   direnv 
 
 

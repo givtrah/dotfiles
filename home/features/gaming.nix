@@ -52,7 +52,7 @@ home.pointerCursor = {
  
   dosbox # Dos games
  
-  xemu # original xbox 
+#  xemu # original xbox - not compiling 2025-09-09
  
   dgen-sdl # Sega Genesis / Megadrive
   flycast # Sega Dreamcast, Naomi and Atomiswave emulator
