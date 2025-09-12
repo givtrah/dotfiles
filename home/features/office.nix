@@ -24,11 +24,11 @@
   else
     (if (pkgs.system == "x86_64-linux")
       then [ 
- # Wrap libreoffice-fresh to use the Adwaita theme
-           (writeShellScriptBin "libreoffice" ''
-             export GTK_THEME="Adwaita"
-             exec ${libreoffice-fresh}/bin/libreoffice "$@"
-           '')
+#  Wrap libreoffice-fresh to use the Adwaita theme
+				(pkgs.writeShellScriptBin "libreoffice-adwaita" ''
+        export GTK_THEME="Adwaita"
+        exec ${pkgs.libreoffice-fresh}/bin/libreoffice "$@"
+      '')
 
 #			libreoffice-fresh 
 
@@ -39,9 +39,18 @@
 
 
 
-
-
-
+xdg.desktopEntries.libreoffice-adwaita = {
+    name = "LibreOffice (Adwaita)";
+    exec = "libreoffice-adwaita %U";
+    
+    # Use the generic LibreOffice icon.
+    # The exact path may vary slightly, but this is a common one.
+    icon = "${pkgs.libreoffice-fresh}/share/icons/hicolor/scalable/apps/libreoffice-main.svg";
+    
+    categories = [ "Office" "WordProcessor" "Spreadsheet" "Presentation" "Graphics" ];
+    comment = "Office Suite with Adwaita Theme";
+    genericName = "Office Suite";
+  };
 
 
 
