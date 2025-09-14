@@ -1,1 +1,97 @@
-/nix/store/2xr1iv9bcnbz26z90n433zmscl3yb5f7-home-manager-files/.config/walker/config.toml
+close_when_open = true
+theme = "wal"
+hotreload_theme = true
+disable_click_to_close = false
+force_keyboard_focus = true
+
+[keys]
+accept_typeahead = ["tab"]
+trigger_labels = "lalt"
+next = ["down"]
+prev = ["up"]
+close = ["esc"]
+remove_from_history = ["shift backspace"]
+resume_query = ["ctrl r"]
+toggle_exact_search = ["ctrl m"]
+
+[keys.activation_modifiers]
+keep_open = "shift"
+alternate = "alt"
+
+[keys.ai]
+run_last_response = ["ctrl e"]
+
+[list]
+max_entries = 200
+
+[search]
+placeholder = "Search..."
+
+[builtins.applications]
+placeholder = "Applications"
+prioritize_new = false
+context_aware = false
+show_sub_when_single = false
+show_generic = true
+history = false
+icon = ""
+hidden = true
+
+[builtins.applications.actions]
+enabled = false
+hide_category = true
+
+[builtins.bookmarks]
+hidden = true
+
+[builtins.calc]
+name = "Calc"
+icon = ""
+min_chars = 3
+prefix = "="
+
+[builtins.windows]
+hidden = true
+switcher_only = true
+
+[builtins.clipboard]
+hidden = true
+
+[builtins.commands]
+hidden = true
+
+[builtins.custom_commands]
+hidden = true
+
+[builtins.emojis]
+name = "Emojis"
+icon = ""
+prefix = ":"
+
+[builtins.symbols]
+after_copy = ""
+hidden = true
+
+[builtins.finder]
+use_fd = true
+cmd_alt = "xdg-open $(dirname ~/%RESULT%)"
+icon = "file"
+name = "Finder"
+preview_images = true
+hidden = false
+prefix = "."
+
+[builtins.runner]
+shell_config = ""
+switcher_only = true
+hidden = true
+
+[builtins.ssh]
+hidden = true
+
+[builtins.websearch]
+switcher_only = true
+hidden = true
+
+[builtins.translation]
+hidden = true
