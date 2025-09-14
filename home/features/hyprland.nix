@@ -50,8 +50,8 @@
     hyprland-qt-support # A Qt6 QML provider for hypr* apps
     hyprland-activewindow # Multi-monitor-aware Hyprland workspace widget helper
 
-    hyprlandPlugins.hyprsplit # AwesomeWM / DWM / Krohnkite like workspaces (From 1 per monitor)
-    hyprlandPlugins.hyprtrails # Trails after moving windows
+#    hyprlandPlugins.hyprsplit # AwesomeWM / DWM / Krohnkite like workspaces (From 1 per monitor)
+#    hyprlandPlugins.hyprtrails # Trails after moving windows
 
 
     pyprland
