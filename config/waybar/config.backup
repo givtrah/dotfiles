@@ -1,0 +1,168 @@
+[
+  {
+    "bluetooth": {
+      "format": " {status}",
+      "format-connected": " {device_alias}",
+      "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+      "on-click": "blueman-manager",
+      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "cava": {
+      "actions": {
+        "on-click-right": "mode"
+      },
+      "autosens": 1,
+      "bar_delimiter": 0,
+      "bars": 12,
+      "format-icons": [
+        "▁",
+        "▂",
+        "▃",
+        "▄",
+        "▅",
+        "▆",
+        "▇",
+        "█"
+      ],
+      "framerate": 30,
+      "higher_cutoff_freq": 10000,
+      "input_delay": 2,
+      "lower_cutoff_freq": 50,
+      "method": "pulse",
+      "monstercat": false,
+      "noise_reduction": 0.6,
+      "reverse": false,
+      "source": "auto",
+      "stereo": true,
+      "waves": false
+    },
+    "clock": {
+      "format": "{:%H:%M %a %b %d}"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "interval": 5,
+      "on-click": "kitty --hold bash -c btop",
+      "tooltip": false
+    },
+    "custom/distrologo": {
+      "format": "{icon}",
+      "format-icons": {
+        "default": " "
+      },
+      "on-click": "kitty --hold bash -c fastfetch",
+      "tooltip": true,
+      "tooltip-format": "Nix OS BTW"
+    },
+    "hyprland/window": {
+      "icon": true,
+      "icon-size": 24,
+      "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+      "format": "{id}",
+      "on-click": "activate",
+      "persistent-workspaces": {
+        "DP-1": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "DP-2": [
+          8,
+          9,
+          10
+        ]
+      }
+    },
+    "layer": "top",
+    "margin-left": 12,
+    "margin-right": 12,
+    "memory": {
+      "format": "{used:0.1f}G/{total:0.1f}G ",
+      "format-alt": "{}% "
+    },
+    "modules-center": [
+      "cava",
+      "mpris"
+    ],
+    "modules-left": [
+      "custom/distrologo",
+      "hyprland/workspaces",
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "network",
+      "memory",
+      "cpu",
+      "temperature",
+      "pulseaudio",
+      "battery",
+      "tray",
+      "clock"
+    ],
+    "mpris": {
+      "dynamic-order": [
+        "artist",
+        "title"
+      ],
+      "format": "{player_icon} {dynamic}",
+      "format-len": 30,
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵"
+      },
+      "status-icons": {
+        "paused": "⏸"
+      }
+    },
+    "network": {
+      "format": "U:{bandwidthUpBytes} D:{bandwidthDownBytes}"
+    },
+    "position": "bottom",
+    "pulseaudio": {
+      "format": "{volume}% {icon} {format_source}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-icons": {
+        "car": "",
+        "default": [
+          "",
+          "",
+          ""
+        ],
+        "hands-free": "",
+        "headphone": "",
+        "headset": "",
+        "phone": "",
+        "portable": ""
+      },
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "on-click": "pavucontrol"
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C {icon}",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input"
+    },
+    "tray": {
+      "icon-size": 24,
+      "spacing": 13
+    }
+  }
+]

@@ -7,7 +7,7 @@
   hunspell
   hunspellDicts.da_DK
   hunspellDicts.en_US
-
+  jre_minimal
 
 #  onlyoffice-bin_latest
 
