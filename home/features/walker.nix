@@ -1,37 +1,217 @@
-{ config, pkgs, ...}: {
+{ lib, config, pkgs, ...}:  {
 
-  services.walker = {
+
+	programs.walker = {
     enable = true;
-#    runAsService = true;
+    runAsService = true;
 
-    # prevent it from trying to build from source
-    package = pkgs.walker;
+		config = {
+    	placeholders."default".input = "Example";
+    	providers.prefixes = [
+      	{provider = "websearch"; prefix = "+";}
+      	{provider = "providerlist"; prefix = "_";}
+    	];
+    	keybinds.quick_activate = ["F1" "F2" "F3"];
+  	};
+
+
+
+  # If this is not set the default styling is used.
+  	theme.style = ''
+
+			@import url("file:///home/ohm/.cache/wal/colors-waybar.css");
+
+				
+#window,
+#box,
+#aiScroll,
+#aiList,
+#search,
+#password,
+#input,
+#prompt,
+#clear,
+#typeahead,
+#list,
+child,
+scrollbar,
+slider,
+#item,
+#text,
+#label,
+#bar,
+#sub,
+#activationlabel {
+  all: unset;
+}
+
+#cfgerr {
+  background: rgba(255, 0, 0, 0.4);
+  margin-top: 20px;
+  padding: 8px;
+  font-size: 1.2em;
+}
+
+#window {
+  color: @foreground;
+}
+
+#box {
+  border-radius: 2px;
+  background: @background;
+  padding: 32px;
+  border: 1px solid lighter(@background);
+  box-shadow:
+    0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+#search {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.22);
+  background: lighter(@background);
+  padding: 8px;
+}
+
+#prompt {
+  margin-left: 4px;
+  margin-right: 12px;
+  color: @foreground;
+  opacity: 0.2;
+}
+
+#clear {
+  color: @foreground;
+  opacity: 0.8;
+}
+
+#password,
+#input,
+#typeahead {
+  border-radius: 2px;
+}
+
+#input {
+  background: none;
+}
+
+#password {
+}
+
+#spinner {
+  padding: 8px;
+}
+
+#typeahead {
+  color: @foreground;
+  opacity: 0.8;
+}
+
+#input placeholder {
+  opacity: 0.5;
+}
+
+#list {
+}
+
+child {
+  padding: 8px;
+  border-radius: 2px;
+}
+
+child:selected,
+child:hover {
+  background: alpha(@color1, 0.4);
+}
+
+#item {
+}
+
+#icon {
+  margin-right: 8px;
+}
+
+#text {
+}
+
+#label {
+  font-weight: 500;
+}
+
+#sub {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+#activationlabel {
+}
+
+#bar {
+}
+
+.barentry {
+}
+
+.activation #activationlabel {
+}
+
+.activation #text,
+.activation #icon,
+.activation #search {
+  opacity: 0.5;
+}
+
+.aiItem {
+  padding: 10px;
+  border-radius: 2px;
+  color: @foreground;
+  background: @background;
+}
+
+.aiItem.user {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.aiItem.assistant {
+  background: lighter(@background);
+}
+
+
+  	'';
+
+
+
+
 
 		};
+
+	}
 
 # Nixify later (it's 100% possible), this will work for now
 
-  home.file = {
-    ".config/walker/config.toml" = {
-      	source = ../../config/walker/config.toml;
-    };
-		".config/walker/themes/wal.css" = {
-				source = ../../config/walker/themes/wal.css;
-		};
-		"config/walker/themes/wal.toml" = {
-				source = ../../config/walker/themes/wal.toml;
-		};
-  };
+#  home.file = {
+#    ".config/walker/config.toml" = {
+#      	source = ../../config/walker/config.toml;
+#    };
+#		".config/walker/themes/wal.css" = {
+#				source = ../../config/walker/themes/wal.css;
+#		};
+#		"config/walker/themes/wal.toml" = {
+#				source = ../../config/walker/themes/wal.toml;
+#		};
+#  };
 
 
 
 
-  home.packages = with pkgs; 
+#  home.packages = with pkgs; 
 
-  [
-
-
-  ];
+#  [
 
 
-}
+#  ];
+
+
+# }

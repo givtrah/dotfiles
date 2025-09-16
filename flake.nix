@@ -27,14 +27,16 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
+		walker = {
+			url = "github:abenz1267/walker";
+		};
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, walker, ... }@inputs: 
 
     let
-      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix; };
+      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix walker; };
       overlays = [
-	#	inputs.hyprpanel.overlay
       ];
       shared-modules = [
         {
@@ -49,10 +51,11 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
 	  home-manager.extraSpecialArgs = { 
-			inherit inputs nixpkgs zotero-nix; 
+			inherit inputs nixpkgs zotero-nix walker; 
 			inherit (config.networking) hostName; };	# make hostName inheritable for home-manager flakes
 	  home-manager.users.ohm.imports = [ 
 	    nix-flatpak.homeManagerModules.nix-flatpak
+			walker.homeManagerModules.default
 	    ./home/common.nix
           ];
 	})
