@@ -7,7 +7,8 @@
   hunspell
   hunspellDicts.da_DK
   hunspellDicts.en_US
-  jre_minimal
+  jdk # - wrong one
+#	temurin-jre-bin-17 # should be the correct one for libreoffice according to wiki.nixos.org 2025-09-15
 
 #  onlyoffice-bin_latest
 
