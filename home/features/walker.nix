@@ -14,7 +14,7 @@
     	keybinds.quick_activate = ["F1" "F2" "F3"];
   	};
 
-
+# https://github.com/AlexBMJ/NixOS-config/blob/5e6eda932b211387c788384121cc64081296569c/modules/desktops/hyprland/home.nix#L331
 
   # If this is not set the default styling is used.
   	theme.style = ''
@@ -22,28 +22,28 @@
 			@import url("file:///home/ohm/.cache/wal/colors-waybar.css");
 
 				
-#window,
-#box,
-#aiScroll,
-#aiList,
-#search,
-#password,
-#input,
-#prompt,
-#clear,
-#typeahead,
-#list,
-child,
-scrollbar,
-slider,
-#item,
-#text,
-#label,
-#bar,
-#sub,
-#activationlabel {
-  all: unset;
-}
+			#window,
+			#box,
+			#aiScroll,
+			#aiList,
+			#search,
+			#password,
+			#input,
+			#prompt,
+			#clear,
+			#typeahead,
+			#list,
+			child,
+			scrollbar,
+			slider,
+			#item,
+			#text,
+			#label,
+			#bar,
+			#sub,
+			#activationlabel {
+  			all: unset;
+			}
 
 #cfgerr {
   background: rgba(255, 0, 0, 0.4);
