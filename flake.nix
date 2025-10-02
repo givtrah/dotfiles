@@ -30,6 +30,14 @@
 		walker = {
 			url = "github:abenz1267/walker";
 		};
+		nur = {
+			url = "github:nix-community/NUR";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+
+
+
   };
 
   outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, walker, ... }@inputs: 

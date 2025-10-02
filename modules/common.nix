@@ -133,7 +133,7 @@ programs.bash = {
   gcc14
   ripgrep
   fd
-
+  nfs-utils
   tuckr # dotfile management (dots outside of nix for compatibility purposes!)
   ];
 

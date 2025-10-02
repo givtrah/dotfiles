@@ -19,6 +19,9 @@
       ../../modules/sddm.nix
       ../../modules/plasma6.nix
 
+
+
+			../../modules/home.nix
 #      ../../modules/cosmic.nix
 
       #      ../../modules/ollama.nix
@@ -89,6 +92,8 @@
 #               # "mailspring-1.12.0"
 #              ];
 
+
+	boot.supportedFilesystems = [ "nfs" ];
 
   networking.hostName = "taude"; # Define your hostname.
   # Pick only one of the below networking options.
