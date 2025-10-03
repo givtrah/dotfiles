@@ -102,7 +102,7 @@ wayland.windowManager.hyprland.settings = {
     misc = {
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
-			no_donation_nag = true;
+#			no_donation_nag = true; currently not working
 			anr_missed_pings = 30; # time before getting the app not responding dialog box (default = 5)
     };
   };
