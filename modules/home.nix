@@ -2,9 +2,15 @@
 
 {
 
+	fileSystems."/mnt/slow/media" = {
+		device = "192.168.42.42:/slow/media";
+		fsType = "nfs";
+		options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" ];
+	};
 
-	fileSystems."/mnt/slow" = {
-		device = "192.168.42.42:/slow";
+
+	fileSystems."/mnt/slow/backedup" = {
+		device = "192.168.42.42:/slow/backedup";
 		fsType = "nfs";
 		options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" ];
 	};
