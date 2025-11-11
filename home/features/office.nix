@@ -34,7 +34,7 @@
 
 #			libreoffice-fresh 
 
-			onlyoffice-bin_latest
+			onlyoffice-desktopeditors
 			pdfsam-basic 
 			]
       else []));
