@@ -40,7 +40,7 @@
   adwaita-icon-theme
 #  steam-run 
   v4l-utils
-  guvcview
+#  guvcview
 #  nerdfonts
 
   inkscape

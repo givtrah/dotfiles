@@ -35,7 +35,7 @@
 #			libreoffice-fresh 
 
 			onlyoffice-desktopeditors
-			pdfsam-basic 
+#			pdfsam-basic 
 			]
       else []));
 

@@ -25,6 +25,8 @@ home.pointerCursor = {
   moonlight-qt
   sunshine
 
+  rusty-path-of-building
+
 
   # Emulation
   
@@ -39,7 +41,7 @@ home.pointerCursor = {
   mgba # Nintendo Gameboy Advance
   sameboy # Nintendo Gameboy, Gameboy color, Super Gameboy
   fceux # NES
-  punes-qt6 # NES
+#  punes-qt6 # NES
 #  snes9x-gtk # SNES
 #  nanoboyadvance # Nintendo Gameboy Advance - not compiling 2024-12-29
   dolphin-emu # Nintendo Gamecube / Wii / triforce
@@ -48,7 +50,7 @@ home.pointerCursor = {
 #  duckstation # PS1 # moved to x86 only as it does not compile on aarch64 2024-12-31
 #  pcsxr # PS1
   ppsspp-sdl-wayland # Playstation portable (wayland)
-  rpcs3 # PS3
+#  rpcs3 # PS3
   
   maxcso # compression from iso to cso for psp and ps2 emus
  

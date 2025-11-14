@@ -81,6 +81,9 @@ nixpkgs.config.permittedInsecurePackages = [
  };
 
 
+    programs.steam.enable = true;
+
+
 # nixpkgs.config.permittedInsecurePackages = [
 #               # "mailspring-1.12.0"
 #              ];
