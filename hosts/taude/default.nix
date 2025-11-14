@@ -58,7 +58,10 @@
 #  boot.extraModprobeConfig ="options vfio-pci ids=10de:1f06,10de:10f9,10de:1ada,10de:1adb";
   # Enable KVM
   boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
-  
+
+
+	programs.steam.enable = true;
+
   # setup the ivshmem tmp file for looking glass
 #  systemd.tmpfiles.rules = [
 #  "f /dev/shm/looking-glass 0660 ohm qemu-libvirtd -"

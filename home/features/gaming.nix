@@ -15,6 +15,8 @@ home.pointerCursor = {
 
 
 
+
+
   home.packages = with pkgs; 
 
   [
@@ -84,7 +86,7 @@ home.pointerCursor = {
   else
     (if (pkgs.system == "x86_64-linux")
       then [ 
-	steam
+	#steam
         mupen64plus # Nintendo 64
         pcsx2 # PS2
         cemu # Wii x86 only
