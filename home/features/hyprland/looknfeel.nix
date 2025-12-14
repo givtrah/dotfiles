@@ -32,8 +32,8 @@ wayland.windowManager.hyprland.settings = {
 			rounding_power = 2;
 
     	# Change transparency of focused and unfocused windows
-			active_opacity = 0.95;
-			inactive_opacity = 0.85;
+			active_opacity = 1; # used to be 0.95
+			inactive_opacity = 1; # used to be 0.85
 
       shadow = {
         enabled = true;

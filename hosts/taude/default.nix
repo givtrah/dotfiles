@@ -62,6 +62,9 @@
 
 	programs.steam.enable = true;
 
+	services.ratbagd.enable = true;
+
+
   # setup the ivshmem tmp file for looking glass
 #  systemd.tmpfiles.rules = [
 #  "f /dev/shm/looking-glass 0660 ohm qemu-libvirtd -"
