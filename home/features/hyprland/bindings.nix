@@ -16,6 +16,9 @@
         "SUPER, E, exec, $filemanager"
 				"SUPER, B, exec, $browser"
 
+				# fullscreen
+				"SUPER, F, fullscreen"
+
         # End active session
         "SUPER, ESCAPE, exec, swaylock"
         "SUPER SHIFT, ESCAPE, exit,"
