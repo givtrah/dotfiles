@@ -75,10 +75,10 @@
 
  ++
   # packages not available on aarch64 goes here 
-    (if (pkgs.system == "aarch64-linux")
+    (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
     then [ zotero-nix.packages.aarch64-linux.default]
   else
-    (if (pkgs.system == "x86_64-linux")
+    (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
       then [ makemkv zotero-beta zoom-us steam-run zettlr nomachine-client calibre 
 
     upscayl  # AI upscaler

@@ -21,10 +21,10 @@
 
   ++
    
-    (if (pkgs.system == "aarch64-linux")
+    (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
     then [ ] # libreoffice ] # libreoffice from flatpaks - due to compile error on 2025-02-18
   else
-    (if (pkgs.system == "x86_64-linux")
+    (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
       then [ 
 #  Wrap libreoffice-fresh to use the Adwaita theme
 				(pkgs.writeShellScriptBin "libreoffice-adwaita" ''

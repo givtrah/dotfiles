@@ -12,12 +12,12 @@
       	{provider = "providerlist"; prefix = "_";}
     	];
     	keybinds.quick_activate = ["F1" "F2" "F3"];
-  	};
 
-# https://github.com/AlexBMJ/NixOS-config/blob/5e6eda932b211387c788384121cc64081296569c/modules/desktops/hyprland/home.nix#L331
+			theme = "nixos";
+			};
 
-  # If this is not set the default styling is used.
-			theme.style = ''
+			themes."nixos" = {
+			style = ''
 
 			@import url("file:///home/ohm/.cache/wal/colors-waybar.css");
 
@@ -181,7 +181,7 @@ child:hover {
 
   	'';
 
-
+};
 
 
 

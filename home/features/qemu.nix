@@ -20,10 +20,10 @@
 
   ++
    
-    (if (pkgs.system == "aarch64-linux")
+    (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
     then [ ]
   else
-    (if (pkgs.system == "x86_64-linux")
+    (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
 #      then [ looking-glass-client ] # does not compile 2024-12-29
       then [ ]
   else []));

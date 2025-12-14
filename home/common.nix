@@ -10,8 +10,8 @@
   # basic git configuration
   programs.git = {
     enable = true;
-    userName = "givtrah";
-    userEmail = "givtrah@givtrah.org";
+    settings.user.name = "givtrah";
+    settings.user.email = "givtrah@givtrah.org";
   };
 
   imports = [
