@@ -134,7 +134,7 @@ programs.bash = {
   ripgrep
   fd
   nfs-utils
-  tuckr # dotfile management (dots outside of nix for compatibility purposes!)
+#  tuckr # dotfile management (dots outside of nix for compatibility purposes!)
   ];
 
 

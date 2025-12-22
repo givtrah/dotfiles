@@ -21,7 +21,7 @@
 
   # browsers
   librewolf
- # floorp-bin
+  floorp-bin
 
   brave
   chromium

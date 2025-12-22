@@ -44,7 +44,7 @@
 
     let
       specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix walker; };
-      overlays = [
+      overlays = [ inputs.neovim-nightly-overlay.overlays.default
       ];
       shared-modules = [
         {
@@ -112,7 +112,7 @@
 	specialArgs = specialArgs;
 	modules = shared-modules ++ [
 	  ./hosts/taude
-	  {nixpkgs.overlays = [];}
+	  {nixpkgs.overlays = overlays; }
 	 home-manager.nixosModules.home-manager { 
 	   home-manager.users.ohm = {
 	     home.stateVersion = "24.11";

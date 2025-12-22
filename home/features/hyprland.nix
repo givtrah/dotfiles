@@ -121,7 +121,7 @@
     kdePackages.breeze-icons
 
     # standard font for KDE? (I think)
-    nerd-fonts.hack
+#    nerd-fonts.hack
 
     #    libsForQt5.breeze-qt5
     # libsForQt5.breeze-gtk

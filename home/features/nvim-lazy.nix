@@ -17,7 +17,7 @@
 
       lynx
 
-      tree-sitter
+#      tree-sitter
 
       go
       gofumpt

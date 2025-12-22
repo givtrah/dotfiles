@@ -28,7 +28,7 @@
   ./features/dev.nix
   ./features/flatpak.nix
 
-  ./features/r.nix
+#  ./features/r.nix
   ./features/office.nix
 
   ./features/browsers.nix
