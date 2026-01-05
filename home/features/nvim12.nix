@@ -10,7 +10,7 @@
   programs.neovim = {
     enable = true;
 #    package = pkgs.neovim-unwrapped; # normal neovim from unstable
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     withNodeJs = true;
     withPython3 = true;

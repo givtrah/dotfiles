@@ -59,7 +59,7 @@ home.pointerCursor = {
 #  xemu # original xbox - not compiling 2025-09-09
  
   dgen-sdl # Sega Genesis / Megadrive
-  flycast # Sega Dreamcast, Naomi and Atomiswave emulator
+#  flycast # Sega Dreamcast, Naomi and Atomiswave emulator - broken 2025-01-06
 
   stella # Atari 2600
 #  openmsx # MSX - not compiling 2025-08-23
@@ -92,7 +92,7 @@ home.pointerCursor = {
         mupen64plus # Nintendo 64
         pcsx2 # PS2
         cemu # Wii x86 only
-        zsnes # SNES x86 only
+#        zsnes # SNES x86 only - broken 2025-01-05
 #        duckstation # does not compile on aarch64 2024-12-31
 #        heroic - failed to build 2024-12-29
 
