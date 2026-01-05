@@ -4,7 +4,8 @@
  wayland.windowManager.hyprland.settings = {
     windowrule = [
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-      "suppressevent maximize, class:.*"
+
+			"suppress_event maximize, match:class .*"
 
       # Force chromium into a tile to deal with --app bug
   #    "tile, class:^(chromium)$"
@@ -16,8 +17,8 @@
 #      "float, class:^(steam)$"
 #      "fullscreen, class:^(com.libretro.RetroArch)$"
 
-			"float, class:^(Zotero)$, title:.*Preferences*"
-			"float, class:^(Zotero)$, title:.*Citation*"
+			"float on, match:class ^(Zotero)$, match:title .*Preferences*"
+			"float on, match:class ^(Zotero)$, match:title .*Citation*"
 
 
 
@@ -32,13 +33,13 @@
 #      "opacity 1 1, class:^(com.libretro.RetroArch|steam)$"
 
       # Fix some dragging issues with XWayland
-      "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+      "no_focus on,match:class ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
 
 			# fix kcalc (this or the one below? eh?)
-			"float, class:^(org.kde.kcalc)$"
-			"size 400 400, class:^(org.kde.kcalc)$"
-			"focusonactivate, class:^(org.kde.kcalc)$"
-			"move onscreen cursor -200 -200, class:^(org.kde.kcalc)$"
+			"float on, match:class ^(org.kde.kcalc)$"
+			"size 400 400, match:class ^(org.kde.kcalc)$"
+			"focus_on_activate on, match:class ^(org.kde.kcalc)$"
+			"move onscreen cursor -200 -200, match:class ^(org.kde.kcalc)$"
 
       # Float in the middle for clipse clipboard manager
 #      "float, class:(clipse)"
@@ -46,15 +47,15 @@
 #      "stayfocused, class:(clipse)"
 
 			 # fix mpv no video only audio
-			"content none, class:^(mpv)$"
+			"content none, match:class ^(mpv)$"
 
 			# hide and fix xwaylandvideobridge
-			"opacity 0.0 override, class:^(xwaylandvideobridge)$"
-			"noanim, class:^(xwaylandvideobridge)$"
-			"noinitialfocus, class:^(xwaylandvideobridge)$"
-			"maxsize 1 1, class:^(xwaylandvideobridge)$"
-			"noblur, class:^(xwaylandvideobridge)$"
-			"nofocus, class:^(xwaylandvideobridge)$"
+			"opacity 0.0 override, match:class ^(xwaylandvideobridge)$"
+			"no_anim on, match:class ^(xwaylandvideobridge)$"
+			"no_initial_focus on, match:class ^(xwaylandvideobridge)$"
+			"max_size 1 1, match:class ^(xwaylandvideobridge)$"
+			"no_blur on, match:class ^(xwaylandvideobridge)$"
+			"no_focus on, match:class ^(xwaylandvideobridge)$"
 
 
 
@@ -93,8 +94,8 @@
 
     layerrule = [
       # Proper background blur for walker and waybar
-      "blur,walker"
-      "blur,waybar"
+      "blur on,match:namespace walker"
+      "blur on,match:namespace waybar"
     ];
   };
 
