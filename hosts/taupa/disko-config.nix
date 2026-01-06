@@ -1,8 +1,9 @@
 {
   disko.devices = {
-    disk.nvme = {
+    disk = {
+      disk1 = {
       type = "disk";
-      device = "/dev/nvme0n1";
+      device = "/dev/nvme1n1";
       content = {
         type = "gpt";
         partitions = {
@@ -23,7 +24,7 @@
               };
             };
           root = {
-            size = "200G";
+            size = "100%";
             content = {
               type = "btrfs";
               extraArgs = [ "-f" ]; # Override existing partition, probably means format it
@@ -43,21 +44,31 @@
                 };
               };
             };
-           luks = {
-             size = "100%";
-             content = {
-               type = "luks";
-               name = "crypted";
-               extraOpenArgs = [ "--allow-discards" ];
-               content = {
-                 type = "btrfs";
-                 extraArgs = [ "-f" ];
-                 
-                 subvolumes = {
-                   "/home" = {
-                     mountpoint = "/home";
-                     mountOptions = [ "compress=lzo" "noatime" ];
-                     };
+           };
+         };
+       };
+    disk2 = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+      content = {
+        type = "gpt";
+        partitions = {
+          luks = {
+            size = "100%";
+              content = {
+                type = "luks";
+                name = "crypted";
+                extraOpenArgs = [ "--allow-discards" ];
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-f" ];
+
+                  subvolumes = {
+                    "/home" = {
+                      mountpoint = "/home";
+                      mountOptions = [ "compress=lzo" "noatime" ];
+                      };
+                    };
                   };
                 };
               };
