@@ -5,7 +5,7 @@
     windowrule = [
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
-			"suppress_event maximize, match:class .*"
+#			"suppress_event maximize, match:class .*"   # prevents full screen windows too?
 
       # Force chromium into a tile to deal with --app bug
   #    "tile, class:^(chromium)$"
