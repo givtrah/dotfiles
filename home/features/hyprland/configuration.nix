@@ -1,12 +1,12 @@
 { config, pkgs, ...}: {
 
   imports = [
-		./envs.nix
-		./autostart.nix
+    ./envs.nix
+    ./autostart.nix
     ./bindings.nix
     ./input.nix
     ./looknfeel.nix
-		./monitors.nix
+    ./monitors.nix
     ./windows.nix
   ];
 
@@ -15,7 +15,9 @@
 
   wayland.windowManager.hyprland.settings = {
     # Default applications (if you want to define again elsewhere to change, use $.. = lib.mkDefault "program")
-
+		"$color14" = "rgba(212,154,156,1.0)";
+		"$color3" = "rgba(204,61,82,1.0)";
+		"$color0" = "rgba(7,16,31,1.0)";
 		source = "~/.cache/wal/colors-hyprland.conf";
 		
 

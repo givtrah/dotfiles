@@ -1,5 +1,24 @@
 # TODO for this nix-config
 
+make sure wal script works without files accessible
+
+make sure walker and waybar works without wal files
+
+make sure hyprland works without wal accessible
+
+E.G. make sane defaults for all
+
+Include public domain backgrounds, skip proprietary ones
+
+
+
+
+
+
+
+
+
+
 fix hyprland scripts so they work (and are nixified)
 
 fix walker:
