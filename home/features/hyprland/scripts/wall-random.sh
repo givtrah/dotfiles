@@ -20,6 +20,6 @@ fi
 # Find all files, pipe them to shuf to pick one random line,
 # then read that single line into the 'img' variable.
 find "$DIR" -type f | shuf -n 1 | while read -r img; do
-  hyprctl hyprpaper reload , "$img"
+  hyprctl hyprpaper wallpaper , "$img"
   wal -n --cols16 lighten -i "$img"
 done
