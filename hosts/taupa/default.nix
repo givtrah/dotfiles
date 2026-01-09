@@ -35,6 +35,11 @@ nixpkgs.config.permittedInsecurePackages = [
                 "electron-29.4.6"
               ];
 
+  # enable overdrive on amdgpu (should make it possible to set fan speed on Radeon Pro W6800)
+	hardware.amdgpu.overdrive.enable = true;
+
+
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
