@@ -23,7 +23,7 @@
       ../../modules/plasma6.nix
 #      ../../modules/sway.nix
       ../../modules/hyprland.nix
-#      ../../modules/cosmic.nix
+      ../../modules/llm.nix
 
       ../../modules/libs.nix
 
