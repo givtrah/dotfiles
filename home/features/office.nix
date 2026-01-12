@@ -26,33 +26,33 @@
   else
     (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
       then [ 
-#  Wrap libreoffice-fresh to use the Adwaita theme
-				(pkgs.writeShellScriptBin "libreoffice-adwaita" ''
-        export GTK_THEME="Adwaita"
-        exec ${pkgs.libreoffice-fresh}/bin/libreoffice "$@"
-      '')
+#  Wrap libreoffice-fresh to use the Adwaita theme - removed 2026-01-12 due to switch to flatpak
+#				(pkgs.writeShellScriptBin "libreoffice-adwaita" ''
+#        export GTK_THEME="Adwaita"
+#        exec ${pkgs.libreoffice-fresh}/bin/libreoffice "$@"
+#      '')
 
 #			libreoffice-fresh 
 
-			onlyoffice-desktopeditors
+#			onlyoffice-desktopeditors # removed 2026-01-12 due to switch to flatpak
 #			pdfsam-basic 
 			]
       else []));
 
 
-
-xdg.desktopEntries.libreoffice-adwaita = {
-    name = "LibreOffice (Adwaita)";
-    exec = "libreoffice-adwaita %U";
-    
+# Below removed 2026-01-12 due to switch to flatpak (lets see how this goes...)
+# xdg.desktopEntries.libreoffice-adwaita = {
+#    name = "LibreOffice (Adwaita)";
+#    exec = "libreoffice-adwaita %U";
+#    
     # Use the generic LibreOffice icon.
     # The exact path may vary slightly, but this is a common one.
-    icon = "${pkgs.libreoffice-fresh}/share/icons/hicolor/scalable/apps/libreoffice-main.svg";
+#    icon = "${pkgs.libreoffice-fresh}/share/icons/hicolor/scalable/apps/libreoffice-main.svg";
     
-    categories = [ "Office" "WordProcessor" "Spreadsheet" "Presentation" "Graphics" ];
-    comment = "Office Suite with Adwaita Theme";
-    genericName = "Office Suite";
-  };
+#    categories = [ "Office" "WordProcessor" "Spreadsheet" "Presentation" "Graphics" ];
+#    comment = "Office Suite with Adwaita Theme";
+#    genericName = "Office Suite";
+#  };
 
 
 
