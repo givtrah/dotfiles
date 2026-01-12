@@ -12,6 +12,7 @@
 	};
 
 	environment.sessionVariables = {
+		XCURSOR_SIZE="24";
     NIX_AUTO_RUN = "1";
     NIXPKGS_ALLOW_UNFREE = "1";
     MOZ_ENABLE_WAYLAND = "1";

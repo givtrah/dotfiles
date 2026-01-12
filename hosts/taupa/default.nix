@@ -17,7 +17,10 @@
       ../../modules/users.nix
       ../../modules/locale_tz.nix
       ../../modules/sound.nix
-      
+     
+
+#		  ../../modules/cosmic.nix
+
       ../../modules/sddm.nix
 
       ../../modules/plasma6.nix

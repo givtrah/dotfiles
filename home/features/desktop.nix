@@ -4,7 +4,7 @@
 
   [
     pcloud
-
+    libappindicator-gtk3 # required for tray icon?
 
     lazygit
     fzf
