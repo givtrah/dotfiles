@@ -33,14 +33,20 @@
 		nur = {
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
+    };
+    cosmic-manager = {
+			url = "github:HeitorAugustoLN/cosmic-manager";
+			inputs = {
+				nixpkgs.follows = "nixpkgs";
+				home-manager.follows = "home-manager";
+			};
 		};
-
 
 
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, walker, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, walker, cosmic-manager, ... }@inputs:
 
     let
       specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix walker; };
@@ -64,6 +70,7 @@
 	  home-manager.users.ohm.imports = [ 
 	    nix-flatpak.homeManagerModules.nix-flatpak
 			walker.homeManagerModules.default
+			cosmic-manager.homeManagerModules.cosmic-manager
 	    ./home/common.nix
           ];
 	})
