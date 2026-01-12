@@ -3,6 +3,9 @@
   home.packages = with pkgs; 
 
   [
+    pcloud
+
+
     lazygit
     fzf
     ripgrep
