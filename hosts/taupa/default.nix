@@ -36,7 +36,7 @@ nixpkgs.config.permittedInsecurePackages = [
               ];
 
   # enable overdrive on amdgpu (should make it possible to set fan speed on Radeon Pro W6800)
-	hardware.amdgpu.overdrive.enable = true;
+#	hardware.amdgpu.overdrive.enable = true;
 
 
 
