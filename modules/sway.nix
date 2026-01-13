@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
 # needed for sway to work, might interfere with other things?
-#  security.polkit.enable = true; - move to home-manager!
+  security.polkit.enable = true; # probably cannot be moved to home-manager!
 	
 	programs.uwsm = {
 		enable = true;
