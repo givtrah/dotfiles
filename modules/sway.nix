@@ -1,21 +1,23 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  # needed for sway to work, might interfere with other things?
-  security.polkit.enable = true;
+# needed for sway to work, might interfere with other things?
+#  security.polkit.enable = true; - move to home-manager!
+	
+	programs.uwsm = {
+		enable = true;
+		waylandCompositors = {
+			sway = {
+				prettyName = "Sway";
+				comment = "Sway compositor managed by UWSM";
+				binPath = "/run/current-system/sw/bin/sway";
+			};
+		};
+	};
 
- environment.systemPackages = with pkgs; [
-    # all included using home-manager now
-    #    grim # screenshot functionality
-    #slurp # screenshot functionality
-    #wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    #mako # notification system developed by swaywm maintainer
-  ];   
+  # Hint electron apps to use Wayland
+	
+  xdg.menus.enable = true;
+  xdg.mime.enable = true;
 
-
-  # enable Sway window manager - done in home manager
-  #  programs.sway = {
-  #  enable = true;
-  #  wrapperFeatures.gtk = true;
-  # };
 
 }
