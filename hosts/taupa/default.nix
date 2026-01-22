@@ -32,6 +32,8 @@
 
       ../../modules/hosts.nix
 
+			../../modules/thunar.nix
+
     ];
 
 nixpkgs.config.permittedInsecurePackages = [
