@@ -6,6 +6,9 @@
     pcloud
     libappindicator-gtk3 # required for tray icon?
 
+
+    qview # fast af image viewer
+
     lazygit
     fzf
     ripgrep

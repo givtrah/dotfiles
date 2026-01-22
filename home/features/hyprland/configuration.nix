@@ -29,7 +29,8 @@
 		"$random_wall" = "~/.dotfiles/home/features/hyprland/scripts/wall-random.sh";
 
 		"$terminal" =  "kitty";
-    "$filemanager" = "dolphin --new-window";
+#    "$filemanager" = "dolphin --new-window";
+		"$filemanager" = "thunar ~/Dropbox";
     "$browser" = "firefox";
 		"$menu" = "walker";
     "$music" = "amarok"; # needs amarok
