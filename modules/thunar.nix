@@ -16,6 +16,7 @@
 			thunar-archive-plugin
 			thunar-media-tags-plugin
 		];
+	};
 
 	# necessary services
 	services.gvfs.enable = true;
