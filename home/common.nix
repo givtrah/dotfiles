@@ -40,7 +40,7 @@
 
 		./features/nvim12.nix
 
-
+   ./features/mimetypes.nix
 
 #  ./features/nvim-fix.nix
 
