@@ -3,7 +3,6 @@
   home.packages = with pkgs; 
 
   [
-    pcloud
     libappindicator-gtk3 # required for tray icon?
 
 
@@ -85,7 +84,7 @@
     then [ zotero-nix.packages.aarch64-linux.default]
   else
     (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
-      then [ makemkv zotero-beta zoom-us steam-run zettlr nomachine-client calibre 
+      then [ pcloud makemkv zotero-beta zoom-us steam-run zettlr nomachine-client calibre 
 
     upscayl  # AI upscaler
         ]

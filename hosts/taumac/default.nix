@@ -23,6 +23,8 @@
       ../../modules/libs.nix
 #      ../../modules/sway.nix
       ../../modules/hosts.nix
+
+			../../modules/thunar.nix
 #			../../modules/onlyoffice.nix
     ];
 
