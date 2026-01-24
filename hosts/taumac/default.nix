@@ -14,7 +14,8 @@
       ../../modules/common.nix
       ../../modules/sound.nix
       ../../modules/locale_tz.nix
-      ../../modules/sddm.nix
+#      ../../modules/sddm.nix
+			../../regreet.nix
       ../../modules/plasma6.nix
       ../../modules/hyprland.nix
       ../../modules/users.nix

@@ -6,12 +6,8 @@
 	# ls /run/current-system/sw/share/sddm/themes
 
   services.xserver.enable = true;
-  
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "breeze"; # The only theme working?!?!?
-  };
+
+	program.regreet.enable = true;
 
 # set default session to Hyprland
 	services.displayManager.defaultSession = "hyprland-uwsm";
