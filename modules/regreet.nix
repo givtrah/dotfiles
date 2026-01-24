@@ -7,7 +7,25 @@
 
   services.xserver.enable = true;
 
-	program.regreet.enable = true;
+#	programs.regreet.enable = true;
+
+  programs.regreet = {
+    enable = true;
+    # For this example you'd need to have a version of Adwaita and the font Cantarell installed
+    theme.name = "Adwaita"; 
+		cursorTheme.name = "Adwaita";
+
+		settings = {
+			GTK = {
+				application_prefer_dark_theme = true;
+			};
+		};
+#				font = {
+#      name = "Cantarell";
+#      size = 16;
+#    };
+};
+
 
 # set default session to Hyprland
 	services.displayManager.defaultSession = "hyprland-uwsm";

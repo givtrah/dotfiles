@@ -5,6 +5,7 @@
     enable = true;
     settings = {
     	ipc = "on";
+			splash = "off";
 		};
   };
 

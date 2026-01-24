@@ -10,7 +10,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "breeze"; # The only theme working?!?!?
+    theme = "astronaut"; # The only theme working?!?!?
   };
 
 # set default session to Hyprland
@@ -54,6 +54,7 @@ environment.systemPackages = with pkgs; [
   sddm-chili-theme
 	elegant-sddm
 	sddm-sugar-dark
+	sddm-astronaut
 #	catppuccin-sddm.override {
 #    flavor = "mocha";
 #    font  = "Noto Sans";
