@@ -33,6 +33,7 @@
       ../../modules/hosts.nix
 
 			../../modules/thunar.nix
+			../../modules/nemo.nix
 
     ];
 
