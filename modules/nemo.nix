@@ -14,6 +14,8 @@
 
   ];
 
+# https://discourse.nixos.org/t/changing-thunar-icon-theme/50178/8
+
 
 	# necessary services
 	services.gvfs.enable = true;
