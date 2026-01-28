@@ -30,7 +30,7 @@
 
 		"$terminal" =  "kitty";
 #    "$filemanager" = "dolphin --new-window";
-		"$filemanager" = "thunar ~/Dropbox";
+		"$filemanager" = "nemo ~/Dropbox";
     "$browser" = "firefox";
 		"$menu" = "walker";
     "$music" = "amarok"; # needs amarok
