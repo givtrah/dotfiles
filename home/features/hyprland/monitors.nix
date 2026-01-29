@@ -17,6 +17,7 @@ let hostname = hostName;
     taupa = [
       "DP-1, 3840x2160, 0x0, 1.5"
       "DP-2, 3840x2160, 2560x-560, 1.5, transform, 1"
+			"DP-2, addreserved, 350, 0, 0, 0, 0"
     ];
     taumac = [
       ",preferred,auto,auto"

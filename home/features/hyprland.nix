@@ -26,6 +26,19 @@
 		./walker.nix
 	];
 
+	# GTK theme and icons
+gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    # override the default GTK-Theme from Stylix
+    theme = lib.mkForce {
+      name = "Nightfox-Dark";
+      package = pkgs.nightfox-gtk-theme;
+    };
+  };
 
 
 
@@ -33,6 +46,9 @@
 
 # Hyprland related packages
   home.packages = with pkgs; [
+
+		xdg-utils # XDG utility
+
     hyprdim # Automatically dim windows when switching between them
     hyprsome # Awesome WM like workspaces for Hyprland (per monitor workspaces)
     hyprshot # Hyprland screen shot utility

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
 
  # Useful other development tools
@@ -12,7 +12,6 @@
 
 		file-roller # gnome desktop archive manager
 
-		xdg-utils
 
   ];
 
@@ -23,18 +22,6 @@
 	services.gvfs.enable = true;
 	services.tumbler.enable = true;
 
-
-	gtk = { 
-		enable = true;
-		iconTheme = {
-			name = "Papirus-Dark";
-			package = pkgs.papirus-icon-theme;
-		};
-
-		theme = lib.mkForce {
-			name = "Nightfox-Dark";
-			package = pkgs.nightfox-gtk-theme;
-		};
 
 
 
