@@ -18,7 +18,7 @@
       ../../modules/sound.nix
       ../../modules/sddm.nix
       ../../modules/plasma6.nix
-      ../../modules/thunar.nix
+      ../../modules/nemo.nix
 
 
 			../../modules/home.nix

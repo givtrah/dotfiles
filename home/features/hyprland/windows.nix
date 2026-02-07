@@ -85,10 +85,11 @@
 
     ];
 
-		windowrulev2 = [
-			# Unsure if this is needed?
-			"float, size 300 200, class:^(org.kde.kcalc)$, title:^(KCalc)$"
-		];
+# deprecated 2026-02-07
+#		windowrulev2 = [
+#			# Unsure if this is needed?
+#			"float, size 300 200, class:^(org.kde.kcalc)$, title:^(KCalc)$"
+#		];
 
 
 

@@ -41,9 +41,14 @@
     extraLuaPackages = ls: with ls; [ luarocks ];
   };
 
-home.file."${config.home.homeDirectory}/.config/nvim".source =
-config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/.dotfiles/config/nvim";
+  home.activation.mySymlinks = lib.mkAfter "
+		rm -rf $HOME/.config/nvim
+	  ln -sf $HOME/.dotfiles/config/nvim $HOME/.config/nvim
+		";
+
+# home.file."${config.home.homeDirectory}/.config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/nvim";
+#config.lib.file.mkOutOfStoreSymlink
+ #   "${config.home.homeDirectory}/.dotfiles/config/nvim";
 
 
 
