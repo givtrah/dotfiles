@@ -12,6 +12,7 @@ wayland.windowManager.hyprland.settings = {
     "dbus-update-activation-environment --systemd --all"
     "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR QT_WAYLAND_DISABLE_WINDOWDECORATION"
     "systemctl --user start hyprpolkitagent"
+# https://discourse.nixos.org/t/hyprland-with-uwsm-no-secret-service-available-on-login-kwallet-is-installed-but-it-wont-start-and-autounlock/69263
     "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
 #
 
