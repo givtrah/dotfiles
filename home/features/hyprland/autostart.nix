@@ -10,8 +10,11 @@ wayland.windowManager.hyprland.settings = {
   exec-once = [
     # mako & fcitx5"
     "dbus-update-activation-environment --systemd --all"
-    "exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR QT_WAYLAND_DISABLE_WINDOWDECORATION"
+    "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR QT_WAYLAND_DISABLE_WINDOWDECORATION"
     "systemctl --user start hyprpolkitagent"
+    "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
+#
+
 #		"kwallet-query -l kdewallet &> /dev/null" # force opening of kdewallet
 		"wl-clip-persist --clipboard regular & clipse -listen" # keep clipboard available even if apps close
 
