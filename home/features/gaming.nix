@@ -22,8 +22,8 @@ home.pointerCursor = {
   [
 
 # remoteplay
-  moonlight-qt
-  sunshine
+#  moonlight-qt
+#  sunshine
 
   rusty-path-of-building
 
@@ -36,7 +36,7 @@ home.pointerCursor = {
   mednaffe # frontend for mednafen
 
 #  desmume # Nintendo DS - not compiling 2024-12-29
-  melonDS # Nintendo DS
+  melonds # Nintendo DS
 #  lime3ds # Nintendo 3DS
   mgba # Nintendo Gameboy Advance
   sameboy # Nintendo Gameboy, Gameboy color, Super Gameboy

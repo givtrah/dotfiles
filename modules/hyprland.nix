@@ -9,6 +9,12 @@
 		portalPackage = pkgs.xdg-desktop-portal-hyprland ; 
 	};
 
+
+  # required for noctalia
+
+  services.tuned.enable = true;
+  services.upower.enable = true;
+
   # Hint electron apps to use Wayland
 	
   xdg.menus.enable = true;

@@ -11,6 +11,9 @@
     oculante # minimalistic image viewer written in rust
 
 
+#    ocrmypdf # convert image only pdf to pdf+text that's searchable
+
+
     lazygit
     fzf
     ripgrep
@@ -87,7 +90,9 @@
     then [ zotero-nix.packages.aarch64-linux.default]
   else
     (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
-      then [ pcloud makemkv zotero-beta zoom-us steam-run zettlr nomachine-client calibre 
+      then [ pcloud zotero-beta zoom-us steam-run zettlr nomachine-client 
+
+# makemkv not working 2026-02-28, same for calibre
 
     upscayl  # AI upscaler
         ]

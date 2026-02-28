@@ -16,19 +16,21 @@
       programs.nix-ld.libraries = with pkgs; [
         stdenv.cc.cc
         openssl
-        xorg.libXcomposite
-        xorg.libXtst
-        xorg.libXrandr
-        xorg.libXext
-        xorg.libX11
-        xorg.libXfixes
+
+# old X libs unsure what its used for atm
+	libxcomposite
+        libxtst
+        libxrandr
+        libxext
+        libx11
+        libxfixes
         libGL
         libva
         pipewire
-        xorg.libxcb
-        xorg.libXdamage
-        xorg.libxshmfence
-        xorg.libXxf86vm
+        libxcb
+        libxdamage
+        libxshmfence
+        libxxf86vm
         libelf
         
         # Required
@@ -36,14 +38,14 @@
         gtk2
         bzip2
         
-        # Without these it silently fails
-        xorg.libXinerama
-        xorg.libXcursor
-        xorg.libXrender
-        xorg.libXScrnSaver
-        xorg.libXi
-        xorg.libSM
-        xorg.libICE
+        # again old xorg libs # Without these it silently fails
+        libxinerama
+        libxcursor
+        libxrender
+        libxscrnsaver
+        libxi
+        libsm
+        libice
 #        gnome2.GConf # removed on 2024-12-29 due to compile error
         nspr
         nss
@@ -58,13 +60,13 @@
         libudev0-shim
         
         # Verified games requirements
-        xorg.libXt
-        xorg.libXmu
+        libxt
+        libxmu
         libogg
         libvorbis
         SDL
         SDL2_image
-        glew110
+        glew_1_10
         libidn
         tbb
         
@@ -93,7 +95,7 @@
         libgcrypt
         libvpx
         librsvg
-        xorg.libXft
+        libxft
         libvdpau
         pango
         cairo
@@ -107,7 +109,7 @@
         
         # Needed for electron
         libdrm
-        mesa
+	mesa
         libxkbcommon
       ];
 }

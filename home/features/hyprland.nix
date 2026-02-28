@@ -89,6 +89,8 @@ gtk = {
 #    waybar # activated inside waybar.nix
     cava # console based audio visualizer (plugin for waybar)
 
+    noctalia-shell
+
     zathura
     mpv
     imv
