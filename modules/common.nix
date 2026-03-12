@@ -21,6 +21,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
+  # Fix download buffer issues
+  nix.settings.download-buffer-size = 524288000;
+
   # allowed users (allowed to interact with nix daemon, this may be the default setting)
   nix.settings.allowed-users = [ "*" ];
 

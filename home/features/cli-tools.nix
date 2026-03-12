@@ -5,7 +5,6 @@
   [
 
     luarocks
-    neofetch
     nnn # terminal file manager
   
     

@@ -90,7 +90,7 @@
     then [ zotero-nix.packages.aarch64-linux.default]
   else
     (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
-      then [ pcloud zotero-beta zoom-us steam-run zettlr nomachine-client 
+      then [ pcloud zotero zoom-us steam-run zettlr nomachine-client 
 
 # makemkv not working 2026-02-28, same for calibre
 
