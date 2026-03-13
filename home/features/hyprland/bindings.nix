@@ -20,7 +20,7 @@
 				"SUPER, F, fullscreen"
 
         # End active session
-        "SUPER, ESCAPE, exec, swaylock"
+        "SUPER, ESCAPE, exec, hyprlock"
         "SUPER SHIFT, ESCAPE, exit,"
 
 #        "SUPER CTRL, ESCAPE, exec, reboot"
