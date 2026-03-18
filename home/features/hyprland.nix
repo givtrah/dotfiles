@@ -116,7 +116,7 @@ gtk = {
 
 
 		amarok
-		bitwarden-desktop
+#		bitwarden-desktop
 		signal-desktop
 
     waypaper
