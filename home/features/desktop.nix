@@ -8,7 +8,7 @@
 
     qview # fast af image viewer
     rapidraw # gpu accel raw image editor
-    oculante # minimalistic image viewer written in rust
+#    oculante # minimalistic image viewer written in rust
 
 
 #    ocrmypdf # convert image only pdf to pdf+text that's searchable

@@ -40,7 +40,7 @@ home.pointerCursor = {
 #  lime3ds # Nintendo 3DS
   mgba # Nintendo Gameboy Advance
   sameboy # Nintendo Gameboy, Gameboy color, Super Gameboy
-  fceux # NES
+#  fceux # NES
 #  punes-qt6 # NES
 #  snes9x-gtk # SNES
 #  nanoboyadvance # Nintendo Gameboy Advance - not compiling 2024-12-29
