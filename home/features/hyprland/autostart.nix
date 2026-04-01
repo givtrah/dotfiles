@@ -16,7 +16,7 @@ wayland.windowManager.hyprland.settings = {
     "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
 #
 
-#		"kwallet-query -l kdewallet &> /dev/null" # force opening of kdewallet
+		"kwallet-query -l kdewallet &> /dev/null" # force opening of kdewallet
 		"wl-clip-persist --clipboard regular & clipse -listen" # keep clipboard available even if apps close
 
 		"nm-applet" # network-manager applet
