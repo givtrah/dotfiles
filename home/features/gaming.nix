@@ -26,6 +26,8 @@ home.pointerCursor = {
 #  sunshine
 
   rusty-path-of-building
+  
+  eden # switch 1 emu
 
 
   # Emulation

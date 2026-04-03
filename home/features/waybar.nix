@@ -8,8 +8,6 @@
 
 # Do as either one of those (first one prob preferred)
 
-# Walker idea:
-# https://git.allpurposem.at/mat/Computer/src/commit/2ec271dad1a54b7678644318504c4e76d8a3d204/home-manager/modules/walker.nix
 
 
 
@@ -76,7 +74,7 @@ in {
 				];
 				
 				modules-center = [
-					"cava"
+			#		"cava"
 					"mpris"
 				];
 				

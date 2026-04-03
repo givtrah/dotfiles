@@ -41,6 +41,7 @@
 			"focus_on_activate on, match:class ^(org.kde.kcalc)$"
 			"move onscreen cursor -200 -200, match:class ^(org.kde.kcalc)$"
 
+
       # Float in the middle for clipse clipboard manager
 #      "float, class:(clipse)"
 #      "size 622 652, class:(clipse)"
@@ -95,8 +96,12 @@
 
     layerrule = [
       # Proper background blur for walker and waybar
-      "blur on,match:namespace walker"
-      "blur on,match:namespace waybar"
+#      "blur on,match:namespace walker"
+
+      "blur on, match:namespace wofi"
+      "animation off, match:namespace wofi"
+      "ignore_alpha 0.5, match:namespace ^(wofi)$"
+       "blur on,match:namespace waybar"
     ];
   };
 

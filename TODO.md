@@ -2,8 +2,6 @@
 
 make sure wal script works without files accessible
 
-make sure walker and waybar works without wal files
-
 make sure hyprland works without wal accessible
 
 E.G. make sane defaults for all
@@ -20,10 +18,6 @@ Include public domain backgrounds, skip proprietary ones
 
 
 fix hyprland scripts so they work (and are nixified)
-
-fix walker:
-
-https://git.allpurposem.at/mat/Computer/src/commit/2ec271dad1a54b7678644318504c4e76d8a3d204/home-manager/modules/walker.nix
 
 consider fixing nvim (or leave at is, but nixify the structe using home.file)
 

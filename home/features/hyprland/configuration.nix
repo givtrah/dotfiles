@@ -32,7 +32,8 @@
 #    "$filemanager" = "dolphin --new-window";
 		"$filemanager" = "nemo ~/Dropbox";
     "$browser" = "firefox";
-		"$menu" = "walker";
+    "$menu" = "pkill wofi || wofi --show drun";
+#		"$menu" = "wofi --show drun";
     "$music" = "amarok"; # needs amarok
     "$passwordManager" = "bitwarden"; #needs bitwarden-desktop
     "$messenger" = "signal-desktop"; #needs signal-desktop

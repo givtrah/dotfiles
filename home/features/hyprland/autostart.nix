@@ -22,9 +22,8 @@ wayland.windowManager.hyprland.settings = {
 		"nm-applet" # network-manager applet
 		"blueman-applet" # bluetooth (mostly for audio purposes)
 
-    "swaync" # notification daemon
+    		"swaync" # notification daemon
 		"swaync-client -df" # turn dnd off and print new dnd state
-#		"walker --gapplication-service" # is done in walker.nix now
 		"sleep 1 && $random_wall &> /dev/null"
 		"remmina -i"
 		"hyprpaper"	

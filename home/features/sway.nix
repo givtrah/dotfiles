@@ -34,7 +34,7 @@
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix
 		./pywal16.nix
-		./walker.nix
+		./wofi.nix
 	];
 
 
@@ -82,7 +82,6 @@
     
     # extra...
     wofi # menu
-#    walker # menu
     yazi # file-manager
 
     #    bluez

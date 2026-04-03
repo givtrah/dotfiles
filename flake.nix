@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable"; # unstable nixpkgs
-    nixpkgs-yuzu.url = "github:nixos/nixpkgs/95002f7"; # yuzu (have to be tested...)
     home-manager = { 
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +11,6 @@
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,21 +18,12 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?";
     };
-		walker = {
-			url = "github:abenz1267/walker";
-		};
-		nur = {
-			url = "github:nix-community/NUR";
-			inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, walker, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, ... }@inputs:
 
     let
-      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak walker; };
+      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak ; };
       overlays = [ 
       ];
       shared-modules = [
@@ -54,11 +43,10 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
 	  home-manager.extraSpecialArgs = { 
-			inherit inputs nixpkgs walker; 
+			inherit inputs nixpkgs; 
 			inherit (config.networking) hostName; };	# make hostName inheritable for home-manager flakes
 	  home-manager.users.ohm.imports = [ 
 	    		nix-flatpak.homeManagerModules.nix-flatpak
-			walker.homeManagerModules.default
 	    ./home/common.nix
           ];
 	})
