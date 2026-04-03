@@ -3,9 +3,8 @@
 
   programs.bash = {
     enable = true;
-  };
-
-  programs.bash.shellAliases = {
+  
+    shellAliases = {
     nboot = "sudo nixos-rebuild boot --flake . --impure";
     nswitch = "sudo nixos-rebuild switch --flake . --impure";
     nsgc = "sudo nix-store --gc";
@@ -19,9 +18,16 @@
 
     # ripgrep = "grep";
 
+    };
 
-
+    initExtra = ''
+      export PATH="$HOME/.cache/.bun/bin:$PATH"
+      '';
   };
+
+
+
+
 
   # starship - an customizable prompt for any shell
   programs.starship = {

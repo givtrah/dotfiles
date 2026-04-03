@@ -87,7 +87,7 @@
  ++
   # packages not available on aarch64 goes here 
     (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
-    then [ zotero-nix.packages.aarch64-linux.default]
+    then [  zotero ] # zotero-nix.packages.aarch64-linux.default]
   else
     (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
       then [ pcloud zotero zoom-us steam-run zettlr nomachine-client 

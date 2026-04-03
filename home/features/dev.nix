@@ -5,11 +5,13 @@
   [
   vscode
   yarn
-  opencode
+# install via bun instead # opencode 
 
   devenv # for python development (any..) 
   direnv 
 
+  nodejs
+  bun
 
   ];
 

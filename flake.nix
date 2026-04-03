@@ -20,12 +20,6 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?";
     };
-    zotero-nix = {
-      url = "github:camillemndn/zotero-nix";
-    };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
 		walker = {
 			url = "github:abenz1267/walker";
 		};
@@ -33,23 +27,15 @@
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
     };
-    cosmic-manager = {
-			url = "github:HeitorAugustoLN/cosmic-manager";
-			inputs = {
-				nixpkgs.follows = "nixpkgs";
-				home-manager.follows = "home-manager";
-			};
-		};
-
 
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, zotero-nix, walker, cosmic-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, walker, ... }@inputs:
 
     let
-      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak zotero-nix walker; };
-      overlays = [ inputs.neovim-nightly-overlay.overlays.default
+      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak walker; };
+      overlays = [ 
       ];
       shared-modules = [
         {
@@ -68,12 +54,11 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
 	  home-manager.extraSpecialArgs = { 
-			inherit inputs nixpkgs zotero-nix walker; 
+			inherit inputs nixpkgs walker; 
 			inherit (config.networking) hostName; };	# make hostName inheritable for home-manager flakes
 	  home-manager.users.ohm.imports = [ 
-	    nix-flatpak.homeManagerModules.nix-flatpak
+	    		nix-flatpak.homeManagerModules.nix-flatpak
 			walker.homeManagerModules.default
-			cosmic-manager.homeManagerModules.cosmic-manager
 	    ./home/common.nix
           ];
 	})

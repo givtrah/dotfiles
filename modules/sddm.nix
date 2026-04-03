@@ -10,7 +10,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "astronaut"; # The only theme working?!?!?
+#    theme = "astronaut"; # The only theme working?!?!?
   };
 
 # set default session to Hyprland
