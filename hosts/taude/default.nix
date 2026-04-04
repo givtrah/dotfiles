@@ -57,7 +57,7 @@
 # passthrough 2060 super
 #  boot.extraModprobeConfig ="options vfio-pci ids=10de:1f06,10de:10f9,10de:1ada,10de:1adb";
   # Enable KVM
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" "sg" ];
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" "sg" "ntsync" ];
 
 
 	programs.steam.enable = true;
