@@ -8,9 +8,6 @@
 
 # Do as either one of those (first one prob preferred)
 
-
-
-
 let hostname = hostName;
 
 	workspacesConfigs = {
@@ -49,16 +46,19 @@ let hostname = hostName;
 
 in {
 
-  home.file = {
-    ".config/waybar/style.css" = {
-      source = ../../config/waybar/style.css;
-    };
-  };
+
+   
+#  home.file = {
+#    ".config/waybar/style.css" = {
+#      source = ../../config/waybar/style.css;
+#    };
+#  };
 
 
   programs.waybar = {
   	enable = true;
-		settings = [
+	style = builtins.readFile ./waybar-style.css;
+	settings = [
 			{
 				layer = "top";
 				position = "bottom";
