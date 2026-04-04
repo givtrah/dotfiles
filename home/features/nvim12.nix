@@ -16,6 +16,9 @@
     withPython3 = true;
     withRuby = true;
 
+    initLua = builtins.readFile ./nvim-init.lua;
+
+
     extraPackages = with pkgs; [
 # LANGUAGE SERVERS GOES HERE (NO MASON! YAY)
 		  lua-language-server # lua
