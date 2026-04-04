@@ -105,6 +105,18 @@ programs.bash = {
     };
   };
 
+	# Garbage collection
+
+	nix.gc = {
+  	automatic = true;
+  	dates = "weekly";
+  	options = "--delete-older-than 14d";
+	};
+
+	# Automatic optimization of the nix store periodically
+	nix.optimise.automatic = true;	
+
+
   # Packages ALL systems should ALWAYS have installed, to be used for ALL users (users + root)
 
   environment.systemPackages = with pkgs; [

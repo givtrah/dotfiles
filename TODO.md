@@ -9,17 +9,7 @@ E.G. make sane defaults for all
 Include public domain backgrounds, skip proprietary ones
 
 
-
-
-
-
-
-
-
-
 fix hyprland scripts so they work (and are nixified)
-
-consider fixing nvim (or leave at is, but nixify the structe using home.file)
 
 Add automatic garbage collection, general cleanup of hyprland
 
