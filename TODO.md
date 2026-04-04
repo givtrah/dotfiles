@@ -11,8 +11,6 @@ Include public domain backgrounds, skip proprietary ones
 
 fix hyprland scripts so they work (and are nixified)
 
-Add automatic garbage collection, general cleanup of hyprland
-
 Add nixified hyprlock for when it no longer crashes on aarch64
 
 setup zoxide correctly (YT)
@@ -25,8 +23,6 @@ https://nix.dev/manual/nix/2.18/package-management/profiles
 
 https://nixos.wiki/wiki/Storage_optimization
 
-
-
 # List generations 
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 
@@ -35,7 +31,7 @@ sudo nix-collect-garbage --delete-older-than 7d
 
 
 
-# GC more..
+# GC info
 
 https://github.com/NixOS/nix/issues/8508
 
