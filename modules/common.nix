@@ -11,8 +11,15 @@
   # Enable flatpaks
   services.flatpak.enable = true;
 
+
+  # SECURITY OVERRIDES (for various packages)
   nixpkgs.config.permittedInsecurePackages = [
-    "SDL_ttf-2.0.11" ];
+    "SDL_ttf-2.0.11" 
+		"electron-38.8.4" # for RStudio 2026-04-04
+
+
+
+		];
 
   # Enable OpenGL
   hardware.graphics.enable = true;

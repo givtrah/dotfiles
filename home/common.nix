@@ -28,7 +28,7 @@
   ./features/dev.nix
   ./features/flatpak.nix
 
-#  ./features/r.nix
+  ./features/r.nix
   ./features/office.nix
 
   ./features/browsers.nix
@@ -44,7 +44,6 @@
 
 #  ./features/swayfx.nix - don't do both hyprland and swayfx! choose one!
    
-
   ];
 
 #  programs.dconf.enable = true; Should be done in a module
@@ -55,6 +54,13 @@
     dconf.settings."org/gtk/settings/file-chooser" = {
     sort-directories-first = true;
    };
+
+# various fixes due to new home-manager versions - e.g. legacy fixes
+
+	gtk.gtk4.theme = config.gtk.theme; # Legacy: config.gtk.theme, new default: null. Changed in 26.05
+ 	programs.git.signing.format = "openpgp";  # Legacy: openpgp, new default: null. Changed in 26.05
+
+
 
 
 # Packages that should be installed to the user profile.

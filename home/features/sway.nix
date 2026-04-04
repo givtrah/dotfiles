@@ -29,7 +29,7 @@
 
 	imports = [
 		./sway/configuration.nix
-		./hypridle.nix # needs swaylock (hyprlock currently broken on aarch64 apple silicon)
+		./hypridle.nix # 
 		./swaylock.nix
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix

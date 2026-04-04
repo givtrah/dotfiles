@@ -1,3 +1,5 @@
+# Currently unused, using hyprlock
+
 { config, pkgs, ...}: {
 
   programs.swaylock = { 

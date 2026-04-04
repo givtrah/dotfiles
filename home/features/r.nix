@@ -1,5 +1,6 @@
 { config, lib, pkgs, nixpkgs, ...}: {
 
+
   home.packages = with pkgs; 
 
 # https://discourse.nixos.org/t/is-there-a-way-to-add-r-packages-straight-from-github/17871
@@ -60,7 +61,7 @@ let
   [ R-with-my-packages ] ++
    
     (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
-    then [ R-with-my-packages ] # if rstudio is not working with aarch64 remove the package name inside [] // rstudio currently broken on aarch64
+    then [ RStudio-with-my-packages ] # if rstudio is not working with aarch64 remove  "Studio"
   else
     (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
       then [ RStudio-with-my-packages ]
