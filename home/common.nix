@@ -38,13 +38,9 @@
   ./features/desktop.nix
   ./features/qemu.nix
 
-		./features/nvim12.nix
+		./features/nvim.nix
 
    ./features/mimetypes.nix
-
-#  ./features/nvim-fix.nix
-
-# ./features/nvim-lazy.nix
 
 #  ./features/swayfx.nix - don't do both hyprland and swayfx! choose one!
    
