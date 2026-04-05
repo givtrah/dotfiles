@@ -5,19 +5,23 @@
     enable = true;
     settings = {
       allow_images = true;
-      insensitivy = true;
-      prompt = ""; 
-      width = "40%";
-      lines = 10;
+      insensitve = true;
+      prompt = "...."; 
+      width = "600px";
+			height = "400px";
+#      lines = 10;
       dynamic_lines = false;
       location = "center";
       hide_scroll = true;
-      layer = "top"; # "top" is default, but "overlay" can be considered, but unsure what the difference is
+			matching = "strict-contains";
+			parse_search = true;
+			normal_window = true; # make wofi behave like a window, not a layer - to fix animations...
+#      layer = "top"; # "top" is default, but "overlay" can be considered, but unsure what the difference is
     };
     
     style = ''
       /* Importing Pywal colors */
-      @import url("file:///home/ohm/.cache/wal/colors-waybar.css");
+      @import url("file://$HOME/.cache/wal/colors-waybar.css");
 
       * {
         font-family: "Inter", "sans-serif"; /* Match your system font */

@@ -23,6 +23,7 @@
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix
 		./pywal16.nix
+		./rofi.nix
 		./wofi.nix
 	];
 

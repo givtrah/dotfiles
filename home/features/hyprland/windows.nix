@@ -84,6 +84,9 @@
 #	initialTitle: Bottles
 
 
+
+			"animation off, match:class ^(wofi)$"
+
     ];
 
 # deprecated 2026-02-07

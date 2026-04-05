@@ -55,7 +55,7 @@ wayland.windowManager.hyprland.settings = {
 
 		# https://wiki.hyprland.org/Configuring/Variables/#animations
     animations = {
-      enabled = true; # yes, please :)
+      enabled = false; # yes, please :)
 
     	# Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
       bezier = [
