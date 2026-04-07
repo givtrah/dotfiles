@@ -6,11 +6,6 @@ make sure hyprland works without wal accessible
 
 E.G. make sane defaults for all
 
-Include public domain backgrounds, skip proprietary ones
-
-
-fix hyprland scripts so they work (and are nixified)
-
 Add nixified hyprlock for when it no longer crashes on aarch64
 
 setup zoxide correctly (YT)
@@ -26,10 +21,8 @@ https://nixos.wiki/wiki/Storage_optimization
 # List generations 
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 
-# delete generations older than 7d
+# delete generations older than 
 sudo nix-collect-garbage --delete-older-than 7d
-
-
 
 # GC info
 

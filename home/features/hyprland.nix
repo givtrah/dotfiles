@@ -18,7 +18,8 @@
 
 	imports = [
 		./hyprland/configuration.nix
-		./hypridle.nix 
+		./hypridle.nix
+		./hyprlock.nix
 #		./swaylock.nix
 		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix
