@@ -16,6 +16,10 @@
         "SUPER, E, exec, $filemanager"
 				"SUPER, B, exec, $browser"
 
+				# Misc
+				"SUPER, W, exec, wall-random"
+				"SUPER SHIFT, W, exec, waybar-reload"
+
 				# fullscreen
 				"SUPER, F, fullscreen"
 

@@ -1,5 +1,6 @@
 { config, pkgs, ...}: {
 
+
   imports = [
     ./envs.nix
     ./autostart.nix
@@ -48,8 +49,9 @@
 home.packages = with pkgs; 
 
   [
+		 (import ./scripts/wall-random.nix { inherit pkgs; })
 
-
+		 (import ./scripts/waybar-reload.nix { inherit pkgs; })
   ];
 
 
