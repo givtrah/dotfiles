@@ -1,5 +1,14 @@
 # nix-config
 Nixos files for my installations
+Currently using a Hyprland setup
+
+# Wallpaper acknowledgements
+Wallpapers are from these sources:
+
+Shubham Dhage: https://unsplash.com/@theshubhamdhage
+
+Egor Komarov: https://unsplash.com/@egorkomarov
+
 
 # How to use
 Make sure git and gh is installed

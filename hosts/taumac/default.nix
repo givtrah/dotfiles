@@ -25,7 +25,7 @@
 #      ../../modules/sway.nix
       ../../modules/hosts.nix
 
-			../../modules/thunar.nix
+			../../modules/nemo.nix
 #			../../modules/onlyoffice.nix
     ];
 
