@@ -53,7 +53,7 @@
         bell_on_tab = false;
 
 				window_margin_width = 0;
-        background_opacity = 0.95;
+        background_opacity = 0.9;
 
         adjust_line_height = "130%";
 
