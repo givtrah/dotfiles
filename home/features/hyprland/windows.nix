@@ -58,6 +58,14 @@
 			"no_blur on, match:class ^(xwaylandvideobridge)$"
 			"no_focus on, match:class ^(xwaylandvideobridge)$"
 
+			# FIX flameshot
+			"float on, match:title ^(flameshot)$"
+			"move 0 0, match:title ^(flameshot)$"
+			"suppress_event fullscreen, match:title ^(flameshot)$"
+      "pin on, match:title ^(flameshot)$"
+			"fullscreen_state 0 0, match:title ^(flameshot)$"
+
+
 
 
 
@@ -87,7 +95,13 @@
 
 			"animation off, match:class ^(wofi)$"
 
+
+
+
     ];
+
+
+
 
 # deprecated 2026-02-07
 #		windowrulev2 = [
@@ -105,6 +119,7 @@
       "animation off, match:namespace wofi"
       "ignore_alpha 0.5, match:namespace ^(wofi)$"
        "blur on,match:namespace waybar"
+
     ];
   };
 

@@ -42,7 +42,18 @@ gtk = {
     };
   };
 
+# Screenshots = Flameshot
 
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General =  {
+        useGrimAdapter = true;  # needed for Wayland
+	# Stops warnings when using Grim
+	disabledGrimWarning = true;
+	};
+      };
+    };
 
 
 
@@ -50,6 +61,8 @@ gtk = {
   home.packages = with pkgs; [
 
 		xdg-utils # XDG utility
+
+	grim #  needed for flameshot on wayland
 
     hyprdim # Automatically dim windows when switching between them
     hyprsome # Awesome WM like workspaces for Hyprland (per monitor workspaces)

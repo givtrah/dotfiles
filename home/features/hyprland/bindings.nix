@@ -23,6 +23,9 @@
 				# fullscreen
 				"SUPER, F, fullscreen"
 
+
+	"SUPER SHIFT, P, exec, flameshot gui"
+
         # End active session
         "SUPER, ESCAPE, exec, hyprlock"
         "SUPER SHIFT, ESCAPE, exit,"
