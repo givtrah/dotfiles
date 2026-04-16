@@ -4,7 +4,7 @@
  # Define a user account. Don't forget to set a password with ‘passwd’ (as root).
   users.users.ohm = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "libvirtd" "cdrom" "optical" ]; # wheel = sudo, networkmanager = change network, libvirtd = qemu. Consider adding input (doing?), docker and video (doing?).
+     extraGroups = [ "wheel" "networkmanager" "libvirtd" "cdrom" "optical" "audio" ]; # wheel = sudo, networkmanager = change network, libvirtd = qemu. Consider adding input (doing?), docker and video (doing?).
      shell = pkgs.bash;
      packages = with pkgs; [
        pfetch # can be used as check!
