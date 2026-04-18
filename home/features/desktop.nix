@@ -14,6 +14,9 @@
 #    ocrmypdf # convert image only pdf to pdf+text that's searchable
 
 
+		projectm-sdl-cpp # milkdrop audio visualizer
+
+
     lazygit
     fzf
     ripgrep

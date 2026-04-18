@@ -41,6 +41,9 @@
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+#   boot.kernelPackages = pkgs.linuxPackages_6_18; # amd_gpu steam broken - not needed for now...
+
+
   # 2060 super passthrough
 #  gpuIDs = [
 #    "10de:1f06" # Graphics
