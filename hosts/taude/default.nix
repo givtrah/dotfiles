@@ -21,6 +21,8 @@
       ../../modules/nemo.nix
 
 
+
+			../../modules/hosts.nix
 			../../modules/home.nix
 #      ../../modules/cosmic.nix
 
