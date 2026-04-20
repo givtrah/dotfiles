@@ -14,19 +14,26 @@ wayland.windowManager.hyprland.settings = {
     "systemctl --user start hyprpolkitagent"
 # https://discourse.nixos.org/t/hyprland-with-uwsm-no-secret-service-available-on-login-kwallet-is-installed-but-it-wont-start-and-autounlock/69263
     "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init"
-#
-
 		"kwallet-query -l kdewallet &> /dev/null" # force opening of kdewallet
+
+		"maestral start &> /dev/null" # start maestral
+		
+
+
 		"wl-clip-persist --clipboard regular & clipse -listen" # keep clipboard available even if apps close
 
 		"nm-applet" # network-manager applet
 		"blueman-applet" # bluetooth (mostly for audio purposes)
 
-    		"swaync" # notification daemon
+ 		"swaync" # notification daemon
 		"swaync-client -df" # turn dnd off and print new dnd state
 		"sleep 1 && $random_wall &> /dev/null"
 		"remmina -i"
-		"hyprpaper"	
+		"hyprpaper"
+
+		"maestral_qt"
+		"waybar-reload"
+
 
 
 #		 ''ln -f -s "$HOME/.config/waybar/hypr-workspaces-$HOSTNAME.jsonc" ~/.config/waybar/hypr-workspaces.jsonc &> /dev/null''

@@ -24,6 +24,8 @@
   # Enable OpenGL
   hardware.graphics.enable = true;
 
+	hardware.graphics.enable32Bit = true;
+
   # Enable experimental nix commands and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
