@@ -2,10 +2,11 @@
 
 {
 
-# Tailscale hosts
+# Tailscale hosts I frequently access
   networking.hosts = {
-    "100.97.227.101" = [ "tauml" ];
-
+    "100.116.102.99" = [ "tauml" ];
+		"100.118.35.5" = [ "taupa" ];
+		"100.79.199.14" = [ "taude" ];
   };
 }
 

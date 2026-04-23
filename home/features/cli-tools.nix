@@ -7,7 +7,9 @@
     luarocks
     nnn # terminal file manager
   
-    
+
+		rename # perl-rename to use with regex
+
     htop
 
     # replacements
