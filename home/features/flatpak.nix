@@ -23,6 +23,8 @@
 		"com.collaboraoffice.Office" # Collabora office (currently plugins not working, should work on x86_64 and aarch64 platforms)
 		"org.libreoffice.LibreOffice" # should work on both x86_64 and aarch64
 
+		"com.valvesoftware.Steam"
+
 
 #    "xyz.armcord.ArmCord"
     

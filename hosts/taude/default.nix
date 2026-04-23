@@ -65,7 +65,7 @@
   boot.kernelModules = [ "kvm-amd" "kvm-intel" "sg" ]; #consider ntsync in the future... (for Wine, causes crashes in steam?)
 
 
-	programs.steam.enable = true;
+#	programs.steam.enable = true;
 
 	services.ratbagd.enable = true;
 
