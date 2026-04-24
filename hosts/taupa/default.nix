@@ -92,7 +92,7 @@ nixpkgs.config.permittedInsecurePackages = [
  };
 
 
-    programs.steam.enable = true;
+#    programs.steam.enable = true;
 
 
 # nixpkgs.config.permittedInsecurePackages = [
