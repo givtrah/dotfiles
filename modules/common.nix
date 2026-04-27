@@ -24,7 +24,7 @@
   # Enable OpenGL
   hardware.graphics.enable = true;
 
-	hardware.graphics.enable32Bit = true;
+#	hardware.graphics.enable32Bit = true; # most likely only needed for steam - but I moved steam to flatpak
 
   # Enable experimental nix commands and flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
