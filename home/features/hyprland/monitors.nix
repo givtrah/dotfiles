@@ -15,9 +15,9 @@ let hostname = hostName;
       "DP-2, 3840x2160, 2560x0, 1.5"
     ];
     taupa = [
-      "DP-8, 3840x2160, 0x0, 1.5"
-      "DP-6, 3840x2160, 2560x-560, 1.5, transform, 1"
-			"DP-6, addreserved, 350, 0, 0, 0, 0"
+      "DP-6, 3840x2160, 0x0, 1.5"
+      "DP-8, 3840x2160, 2560x-560, 1.5, transform, 1"
+			"DP-8, addreserved, 350, 0, 0, 0, 0"
     ];
     taumac = [
       ",preferred,auto,auto"
@@ -44,18 +44,18 @@ let hostname = hostName;
       "8,default:true,monitor:DP-2"
     ];
     taupa = [
-      "1,persistent,monitor:DP-1"
-      "2,persistent,monitor:DP-1"
-      "3,persistent,monitor:DP-1"
-      "4,persistent,monitor:DP-1"
-      "5,persistent,monitor:DP-1"
-      "6,persistent,monitor:DP-1"
-      "7,persistent,monitor:DP-1"
-      "8,persistent,monitor:DP-2"
-      "9,persistent,monitor:DP-2"
-      "10,persistent,monitor:DP-2"
-      "1,default:true,monitor:DP-1"
-      "8,default:true,monitor:DP-2"
+      "1,persistent,monitor:DP-6"
+      "2,persistent,monitor:DP-6"
+      "3,persistent,monitor:DP-6"
+      "4,persistent,monitor:DP-6"
+      "5,persistent,monitor:DP-6"
+      "6,persistent,monitor:DP-6"
+      "7,persistent,monitor:DP-6"
+      "8,persistent,monitor:DP-8"
+      "9,persistent,monitor:DP-8"
+      "10,persistent,monitor:DP-8"
+      "1,default:true,monitor:DP-6"
+      "8,default:true,monitor:DP-8"
     ];
     taumac = [
       "1,persistent,monitor:eDP-1"
