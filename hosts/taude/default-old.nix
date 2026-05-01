@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
-      ./disk-config.nix
+      ./disko-config.nix
 
       ../../modules/common.nix
       ../../modules/libs.nix
@@ -22,8 +22,8 @@
 
 
 
-	../../modules/hosts.nix
-	../../modules/home.nix
+			../../modules/hosts.nix
+			../../modules/home.nix
 #      ../../modules/cosmic.nix
 
       #      ../../modules/ollama.nix
@@ -191,7 +191,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }
 

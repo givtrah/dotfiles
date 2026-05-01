@@ -98,7 +98,7 @@
 	  {nixpkgs.overlays = overlays; }
 	 home-manager.nixosModules.home-manager { 
 	   home-manager.users.ohm = {
-	     home.stateVersion = "24.11";
+	     home.stateVersion = "25.11";
 	     imports = [ ]; 
 	 };
 	}
