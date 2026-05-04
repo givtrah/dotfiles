@@ -46,7 +46,7 @@
     
 #    legcord      # uses electron! (electron-unwrapped)
   obsidian
-#  jellyfin-media-player # insecure 2025-08-30 since it uses qtwebengine 5.15.19 based on old chromium
+  jellyfin-media-player # insecure 2025-08-30 since it uses qtwebengine 5.15.19 based on old chromium
   mesa-demos # includes everything in glxinfo
 #  zoom-us
 #  teams-for-linux
