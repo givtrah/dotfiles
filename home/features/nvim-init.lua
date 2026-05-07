@@ -105,8 +105,8 @@ vim.opt.autochdir = false -- do not autochange directories
 vim.opt.iskeyword:append("-") -- include - in words
 vim.opt.path:append("**") -- include subdirs in search
 vim.opt.selection = "inclusive" -- include last char in selection
-vim.opt.mouse = "a" -- enable mouse support
--- vim.cmd([[set mouse=]]) -- disable mouse completely 
+-- vim.opt.mouse = "a" -- enable mouse support
+vim.cmd([[set mouse=]]) -- disable mouse completely 
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard
 vim.opt.modifiable = true -- allow buffer modifications
 vim.opt.encoding = "UTF-8" -- set encoding
