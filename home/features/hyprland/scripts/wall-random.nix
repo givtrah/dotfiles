@@ -32,7 +32,8 @@ pkgs.writeShellApplication {
     IMG=$(find "$DIR" -type f | shuf -n 1)
 
     if [ -n "$IMG" ]; then
-      hyprctl hyprpaper wallpaper ",$IMG"
+      # hyprctl hyprpaper wallpaper ",$IMG"
+      waypaper --backend swaybg --wallpaper "$IMG"
       wal -n --cols16 lighten -i "$IMG"
     else
       echo "No files found in $DIR"

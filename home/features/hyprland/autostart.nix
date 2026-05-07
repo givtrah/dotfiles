@@ -29,10 +29,11 @@ wayland.windowManager.hyprland.settings = {
 		"swaync-client -df" # turn dnd off and print new dnd state
 		"sleep 1 && $random_wall &> /dev/null"
 		"remmina -i"
-		"hyprpaper"
+# FUCK HYPRPAPER		"hyprpaper"
 
 		"maestral_qt"
 		"waybar-reload"
+    "wall-random"
 
 
 

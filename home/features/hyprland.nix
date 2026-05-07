@@ -21,7 +21,7 @@
 		./hypridle.nix
 		./hyprlock.nix
 #		./swaylock.nix
-		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
+# FUCK HYPRPAPER REWRITE		./hyprpaper.nix # essentially empty config, but it crashes without ANY config.. sigh
 		./waybar.nix
 		./pywal16.nix
 		./rofi.nix
@@ -59,6 +59,11 @@ gtk = {
 
 # Hyprland related packages
   home.packages = with pkgs; [
+
+    swaybg # needed since hyprpaper is being a bitch
+    waypaper # needed as above
+
+
 
 		xdg-utils # XDG utility
 
