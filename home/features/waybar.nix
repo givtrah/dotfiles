@@ -24,8 +24,8 @@ let hostname = hostName;
 			on-click = "activate";
 			format = "{id}";
 			persistent-workspaces = {
-      	"DP-6" = [1 2 3 4 5 6 7];
-      	"DP-8" = [8 9 10];
+      	"DP-2" = [1 2 3 4 5 6 7];
+      	"DP-4" = [8 9 10];
 			};
 		};
     
