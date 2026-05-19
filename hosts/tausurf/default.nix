@@ -1,7 +1,7 @@
 # Machine specific configuration (modified from auto-generated configuration.nix)
 
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
 
 # may or may  not be needed here as well, do test
-      inputs.nixos-hardware.nixosModules.microsoft-surface-laptop-amd
+#      inputs.nixos-hardware.nixosModules.microsoft-surface-laptop-amd
 
       ../../modules/common.nix                                                                      
       ../../modules/sound.nix                                                                       
@@ -25,6 +25,12 @@
       ../../modules/nemo.nix                                                                        
 
     ];
+  # WRONG services.btrfs.override { autoScrub.enable = false;};
+  services.btrfs.autoScrub.enable = lib.mkForce false;
+
+  
+
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -42,6 +48,9 @@
     # end keyboard boot stuff
 
   ];
+
+  services.iptsd.enable = true;
+
 
   boot.initrd.luks.devices."luks-c68d0fe3-b7a6-46ce-b5d5-8bd11f64be73".device = "/dev/disk/by-uuid/c68d0fe3-b7a6-46ce-b5d5-8bd11f64be73";
   networking.hostName = "tausurf"; # Define your hostname.
