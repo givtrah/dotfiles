@@ -76,7 +76,7 @@
 
 
 # M$ Surface Laptop 4 (16 GB / 512 GB) - Nix OS unstable
-      taumac = nixpkgs.lib.nixosSystem {
+      tausurf = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = specialArgs // { inherit nixos-hardware; };
         modules =  shared-modules ++ [
