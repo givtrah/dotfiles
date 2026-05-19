@@ -37,6 +37,15 @@ let hostname = hostName;
 			};
 		};
 
+    tausurf = {
+  		on-click = "activate";
+			format = "{id}";
+			persistent-workspaces = {
+	    	"eDP-1" = [1 2 3 4 5 6 7];
+			};
+		};
+
+
     default = {
 			on-click = "activate";
 			format = "{id}";

@@ -22,6 +22,9 @@ let hostname = hostName;
     taumac = [
       ",preferred,auto,auto"
     ];
+    tausurf = [
+      ",preferred,auto,auto"
+    ];
     default = [
       ",preferred,auto,auto"
     ];
@@ -71,6 +74,28 @@ let hostname = hostName;
       "1,default:true,monitor:eDP-1"
       "8,default:true,monitor:DP-2"
     ];
+
+    tausurf = [
+      "1,persistent,monitor:eDP-1"
+      "2,persistent,monitor:eDP-1"
+      "3,persistent,monitor:eDP-1"
+      "4,persistent,monitor:eDP-1"
+      "5,persistent,monitor:eDP-1"
+      "6,persistent,monitor:eDP-1"
+      "7,persistent,monitor:eDP-1"
+      "8,persistent,monitor:DP-2" # unsure what additional displaylink monitor will be called, TEST!
+      "9,persistent,monitor:DP-2"
+      "10,persistent,monitor:DP-2"
+      "1,default:true,monitor:eDP-1"
+      "8,default:true,monitor:DP-2"
+    ];
+
+
+
+
+
+
+
     default = [ ];
   };
 
