@@ -1,14 +1,29 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# Machine specific configuration (modified from auto-generated configuration.nix)
+
 
 { config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-	<nixos-hardware/microsoft/surface/surface-laptop-amd>
+#	<nixos-hardware/microsoft/surface/surface-laptop-amd>
       ./hardware-configuration.nix
+
+# may or may  not be needed here as well, do test
+      inputs.nixos-hardware.nixosModules.microsoft-surface-laptop-amd
+
+      ../../modules/common.nix                                                                      
+      ../../modules/sound.nix                                                                       
+      ../../modules/locale_tz.nix                                                                   
+      ../../modules/sddm.nix                                                                        
+      ../../modules/plasma6.nix                                                                     
+      ../../modules/hyprland.nix                                                                    
+      ../../modules/users.nix                                                                       
+      ../../modules/distrobox.nix                                                                   
+      ../../modules/libs.nix                                                                        
+      ../../modules/hosts.nix                                                                       
+      ../../modules/nemo.nix                                                                        
+
     ];
 
   # Bootloader.
@@ -17,15 +32,14 @@
 
 
   boot.initrd.availableKernelModules = [
+    # needed for keyboard to work at boot for surface laptop 4
     "surface_aggregator"
     "surface_aggregator_registry"
     "surface_aggregator_hub"
     "surface_hid_core"
     "8250_dw"
     "surface_hid"
-#    "pinctrl_amd"
-
-
+    # end keyboard boot stuff
 
   ];
 
@@ -39,87 +53,23 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_DK.UTF-8";
-    LC_IDENTIFICATION = "en_DK.UTF-8";
-    LC_MEASUREMENT = "en_DK.UTF-8";
-    LC_MONETARY = "en_DK.UTF-8";
-    LC_NAME = "en_DK.UTF-8";
-    LC_NUMERIC = "en_DK.UTF-8";
-    LC_PAPER = "en_DK.UTF-8";
-    LC_TELEPHONE = "en_DK.UTF-8";
-    LC_TIME = "en_DK.UTF-8";
-  };
+  networking.firewall.checkReversePath = false; # needed for tailscale
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "dk";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "dk-latin1";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+#  services.xserver.videoDrivers = [ "displaylink" "modesetting" ]; - should be enabled later
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ohm = {
-    isNormalUser = true;
-    description = "ohm";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  services.xserver.libinput.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-
 
 	vim
 	btop
@@ -131,18 +81,10 @@
 
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

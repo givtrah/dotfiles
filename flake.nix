@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable"; # unstable nixpkgs
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master"; # Nix hardware for surface laptop 4
     home-manager = { 
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,10 +21,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, apple-silicon, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-flatpak, apple-silicon, ... }@inputs:
 
     let
-      specialArgs = { inherit inputs nixpkgs home-manager nix-flatpak ; };
+      specialArgs = { inherit inputs nixpkgs nixos-hardware home-manager nix-flatpak ; };
       overlays = [ 
       ];
       shared-modules = [
@@ -72,6 +73,29 @@
 	  }
 	]; 
       };
+
+
+# M$ Surface Laptop 4 (16 GB / 512 GB) - Nix OS unstable
+      taumac = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = specialArgs // { inherit nixos-hardware; };
+        modules =  shared-modules ++ [
+	  ./hosts/tausurf
+	  nixos-hardware.nixosModules.microsoft-surface-laptop-amd
+	  {nixpkgs.overlays = [];}
+          home-manager.nixosModules.home-manager {
+	    home-manager.users.ohm = {
+	      home.stateVersion = "25.11";
+	      imports = [ ];
+	    };
+	  }
+	]; 
+      };
+
+
+
+
+
       
       # Main desktop @ uni 5700x 64 GB multi-GPU, 2 TB nvme - Nix OS unstable
       taupa = nixpkgs.lib.nixosSystem {
