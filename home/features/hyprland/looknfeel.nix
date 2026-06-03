@@ -89,7 +89,7 @@ wayland.windowManager.hyprland.settings = {
 
 		# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
     dwindle = {
-      pseudotile = true;
+#      pseudotile = true;
       preserve_split = true;
       force_split = 0; # 0 = follow mouse, 1 = always left, 2 = always right
     };

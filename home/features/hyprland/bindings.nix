@@ -35,8 +35,8 @@
 #        "SUPER, K, exec, ~/.local/share/omarchy/bin/omarchy-show-keybindings" # GET THIS TO WORK ON LOCAL
 
         # Control tiling
-        "SUPER, J, togglesplit, # dwindle"
-        "SUPER, P, pseudo, # dwindle"
+#        "SUPER, J, togglesplit, # dwindle"
+#        "SUPER, P, pseudo, # dwindle"
         "SUPER, V, togglefloating,"
         "SUPER SHIFT, F, fullscreen,"
 
