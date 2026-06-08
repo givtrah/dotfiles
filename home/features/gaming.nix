@@ -52,7 +52,7 @@ home.pointerCursor = {
 #  duckstation # PS1 # moved to x86 only as it does not compile on aarch64 2024-12-31
 #  pcsxr # PS1
   ppsspp-sdl-wayland # Playstation portable (wayland)
-  rpcs3 # PS3
+#  rpcs3 # PS3 not working 2026-06-08
   
   maxcso # compression from iso to cso for psp and ps2 emus
  
@@ -67,7 +67,7 @@ home.pointerCursor = {
 #  openmsx # MSX - not compiling 2025-08-23
 #  fsuae # Amiga, not working right now
 #  uae # Amiga - failed to build on 2024-12-29
-  vice # C-64
+#  vice # C-64
 
 #  emulationstation # Frontend currently with security issues
 
