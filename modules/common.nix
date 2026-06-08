@@ -61,8 +61,8 @@
 #  ]; 
 
 
-  # increase watchable files (to stop dropbox from blinking...)
-  boot.kernel.sysctl = { "fs.inotify.max_user_watches" = "1048576"; };
+  # increase watchable files (to stop dropbox/maestral from blinking...)
+  boot.kernel.sysctl = { "fs.inotify.max_user_watches" = "4194304"; };
 
 
 
