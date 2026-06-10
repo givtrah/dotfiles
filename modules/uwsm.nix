@@ -32,8 +32,7 @@
   # Enable Hyprland
   programs.hyprland = {
 		enable = true;
-# I use uwsm above...		withUWSM = true; # with universal wayland session manager - better systemd integration
-    uwsm.enable = true;
+		withUWSM = true; # with universal wayland session manager - better systemd integration
 		xwayland.enable = true;
 		portalPackage = pkgs.xdg-desktop-portal-hyprland ; 
 	};
