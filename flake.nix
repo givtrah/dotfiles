@@ -21,7 +21,7 @@
     };
     mangowm = {
       url = "github:mangowm/mango";
-      input.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -52,6 +52,7 @@
 			inherit (config.networking) hostName; };	# make hostName inheritable for home-manager flakes
 	  home-manager.users.ohm.imports = [ 
 	    		nix-flatpak.homeManagerModules.nix-flatpak
+          mangowm.nixosModules.mango
 	    ./home/common.nix
           ];
 	})
