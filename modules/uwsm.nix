@@ -8,7 +8,7 @@
       hyprland = {
         prettyName = "Hyprland";
         comment = "Hyprland compositor managed by UWSM";
-        binPath = "/run/current-system/sw/bin/hyprland";
+        binPath = "/run/current-system/sw/bin/start-hyprland";
         };
 
       mango = {
@@ -33,6 +33,7 @@
   programs.hyprland = {
 		enable = true;
 # I use uwsm above...		withUWSM = true; # with universal wayland session manager - better systemd integration
+    uwsm.enable = true;
 		xwayland.enable = true;
 		portalPackage = pkgs.xdg-desktop-portal-hyprland ; 
 	};
