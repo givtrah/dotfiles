@@ -34,7 +34,7 @@
 
 			../../modules/thunar.nix
 			../../modules/nemo.nix
-
+      ../../modules/virt.nix
     ];
 
 nixpkgs.config.permittedInsecurePackages = [
