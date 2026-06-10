@@ -32,6 +32,7 @@
       overlays = [ 
       ];
       shared-modules = [
+        mangowm.nixosModules.mango
         {
 #          nix.settings = {
 #		extra-substituters = [ # NOT WORKING 2026-04-28
@@ -52,7 +53,6 @@
 			inherit (config.networking) hostName; };	# make hostName inheritable for home-manager flakes
 	  home-manager.users.ohm.imports = [ 
 	    		nix-flatpak.homeManagerModules.nix-flatpak
-          mangowm.nixosModules.mango
 	    ./home/common.nix
           ];
 	})
