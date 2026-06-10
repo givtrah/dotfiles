@@ -25,7 +25,7 @@
 
       ../../modules/plasma6.nix
 #      ../../modules/sway.nix
-      ../../modules/hyprland.nix
+      ../../modules/uwsm.nix
       ../../modules/llm.nix
 
       ../../modules/libs.nix

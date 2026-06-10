@@ -19,12 +19,16 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?";
     };
+    mangowm = {
+      url = "github:mangowm/mango";
+      input.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-flatpak, apple-silicon, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-flatpak, apple-silicon, mangowm, ... }@inputs:
 
     let
-      specialArgs = { inherit inputs nixpkgs nixos-hardware home-manager nix-flatpak ; };
+      specialArgs = { inherit inputs nixpkgs nixos-hardware home-manager nix-flatpak mangowm ; };
       overlays = [ 
       ];
       shared-modules = [
