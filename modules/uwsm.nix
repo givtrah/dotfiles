@@ -5,11 +5,11 @@
     enable = true;
 
     waylandCompositors = {
-      hyprland = {
-        prettyName = "Hyprland";
-        comment = "Hyprland compositor managed by UWSM";
-        binPath = "/run/current-system/sw/bin/start-hyprland";
-        };
+ #     hyprland = {
+ #       prettyName = "Hyprland";
+ #       comment = "Hyprland compositor managed by UWSM";
+ #       binPath = "/run/current-system/sw/bin/start-hyprland";
+ #       };
 
       mango = {
         prettyName = "MangoWM";
