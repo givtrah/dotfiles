@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 {
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "ohm" ];
+#  virtualisation.virtualbox.host.enable = true;
+#  users.extraGroups.vboxusers.members = [ "ohm" ];
 
 
  # Useful other development tools

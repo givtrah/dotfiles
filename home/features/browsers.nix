@@ -20,7 +20,7 @@
   [
 
   # browsers
-  librewolf
+#  librewolf
   floorp-bin
 
   brave

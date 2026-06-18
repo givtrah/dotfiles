@@ -100,7 +100,7 @@ gtk = {
     wallust
 
     swaynotificationcenter # notification daemon
-	libsForQt5.qt5.qtwayland
+	qt5.qtwayland
 #	qtwayland # cross-platform framework needed for QT support on Wayland
     
     xdg-desktop-portal-hyprland
