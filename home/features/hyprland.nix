@@ -5,7 +5,10 @@
    	enable = true;
  #  	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   	};
-  
+
+ # wayland.windowManager.hyprland.configType = "lua";
+
+
 	services.hyprpolkitagent.enable = true; # Polkit auth agent written in QT/QML
 
 
