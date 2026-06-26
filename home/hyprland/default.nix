@@ -4,14 +4,18 @@
  	wayland.windowManager.hyprland = {
    	enable = true;
     configType = "lua";
+    systemd.enable = false; # is this right?
 
-    extraLuaFiles = ''
-    require("
-
+    extraConfig = ''
+      -- Pull in modular lua config
+      require("core")
+      require("autostart")
+      require("keybindings")
+      require("looknfeel")
+      require("windows.lua")
+    '';
 
   	};
-
- # wayland.windowManager.hyprland.configType = "lua";
 
 
 	services.hyprpolkitagent.enable = true; # Polkit auth agent written in QT/QML
