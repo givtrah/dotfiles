@@ -51,7 +51,7 @@
           };
           home-manager.users.${username}.imports = [ 
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
-            ./home/common.nix
+            ./home/default.nix
           ];
         })
       ];

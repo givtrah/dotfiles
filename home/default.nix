@@ -17,30 +17,30 @@
   imports = [
   #  inputs.nix-flatpak.homeManagerModules.nix-flatpak	 
 
-  ./features/gaming.nix
+  ./gaming.nix
 
 
-  ./features/hyprland.nix
+  ./hyprland/default.nix
 
-  ./features/bash.nix
-  ./features/terminals.nix
+  ./bash.nix
+  ./terminals.nix
 
-  ./features/dev.nix
-  ./features/flatpak.nix
+  ./dev.nix
+  ./flatpak.nix
 
 #  ./features/r.nix
-  ./features/office.nix
+  ./office.nix
 
-  ./features/browsers.nix
-  ./features/cli-tools.nix
-  ./features/fonts.nix
+  ./browsers.nix
+  ./cli-tools.nix
+  ./fonts.nix
 
-  ./features/desktop.nix
-  ./features/qemu.nix
+  ./desktop.nix
+  ./qemu.nix
 
-		./features/nvim.nix
+	./neovim/nvim.nix
 
-   ./features/mimetypes.nix
+  ./mimetypes.nix
 
 #  ./features/swayfx.nix - don't do both hyprland and swayfx! choose one!
    

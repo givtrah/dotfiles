@@ -1,20 +1,20 @@
-{ pkgs, wallpaperDir }:
+{ pkgs }:
 
 pkgs.writeShellApplication {
   name = "wall-random";
 
   # Nix ensures these are available in the script's PATH at runtime
   runtimeInputs = with pkgs; [
+    hyprland       # for hyprctl
+    hyprpaper      # the wallpaper daemon
     pywal          # for the 'wal' command
     findutils      # for 'find'
     coreutils      # for 'echo', 'test', etc.
-    waypaper       # for 'waypaper'
-    swaybg
   ];
 
   text = ''
     # Default directory - using shell expansion for HOME
-    DEFAULT_DIR="${wallpaperDir}" # defined when the program is defined in mango/default.nix
+    DEFAULT_DIR="''${HOME}/.dotfiles/wallpapers"
 
     if [ -z "''${1:-}" ]; then
       DIR="$DEFAULT_DIR"
@@ -32,6 +32,7 @@ pkgs.writeShellApplication {
     IMG=$(find "$DIR" -type f | shuf -n 1)
 
     if [ -n "$IMG" ]; then
+      # hyprctl hyprpaper wallpaper ",$IMG"
       waypaper --backend swaybg --wallpaper "$IMG"
       wal -n --cols16 lighten -i "$IMG"
     else
