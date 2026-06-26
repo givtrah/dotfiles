@@ -47,11 +47,8 @@
             end
           '';
 
-      "uwsm/env".text = ''
-        export QT_QPA_PLATFORM="wayland;xcb"
-        export GDK_BACKEND="wayland,x11,*"
-        export NIXOS_OZONE_WL="1"
-      '';
+      "uwsm/env".text = builtins.readFile ./uwsm-env;
+
     };
 
     home.packages = [
