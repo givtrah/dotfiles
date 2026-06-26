@@ -2,8 +2,9 @@
   description = "Givtrah nix config because I'm a special snowflake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable"; # unstable nixpkgs
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master"; # Nix hardware for surface laptop 4
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    
     home-manager = { 
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,129 +17,64 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak = {
-      url = "github:gmodena/nix-flatpak/?";
-    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?";
     mangowm = {
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-flatpak, apple-silicon, mangowm, ... }@inputs:
-
+  outputs = { self, nixpkgs, ... }@inputs:
     let
-      specialArgs = { inherit inputs nixpkgs nixos-hardware home-manager nix-flatpak mangowm ; };
-      overlays = [ 
-      ];
+      username = "ohm"; # must be install username!
+
+      # 1. Define your host data dictionary. 
+      # Any unique hardware tweaks or specific state versions go here.
+      hosts = {
+        taumac  = { system = "aarch64-linux"; stateVersion = "24.05"; extraModules = [ inputs.apple-silicon.nixosModules.apple-silicon-support ]; };
+        tausurf = { system = "x86_64-linux";  stateVersion = "25.11"; extraModules = [ inputs.nixos-hardware.nixosModules.microsoft-surface-laptop-amd ]; };
+        taupa   = { system = "x86_64-linux";  stateVersion = "24.05"; extraModules = []; };
+        taude   = { system = "x86_64-linux";  stateVersion = "25.11"; extraModules = []; };
+      };
+
+      # 2. Base set of settings shared across all systems
       shared-modules = [
-        mangowm.nixosModules.mango
-        {
-#          nix.settings = {
-#		extra-substituters = [ # NOT WORKING 2026-04-28
- #     			"https://nixos-apple-silicon.cachix.org"
-  #  		];
-   # 		extra-trusted-public-keys = [
-    #  			"nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
-   # 		];
-#          };
-        }
-	home-manager.nixosModules.home-manager 
-			({ config, ...}: {
+        inputs.mangowm.nixosModules.mango
+        inputs.home-manager.nixosModules.home-manager 
+        ({ config, ... }: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-	  home-manager.extraSpecialArgs = { 
-			inherit inputs nixpkgs; 
-			inherit (config.networking) hostName; };	# make hostName inheritable for home-manager flakes
-	  home-manager.users.ohm.imports = [ 
-	    		nix-flatpak.homeManagerModules.nix-flatpak
-	    ./home/common.nix
+          home-manager.extraSpecialArgs = { 
+            inherit inputs nixpkgs username; 
+            inherit (config.networking) hostName; 
+          };
+          home-manager.users.${username}.imports = [ 
+            inputs.nix-flatpak.homeManagerModules.nix-flatpak
+            ./home/common.nix
           ];
-	})
+        })
       ];
-
     in {
-    
-    nixosConfigurations = {
-
-      # Macbook Air M2 (16 GB / 512 GB) - Nix OS unstable
-      taumac = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = specialArgs // { inherit apple-silicon; };
-        modules =  shared-modules ++ [
-	  ./hosts/taumac
-	  inputs.apple-silicon.nixosModules.apple-silicon-support
-	  {nixpkgs.overlays = [];}
-          home-manager.nixosModules.home-manager {
-	    home-manager.users.ohm = {
-	      home.stateVersion = "24.05";
-	      imports = [ ];
-	    };
-	  }
-	]; 
-      };
-
-
-# M$ Surface Laptop 4 (16 GB / 512 GB) - Nix OS unstable
-      tausurf = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = specialArgs // { inherit nixos-hardware; };
-        modules =  shared-modules ++ [
-	  ./hosts/tausurf
-	  nixos-hardware.nixosModules.microsoft-surface-laptop-amd
-	  {nixpkgs.overlays = [];}
-          home-manager.nixosModules.home-manager {
-	    home-manager.users.ohm = {
-	      home.stateVersion = "25.11";
-	      imports = [ ];
-	    };
-	  }
-	]; 
-      };
-
-
-
-
-
       
-      # Main desktop @ uni 5700x 64 GB multi-GPU, 2 TB nvme - Nix OS unstable
-      taupa = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	specialArgs = specialArgs;
-	modules = shared-modules ++ [
-	  ./hosts/taupa
-	  {nixpkgs.overlays = [];}
-	  home-manager.nixosModules.home-manager { 
-	    home-manager.users.ohm = {
-	      home.stateVersion = "24.05";
-	      imports = [ ]; 
-	  };
-	}
-	];
-      };
+      # 3. Use mapAttrs to loop over the 'hosts' data dictionary 
+      # and auto-generate the complete configuration for every device.
+      nixosConfigurations = nixpkgs.lib.mapAttrs (hostName: hostData: nixpkgs.lib.nixosSystem {
+        system = hostData.system;
+        
+        # Pull extra inputs through specialArgs dynamically if needed
+        specialArgs = { inherit inputs nixpkgs username; } 
+          // nixpkgs.lib.optionalAttrs (hostName == "taumac") { inherit (inputs) apple-silicon; }
+          // nixpkgs.lib.optionalAttrs (hostName == "tausurf") { inherit (inputs) nixos-hardware; };
 
-      # Main desktop @ home 7900 64 GB multi-GPU, lots of NVME / SSD
-      taude = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-	specialArgs = specialArgs;
-	modules = shared-modules ++ [
-	  ./hosts/taude
-	  {nixpkgs.overlays = overlays; }
-	 home-manager.nixosModules.home-manager { 
-	   home-manager.users.ohm = {
-	     home.stateVersion = "25.11";
-	     imports = [ ]; 
-	 };
-	}
-	];
-      };
+        modules = shared-modules ++ hostData.extraModules ++ [
+          ./hosts/${hostName} # Automatically imports ./hosts/taumac, ./hosts/taude, etc.
+          {
+            nixpkgs.overlays = [];
+            home-manager.users.${username}.home.stateVersion = hostData.stateVersion;
+          }
+        ];
+      }) hosts;
 
     };
-
-  };
 }
-
-
-
-
