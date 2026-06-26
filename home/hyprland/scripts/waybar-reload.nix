@@ -8,12 +8,14 @@ pkgs.writeShellApplication {
     procps    # Provides pgrep
     util-linux # Provides kill (though usually built-in, this ensures compatibility)
     coreutils  # Provides sleep, echo
+    uwsm
   ];
 
   text = ''
     # Find the Process ID (PID) of Waybar
     # Using -u $USER ensures you only kill your own instance
-    PID=$(pgrep -u "$USER" waybar || true)
+    CURRENT_USER=$(whoami)
+    PID=$(pgrep -u "$CURRENT_USER" waybar || true)
 
     # Check if Waybar is running
     if [ -z "$PID" ]; then
@@ -29,7 +31,9 @@ pkgs.writeShellApplication {
     # Start Waybar in the background
     echo "Starting Waybar..."
     # 'disown' prevents the script from hanging or closing waybar when it exits
-    waybar & disown
+    # waybar & disown
+
+    uwsm app -- waybar &
 
     echo "Script finished."
   '';

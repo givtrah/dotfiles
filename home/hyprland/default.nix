@@ -3,8 +3,6 @@
   # =========================================================================
   # USER CONFIGURATION (Home Manager Space)
   # =========================================================================
-  home-manager.users.${username} = { ... }: {
-    
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";
@@ -57,16 +55,15 @@
     };
 
     home.packages = [
-      (import ./scripts/wall-random.nix { inherit pkgs; })
+      (import ./scripts/wall-random.nix { inherit pkgs; wallpaperDir = ../../wallpapers; })
       (import ./scripts/waybar-reload.nix { inherit pkgs; })
     ];
 
     imports = [
       ./hypridle.nix
       ./hyprlock.nix
-      ./waybar.nix
-      ./pywal16.nix
-      ./rofi.nix
+      ../waybar
+      ../pywal16.nix
+      ../rofi.nix
     ];
-  };
 }
