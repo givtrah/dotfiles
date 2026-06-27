@@ -12,7 +12,8 @@ let hostname = hostName;
 
 	workspacesConfigs = {
 		taude = {
-			on-click = "activate";
+			#on-click = "activate";
+      on-click = "hyprctl dispatch workspace name:{name}";
 			format = "{id}";
 			persistent-workspaces = {
 				"DP-1" = [1 2 3 4 5 6 7];
@@ -21,7 +22,8 @@ let hostname = hostName;
     };
     
 		taupa = {
-			on-click = "activate";
+			#on-click = "activate";
+	    on-click = "hyprctl dispatch workspace name:{name}";
 			format = "{id}";
 			persistent-workspaces = {
       	"DP-2" = [1 2 3 4 5 6 7];
@@ -30,7 +32,8 @@ let hostname = hostName;
 		};
     
 		taumac = {
-  		on-click = "activate";
+  		#on-click = "activate";
+	    on-click = "hyprctl dispatch workspace name:{name}";
 			format = "{id}";
 			persistent-workspaces = {
 	    	"eDP-1" = [1 2 3 4 5 6 7];
@@ -38,7 +41,8 @@ let hostname = hostName;
 		};
 
     tausurf = {
-  		on-click = "activate";
+  		#on-click = "activate";
+	    on-click = "hyprctl dispatch workspace name:{name}";
 			format = "{id}";
 			persistent-workspaces = {
 	    	"eDP-1" = [1 2 3 4 5 6 7];
@@ -47,7 +51,8 @@ let hostname = hostName;
 
 
     default = {
-			on-click = "activate";
+			#on-click = "activate";
+	    on-click = "hyprctl dispatch workspace name:{name}";
 			format = "{id}";
     };
 	
