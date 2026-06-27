@@ -1,48 +1,31 @@
 { pkgs }:
 
-pkgs.writeShellApplication {
-  name = "waybar-reload";
+pkgs.writeShellScriptBin "waybar-reload" ''
+  PATH="${with pkgs; lib.makeBinPath [ waybar sysvinit coreutils uwsm ]}:$PATH"
 
-  runtimeInputs = with pkgs; [
-    waybar
-    procps
-    util-linux
-    coreutils
-    uwsm
-  ];
+  # Find the exact PID of the waybar binary using pidof
+  PID=$(pidof waybar || true)
 
-  text = ''
-    CURRENT_USER=$(whoami)
-    PID=$(pgrep -x -u "$CURRENT_USER" waybar || true)
-
-    if [ -z "$PID" ]; then
-      echo "Waybar is not running."
-    else
-      echo "Stopping active Waybar instances (PIDs: $PID)..."
-      pkill -x waybar
-      
-      for _ in {1..2}; do
-        if ! pgrep -x -u "$CURRENT_USER" waybar >/dev/null; then
-          break
-        fi
-        sleep 1
-      done
-
-      if pgrep -x -u "$CURRENT_USER" waybar >/dev/null; then
-        echo "Waybar is hung. Force-killing..."
-        pkill -9 -x waybar
-        sleep 0.5
-      fi
-    fi
-
-    echo "Starting Waybar inside a native UWSM systemd unit..."
+  if [ -n "$PID" ]; then
+    echo "Stopping active Waybar instances (PIDs: $PID)..."
     
-    # FIXED: Use 'uwsm app --' instead of 'uwsm env'.
-    # We append '|| true' to protect against strict writeShellApplication rules,
-    # and use a standard trailing '& disown' on the wrapper itself.
-    uwsm app -- waybar || true &
-    disown
+    # Kill the exact PIDs found
+    kill $PID || true
+    sleep 1
 
-    echo "Script finished."
-  '';
-}
+    # Force kill fallback if the socket doesn't unbind immediately
+    REMAINING=$(pidof waybar || true)
+    if [ -n "$REMAINING" ]; then
+      echo "Forcing termination..."
+      kill -9 $REMAINING || true
+      sleep 0.5
+    fi
+  else
+    echo "Waybar is not currently running."
+  fi
+
+  echo "Launching Waybar natively via UWSM application tracking..."
+  uwsm app -- waybar > "$HOME/.cache/waybar-reload.log" 2>&1 &
+
+  echo "Script finished cleanly."
+''
