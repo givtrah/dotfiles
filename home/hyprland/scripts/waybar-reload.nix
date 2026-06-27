@@ -5,35 +5,43 @@ pkgs.writeShellApplication {
 
   runtimeInputs = with pkgs; [
     waybar
-    procps    # Provides pgrep
-    util-linux # Provides kill (though usually built-in, this ensures compatibility)
-    coreutils  # Provides sleep, echo
+    procps
+    util-linux
+    coreutils
     uwsm
   ];
 
   text = ''
-    # Find the Process ID (PID) of Waybar
-    # Using -u $USER ensures you only kill your own instance
     CURRENT_USER=$(whoami)
-    PID=$(pgrep -u "$CURRENT_USER" waybar || true)
+    PID=$(pgrep -x -u "$CURRENT_USER" waybar || true)
 
-    # Check if Waybar is running
     if [ -z "$PID" ]; then
       echo "Waybar is not running."
     else
-      # Kill the Waybar process
-      echo "Killing Waybar (PID: $PID)..."
-#      kill "$PID"
-      pkill waybar
-      sleep 1 
+      echo "Stopping active Waybar instances (PIDs: $PID)..."
+      pkill -x waybar
+      
+      for _ in {1..2}; do
+        if ! pgrep -x -u "$CURRENT_USER" waybar >/dev/null; then
+          break
+        fi
+        sleep 1
+      done
+
+      if pgrep -x -u "$CURRENT_USER" waybar >/dev/null; then
+        echo "Waybar is hung. Force-killing..."
+        pkill -9 -x waybar
+        sleep 0.5
+      fi
     fi
 
-    # Start Waybar in the background
-    echo "Starting Waybar..."
-    # 'disown' prevents the script from hanging or closing waybar when it exits
-    # waybar & disown
-
-    uwsm app -- waybar &
+    echo "Starting Waybar inside a native UWSM systemd unit..."
+    
+    # FIXED: Use 'uwsm app --' instead of 'uwsm env'.
+    # We append '|| true' to protect against strict writeShellApplication rules,
+    # and use a standard trailing '& disown' on the wrapper itself.
+    uwsm app -- waybar || true &
+    disown
 
     echo "Script finished."
   '';
