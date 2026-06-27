@@ -4,6 +4,11 @@
 
   [
 
+
+
+    tldr      # better man
+    gptfdisk  # sgdisk
+
     luarocks
     nnn # terminal file manager
   
