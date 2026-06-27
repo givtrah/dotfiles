@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
 
 	# Find the name of themes for sddm:
@@ -36,7 +36,7 @@
     # KDE will prompt separately after login.
     pam = {
       services = {
-        ohm = {
+        ${username} = {
           kwallet = {
             enable = true;
             package = pkgs.kdePackages.kwallet-pam;

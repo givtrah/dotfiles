@@ -17,7 +17,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     mangowm = {
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,15 +26,15 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      username = "ohm"; # must be install username!
+      username = "ohm"; 
 
-      # 1. Define your host data dictionary. 
-      # Any unique hardware tweaks or specific state versions go here.
+      # 1. Host data dictionary with explicitly named state versions
+      # system.stateVersion is defined inside each individual host directory!
       hosts = {
-        taumac  = { system = "aarch64-linux"; stateVersion = "24.05"; extraModules = [ inputs.apple-silicon.nixosModules.apple-silicon-support ]; };
-        tausurf = { system = "x86_64-linux";  stateVersion = "25.11"; extraModules = [ inputs.nixos-hardware.nixosModules.microsoft-surface-laptop-amd ]; };
-        taupa   = { system = "x86_64-linux";  stateVersion = "24.05"; extraModules = []; };
-        taude   = { system = "x86_64-linux";  stateVersion = "25.11"; extraModules = []; };
+        taumac  = { system = "aarch64-linux"; homeManagerStateVersion = "24.05"; extraModules = [ inputs.apple-silicon.nixosModules.apple-silicon-support ]; };
+        tausurf = { system = "x86_64-linux";  homeManagerStateVersion = "25.11"; extraModules = [ inputs.nixos-hardware.nixosModules.microsoft-surface-laptop-amd ]; };
+        taupa   = { system = "x86_64-linux";  homeManagerStateVersion = "24.05"; extraModules = []; };
+        taude   = { system = "x86_64-linux";  homeManagerStateVersion = "25.11"; extraModules = []; };
       };
 
       # 2. Base set of settings shared across all systems
@@ -57,21 +57,21 @@
       ];
     in {
       
-      # 3. Use mapAttrs to loop over the 'hosts' data dictionary 
-      # and auto-generate the complete configuration for every device.
+      # 3. Auto-generate the complete configuration for every device.
       nixosConfigurations = nixpkgs.lib.mapAttrs (hostName: hostData: nixpkgs.lib.nixosSystem {
         system = hostData.system;
         
-        # Pull extra inputs through specialArgs dynamically if needed
         specialArgs = { inherit inputs nixpkgs username; } 
           // nixpkgs.lib.optionalAttrs (hostName == "taumac") { inherit (inputs) apple-silicon; }
           // nixpkgs.lib.optionalAttrs (hostName == "tausurf") { inherit (inputs) nixos-hardware; };
 
         modules = shared-modules ++ hostData.extraModules ++ [
-          ./hosts/${hostName} # Automatically imports ./hosts/taumac, ./hosts/taude, etc.
+          ./hosts/${hostName} 
           {
             nixpkgs.overlays = [];
-            home-manager.users.${username}.home.stateVersion = hostData.stateVersion;
+            
+            # Explicitly assigning the dictionary value to Home Manager's stateVersion
+            home-manager.users.${username}.home.stateVersion = hostData.homeManagerStateVersion;
           }
         ];
       }) hosts;

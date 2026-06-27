@@ -69,9 +69,9 @@ nixpkgs.config.permittedInsecurePackages = [
   boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
   
   # setup the ivshmem tmp file for looking glass
-  systemd.tmpfiles.rules = [
-  "f /dev/shm/looking-glass 0660 ohm qemu-libvirtd -"
-  ];
+#  systemd.tmpfiles.rules = [
+#  "f /dev/shm/looking-glass 0660 ohm qemu-libvirtd -"
+#  ];
 
 
   # Enable hugepages for better (windows) VM performance

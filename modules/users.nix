@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 {
     
  # Define a user account. Don't forget to set a password with ‘passwd’ (as root).
-  users.users.ohm = {
+  users.users.${username} = {
      isNormalUser = true;
      extraGroups = [ "wheel" "networkmanager" "libvirtd" "cdrom" "optical" "audio" ]; # wheel = sudo, networkmanager = change network, libvirtd = qemu. Consider adding input (doing?), docker and video (doing?).
      shell = pkgs.bash;
@@ -18,7 +18,7 @@
   # we get the right path in the sudo config
   environment.systemPackages = [ pkgs.nixos-rebuild ];
   security.sudo.extraRules = [
-    {  users = [ "ohm" ];
+    {  users = [ username ];
       commands = [
       { command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
           options = [ "NOPASSWD" "SETENV" ];

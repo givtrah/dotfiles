@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 {
   
@@ -72,7 +72,7 @@
 
   programs.dconf.enable = true;
 
-  nix.settings.trusted-users = [ "root" "ohm" ];
+  nix.settings.trusted-users = [ "root" username ];
 
   environment.variables.EDITOR = "nvim"; # default editor is neovim
   

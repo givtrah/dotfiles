@@ -1,8 +1,8 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, username, ...}: {
 
   # user configuration
-  home.username = "ohm";
-  home.homeDirectory = "/home/ohm";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
