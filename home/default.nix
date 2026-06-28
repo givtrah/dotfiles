@@ -15,16 +15,12 @@
   };
 
   imports = [
-  #  inputs.nix-flatpak.homeManagerModules.nix-flatpak	 
-
-  ./gaming.nix
-
-
   ./hyprland/default.nix
 
   ./bash.nix
   ./terminals.nix
 
+  ./gaming.nix
   ./dev.nix
   ./flatpak.nix
 

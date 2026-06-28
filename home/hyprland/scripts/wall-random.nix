@@ -5,7 +5,7 @@ pkgs.writeShellApplication {
 
   # Nix ensures these are available in the script's PATH at runtime
   runtimeInputs = with pkgs; [
-    pywal          # for the 'wal' command
+    pywal16          # for the 'wal' command
     findutils      # for 'find'
     coreutils      # for 'echo', 'test', etc.
     waypaper       # for 'waypaper'

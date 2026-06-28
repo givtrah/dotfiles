@@ -55,52 +55,11 @@
       (import ./scripts/wall-random.nix { inherit pkgs; wallpaperDir = ../../wallpapers; })
       (import ./scripts/waybar-reload.nix { inherit pkgs; })
 
-     
+		xdg-utils # XDG utility, not sure if it should stay here
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    swaybg # needed since hyprpaper is being a bitch
-    waypaper # needed as above
-
-
-
-		xdg-utils # XDG utility
-
-	grim #  needed for flameshot on wayland
+	  grim #  needed for flameshot on wayland
 
     hyprdim # Automatically dim windows when switching between them
-    hyprsome # Awesome WM like workspaces for Hyprland (per monitor workspaces)
     hyprshot # Hyprland screen shot utility
 
     # hyprprop # An xprop replacement for Hyprland - no idea what this does
@@ -125,9 +84,7 @@
     hyprcursor # Hyprland cursor format, library and utilities
     hyprpaper # Blazing fast wayland wallpaper utility
 
-#    pywal16
-    hellwal
-    wallust
+    pywal16
 
     swaynotificationcenter # notification daemon
 	qt5.qtwayland
@@ -138,8 +95,6 @@
 
 #    waybar # activated inside waybar.nix
     cava # console based audio visualizer (plugin for waybar)
-
-    noctalia-shell
 
     zathura
     mpv
@@ -167,8 +122,6 @@
 		amarok
 #		bitwarden-desktop
 		signal-desktop
-
-    waypaper
 
     wl-gammactl # wayland contrast, brightness and gamma adjustments
 
@@ -200,7 +153,7 @@
       ./hypridle.nix
       ./hyprlock.nix
       ../waybar
-      ../pywal16.nix
+#      ../pywal16.nix
       ../rofi.nix
     ];
 }
