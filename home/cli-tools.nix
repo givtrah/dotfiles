@@ -27,6 +27,9 @@
 
     # replacements end
 
+
+    lazygit # git helper
+
     dua # du improved / interactive version
 
     kew # command-line music player

@@ -5,6 +5,8 @@
     with pkgs;
 
     [
+    kitty-themes
+    kitty-img
 
 #    kitty # added here because I take care of configuration in normal dotfiles
 
@@ -82,53 +84,4 @@
       #        env.TERM = "xterm-256color";
 
   };
-
-  programs.ghostty = {
-    enable = true;
-
-    settings = {
-      alpha-blending = "linear-corrected";
-      background-opacity = "0.95";
-      background-blur = true;
-      window-decoration = "none";
-      theme = "tokyonight";
-      font-size = 13;
-      #      window-decoration = false;
-      window-theme = "ghostty";
-      # window-theme = "dark";
-
-      #      keybind = [
-      #        "ctrl+h=goto_split:left"
-      #        "ctrl+l=goto_split:right"
-      #      ];
-    };
-
-  };
-
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
-    enable = true;
-    # custom settings
-    settings = {
-      env.TERM = "xterm-256color";
-      font = {
-        size = 12;
-        draw_bold_text_with_bright_colors = true;
-      };
-      scrolling.multiplier = 5;
-      selection.save_to_clipboard = true;
-    };
-  };
-
-  programs.wezterm = {
-    enable = true;
-
-
-  };
-
-
-
-
-
-
 }

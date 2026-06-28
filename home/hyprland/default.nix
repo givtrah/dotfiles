@@ -55,6 +55,25 @@
       (import ./scripts/wall-random.nix { inherit pkgs; wallpaperDir = ../../wallpapers; })
       (import ./scripts/waybar-reload.nix { inherit pkgs; })
 
+    ### Should only contain programs necessary for the function of Hyprland, NOT normal called programs
+    ### Like kitty, browser etc.
+
+    ### Autostart programs (so yes, needed!), some are imported below!
+    maestral
+    maestral-gui
+
+    # bluez e.g. bluetooth enabled is handled by main config with hardware.bluetoothe.enable = true 
+    bluez-tools
+    bluez-experimental
+    # bluetui
+    wl-clipboard
+    upower
+
+    networkmanagerapplet
+
+
+
+
 		xdg-utils # XDG utility, not sure if it should stay here
 
 	  grim #  needed for flameshot on wayland
@@ -79,12 +98,8 @@
 #    hyprlandPlugins.hyprtrails # Trails after moving windows
 
 
-    pyprland
     hyprpicker # Wlroots-compatible Wayland color picker that does not suck
     hyprcursor # Hyprland cursor format, library and utilities
-    hyprpaper # Blazing fast wayland wallpaper utility
-
-    pywal16
 
     swaynotificationcenter # notification daemon
 	qt5.qtwayland
@@ -101,18 +116,9 @@
     imv
     
     # extra...
-    wofi # menu
     yazi # file-manager
 
-    #    bluez
-    bluez-tools
-    bluez-experimental
-    blueman
-    # bluetui
-    wl-clipboard
-    upower
 
-    networkmanagerapplet
 
     pulsemixer # cli volume control
 
@@ -152,8 +158,8 @@
     imports = [
       ./hypridle.nix
       ./hyprlock.nix
+      # ./hyprpaper.nix # Buggy, using swaybg atm
       ../waybar
-#      ../pywal16.nix
       ../rofi.nix
     ];
 }

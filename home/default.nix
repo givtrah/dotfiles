@@ -18,21 +18,18 @@
   ./hyprland/default.nix
 
   ./bash.nix
-  ./terminals.nix
+  ./kitty.nix
 
   ./gaming.nix
   ./dev.nix
   ./flatpak.nix
 
 #  ./features/r.nix
-  ./office.nix
 
-  ./browsers.nix
   ./cli-tools.nix
   ./fonts.nix
 
-  ./desktop.nix
-  ./qemu.nix
+  ./gui-tools.nix
 
 	./neovim/nvim.nix
 

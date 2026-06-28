@@ -21,6 +21,9 @@
 
 		];
 
+  # Enable blueman service (bluetooth gui/applet) instead of using it as a package
+  services.blueman.enable = true;
+
   # Enable OpenGL
   hardware.graphics.enable = true;
 
