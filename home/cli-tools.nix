@@ -28,6 +28,14 @@
     # replacements end
 
 
+    lame # mp3 encoder
+
+    amdgpu_top
+
+    mkvtoolnix-cli
+    rmapi # remarkable interface?
+
+
     lazygit # git helper
 
     dua # du improved / interactive version
@@ -119,6 +127,12 @@
   btop
   tmux
 
+  yarn # Javascript package manager
+  devenv # python development
+  direnv
+
+  nodejs
+  bun
 
 
 # v4l-utils
@@ -145,18 +159,6 @@
 
 
   ];
-
-  # starship - an customizable prompt for any shell
-  programs.starship = {
-    enable = true;
-    # custom settings
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      line_break.disabled = true;
-    };
-  };
 
 
 

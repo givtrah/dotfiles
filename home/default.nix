@@ -21,7 +21,6 @@
   ./kitty.nix
 
   ./gaming.nix
-  ./dev.nix
   ./flatpak.nix
 
 #  ./features/r.nix

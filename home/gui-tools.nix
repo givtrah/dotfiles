@@ -38,11 +38,14 @@
     hunspellDicts.da_DK
     hunspellDicts.en_US
 
-
+    
     # TODO: Do some sort of sorting!
 
     libappindicator-gtk3 # required for tray icon?
 
+
+
+    calibre # ebook management
 
     qview # fast af image viewer
     rapidraw # gpu accel raw image editor
@@ -61,16 +64,13 @@
 #    amarok
     clementine
     asunder # cd ripper
-    lame
-    kid3
+    kid3 # mp3 tagger
 
-    amdgpu_top
-    lact
+    lact # GPU configuration
     piper
 
     gnome-multi-writer
 
-		rmapi # remarkable interface
     qbittorrent
 
     telegram-desktop
@@ -100,8 +100,6 @@
   mpv
   vlc
 
-  maestral 
-  maestral-gui
 
       # Videorip encoding etc.
   mkvtoolnix
