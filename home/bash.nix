@@ -4,7 +4,7 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    blesh = true;
+#    blesh = true;
   
     shellAliases = {
     nboot = "sudo nixos-rebuild boot --flake . --impure";
