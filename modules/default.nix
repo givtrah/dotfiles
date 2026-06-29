@@ -6,7 +6,7 @@
     # hardware
 
     ./users.nix
-    ./locale_tz_nix
+    ./locale_tz.nix
     ./sound.nix
     ./sddm.nix
     ./plasma6.nix

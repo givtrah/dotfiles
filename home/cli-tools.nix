@@ -132,6 +132,14 @@
 
   nodejs
   bun
+  
+  gnumake
+  cmake
+  gcc
+
+
+
+  nfs-utils
 
 
 # v4l-utils

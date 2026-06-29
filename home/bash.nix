@@ -3,6 +3,7 @@
 
   programs.bash = {
     enable = true;
+    enableCompletion = true;
   
     shellAliases = {
     nboot = "sudo nixos-rebuild boot --flake . --impure";
@@ -15,6 +16,10 @@
     cat = "bat --paging=never";
     ls = "eza";
     z = "zoxide";
+
+    vi = "nvim"; # yes!
+    sudo = "sudo "; # fix aliases not working with sudo - the space means carry over aliases
+
 
     # ripgrep = "grep";
 

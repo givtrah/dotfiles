@@ -81,7 +81,7 @@
   jellyfin-media-player # insecure 2025-08-30 since it uses qtwebengine 5.15.19 based on old chromium
   mesa-demos # includes everything in glxinfo
   vulkan-tools
-  adwaita-icon-theme
+  adwaita-icon-theme # fix gnome window decorations
   v4l-utils
 #  guvcview
 

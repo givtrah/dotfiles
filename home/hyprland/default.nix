@@ -21,6 +21,24 @@
       '';
     };
 
+    
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gnome
+      ];
+      config = { 
+        common = {
+          default = [ "hyprland" ];
+          };
+        };
+      };
+    };
+
     xdg.configFile = {
       "hypr/core.lua".text        = builtins.readFile ./core.lua;
       "hypr/keybindings.lua".text = builtins.readFile ./keybindings.lua;
@@ -105,9 +123,6 @@
 	qt5.qtwayland
 #	qtwayland # cross-platform framework needed for QT support on Wayland
     
-    xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gnome
-
 #    waybar # activated inside waybar.nix
     cava # console based audio visualizer (plugin for waybar)
 
