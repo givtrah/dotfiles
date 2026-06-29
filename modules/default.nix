@@ -18,7 +18,7 @@
     ./nemo.nix
   
     # Misc
-    ./llm.nix
+#    ./llm.nix
     ./libs.nix
   ];
 
