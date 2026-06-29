@@ -5,7 +5,7 @@
 -- Executed once on desktop initialization
 hl.on("hyprland.start", function()
     -- Authentication Agent - should start automagically
-    hl.exec_cmd("dbus-update-activation-environment --systemd --all"))
+    hl.exec_cmd("dbus-update-activation-environment --systemd --all")
     hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR QT_WAYLAND_DISABLE_WINDOWDECORATION")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
