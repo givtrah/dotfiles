@@ -147,6 +147,7 @@
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
+    adwaita-icon-theme # for dconf enable above, fix gnome window decorations
     # may be superfluous
     kdePackages.breeze
     kdePackages.breeze-gtk

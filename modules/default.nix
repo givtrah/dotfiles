@@ -45,8 +45,7 @@
 
   # SECURITY OVERRIDES (BEWARE!)
   nixpkgs.config.permittedInsecurePackages = [
-  #  "SDL_ttf-2.0.11" 
-	#	"electron-38.8.4" # for RStudio 2026-04-04
+
 		];
 
   ##################################
@@ -75,26 +74,20 @@
   # increase watchable files (to stop dropbox/maestral from blinking...)
   boot.kernel.sysctl = { "fs.inotify.max_user_watches" = "4194304"; };
 
-
-
-
   # Fix missing window decorations and terrible icon themes for gnome programs outside of gnome
   # also needs package gnome.adwaita-icon-theme
 
   programs.dconf.enable = true;
-
 
   environment.variables.EDITOR = "nvim"; # default editor is neovim
   
   # Make BASH the default user shell
   users.defaultUserShell = pkgs.bash;
 
-programs.bash = {
+  programs.bash = {
     enable = true;
     completion.enable = true;
-    };
-
-  # Setup xdg desktop portals (assuming default install is KDE?!?!? or? fix me)
+  };
 
 	# Garbage collection
 
@@ -108,28 +101,18 @@ programs.bash = {
 	nix.optimise.automatic = true;	
 
   # Packages ALL systems should ALWAYS have installed, to be used for ALL users - e.g. also available to root
-
   environment.systemPackages = with pkgs; [
   git # git must be first when using flakes as it clones its dependencies using git
   gh  # github helper
   curl 
   wget
-
   cups-browsed
-
   vim # so we at least have vi - for neovim, see home-manager
-
   tailscale
   rclone
-
-  adwaita-icon-theme # for dconf enable above, fix gnome window decorations
-
   wireguard-tools
-
   sshfs
-
   unzip
-
   ];
 
 

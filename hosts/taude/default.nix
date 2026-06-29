@@ -99,10 +99,6 @@
 
 
 
-# nixpkgs.config.permittedInsecurePackages = [
-#               # "mailspring-1.12.0"
-#              ];
-
 
 	boot.supportedFilesystems = [ "nfs" ];
 
