@@ -43,7 +43,9 @@
 
     libappindicator-gtk3 # required for tray icon?
 
-
+    zathura # pdf viewer
+    mpv
+    imv # simple image viewer
 
     calibre # ebook management
 
@@ -90,6 +92,8 @@
   gsmartcontrol
   # productivity / work
 
+
+  signal-desktop
 #  zettlr
   remmina
 #  libsForQt5.kcalc

@@ -137,7 +137,7 @@
   cmake
   gcc
 
-
+  
 
   nfs-utils
 
@@ -162,8 +162,10 @@
   # for printing
   libusb1
 
+  yazi
+  pulsemixer
 
-
+    bluetui # cli bluetooth manager (if needed)
 
   ];
 

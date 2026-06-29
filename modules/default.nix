@@ -22,9 +22,8 @@
   ############
   # HARDWARE #
   ############
-  # Enable OpenGL
+  # Enable OpenGL - I can't think of a host that doesn't need this
   hardware.graphics.enable = true;
-
 
   ################
   # NIX SETTINGS #
@@ -50,12 +49,9 @@
 	#	"electron-38.8.4" # for RStudio 2026-04-04
 		];
 
-
-
-
-  ############
-  # SERVICES #
-  ############
+  ##################################
+  # SERVICES  ENABLED ON ALL HOSTS #
+  ##################################
 
   # Enable blueman service (bluetooth gui/applet) instead of using it as a package
   services.blueman.enable = true;
