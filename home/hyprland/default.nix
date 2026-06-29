@@ -8,6 +8,7 @@
     configType = "lua";
     systemd.enable = false;
 
+
     extraConfig = ''
       local home = os.getenv("HOME")
       package.path = package.path .. ";" .. home .. "/.config/hypr/?.lua"

@@ -3,29 +3,17 @@
 
   programs.uwsm = {
     enable = true;
-
     waylandCompositors = {
- #     hyprland = {
- #       prettyName = "Hyprland";
- #       comment = "Hyprland compositor managed by UWSM";
- #       binPath = "/run/current-system/sw/bin/start-hyprland";
- #       };
 
-      mango = {
-        prettyName = "MangoWM";
-        comment = "Mango Window Manager managed by UWSM";
-        binPath = "/run/current-system/sw/bin/mango"; # CHECK!
-      };
+#      mango = {
+#        prettyName = "MangoWM";
+#        comment = "Mango Window Manager managed by UWSM";
+#        binPath = "/run/current-system/sw/bin/mango"; # CHECK!
+#      };
     };
   };
 
-
-
-  programs.mango.enable = true;
-
-
-
-
+#  programs.mango.enable = true;
 
 
 

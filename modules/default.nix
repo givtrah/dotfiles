@@ -3,18 +3,23 @@
 {
   # COMMON MODULES FOR ALL HOSTS
   imports = [
-    # hardware
+    # hardware or related
+    ./sound.nix
 
+    # General setup
     ./users.nix
     ./locale_tz.nix
-    ./sound.nix
+
+
+    # Desktop environments or Window managers and related
     ./sddm.nix
-    ./plasma6.nix
     ./uwsm.nix
+    ./plasma6.nix
+    ./nemo.nix
+  
+    # Misc
     ./llm.nix
     ./libs.nix
-    ./hosts.nix
-    ./nemo.nix
   ];
 
   # Options considered always enabled regardless of host
