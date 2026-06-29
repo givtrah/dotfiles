@@ -32,7 +32,6 @@
 
     amdgpu_top
 
-    mkvtoolnix-cli
     rmapi # remarkable interface?
 
 
