@@ -4,11 +4,10 @@
 
 { config, lib, pkgs, ... }:
 {
-  system.stateVersion = "25.11"; # Depends on when host was installed, BEWARE
+  system.stateVersion = "25.11"; # Depends on when host was installed, BEWARE!
 
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [ ./hardware-configuration.nix
       "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
       ./disko-config.nix
       
@@ -29,8 +28,7 @@
 
   # early modules
   boot.initrd.kernelModules = [ "vfio" "vfio_pci" "vfio_iommu_type1" ]; # needed for potential passthrough
-  # passthrough 2060 super
-  # card sold boot.extraModprobeConfig ="options vfio-pci ids=10de:1f06,10de:10f9,10de:1ada,10de:1adb";
+  
   # Enable KVM
   boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
 
