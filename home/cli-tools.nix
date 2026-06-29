@@ -165,6 +165,8 @@
   yazi
   pulsemixer
 
+  xdg-utils
+
     bluetui # cli bluetooth manager (if needed)
 
   ];

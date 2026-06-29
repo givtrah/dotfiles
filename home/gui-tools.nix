@@ -99,6 +99,7 @@
 #  libsForQt5.kcalc
 #  libsForQt5.kate
 
+  grim
 
   # Multimedia
   mpv

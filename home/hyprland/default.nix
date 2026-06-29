@@ -3,23 +3,23 @@
   # =========================================================================
   # USER CONFIGURATION (Home Manager Space)
   # =========================================================================
-    wayland.windowManager.hyprland = {
-      enable = true;
-      configType = "lua";
-      systemd.enable = false;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    configType = "lua";
+    systemd.enable = false;
 
-      extraConfig = ''
-        local home = os.getenv("HOME")
-        package.path = package.path .. ";" .. home .. "/.config/hypr/?.lua"
+    extraConfig = ''
+      local home = os.getenv("HOME")
+      package.path = package.path .. ";" .. home .. "/.config/hypr/?.lua"
 
-        require("monitors")
-        require("core")
-        require("looknfeel")
-        require("windows")
-        require("keybindings")
-        require("autostart")
-      '';
-    };
+      require("monitors")
+      require("core")
+      require("looknfeel")
+      require("windows")
+      require("keybindings")
+      require("autostart")
+    '';
+  };
     
   xdg = {
     portal = {
@@ -57,36 +57,36 @@
           if builtins.pathExists expectedPath 
           then builtins.readFile expectedPath
           else builtins.readFile ./monitors-default.lua;
-      };
     };
+  };
 
 
-    dconf.settings = { 
-      "org/gtk/settings/file-chooser" = {
-        sort-directories-first = true;
-      };
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
+  dconf.settings = { 
+    "org/gtk/settings/file-chooser" = {
+      sort-directories-first = true;
     };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Breeze-Dark";
-        package = pkgs.kdePackages.breeze-gtk;
-      };
-      gtk4.theme = config.gtk.theme; # home-manager update
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
     };
+    gtk4.theme = config.gtk.theme; # home-manager update
+  };
 
-    qt = {
-      enable = true;
-      platformTheme.name = "qtct"; # Tells Qt apps to look at qt5ct/qt6ct configurations
-      style = {
-        name = "breeze-dark";      # Uses the breeze-dark style engine
-        package = pkgs.kdePackages.breeze;
-      };
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct"; # Tells Qt apps to look at qt5ct/qt6ct configurations
+    style = {
+      name = "breeze-dark";      # Uses the breeze-dark style engine
+      package = pkgs.kdePackages.breeze;
     };
+  };
 
   home.pointerCursor = {
     x11.enable = true;
@@ -96,49 +96,28 @@
     name = "catppuccin-mocha-sapphire-cursors";
     size = 24; # Highly recommended for standard scaling; 48 can be massive on non-4K screens
   };
- #   home.pointerCursor = {
-  #    x11.enable = true;
-  #    gtk.enable = true;
-  #    package = pkgs.catppuccin-cursors.mochaSapphire;
-  #    name = "catppuccin-mocha-sapphire-cursors";
-  #    size = 48;
-  #  };
-
-
-
-
-
-
-
-
-
-
 
     # Import configured helper programs
-    imports = [
-      ./hypridle.nix
-      ./hyprlock.nix
-      # ./hyprpaper.nix # Buggy, using swaybg atm
-      ../waybar
-      ../rofi.nix
-    ];
+  imports = [
+    ./hypridle.nix
+    ./hyprlock.nix
+    # ./hyprpaper.nix # Buggy, using swaybg atm
+    ../waybar
+    ../rofi.nix
+  ];
 
-    home.packages = with pkgs; [
-      # Import helper scripts
-      (import ./scripts/wall-random.nix { inherit pkgs; wallpaperDir = ../../wallpapers; })
-      (import ./scripts/waybar-reload.nix { inherit pkgs; })
-
-    ### Should only contain programs necessary for the function of Hyprland, NOT normal called programs
-    ### Like kitty, browser etc.
-
-    ### Autostart programs (so yes, needed!), some are imported below!
-    maestral
-    maestral-gui
-
-    # bluez e.g. bluetooth enabled is handled by main config with hardware.bluetoothe.enable = true 
-    bluez-tools
-    bluez-experimental
+  home.packages = with pkgs; [
+    # Should only contain programs necessary for the function of Hyprland, NOT normal called programs
     
+    # Import helper scripts
+    (import ./scripts/wall-random.nix { inherit pkgs; wallpaperDir = ../../wallpapers; })
+    (import ./scripts/waybar-reload.nix { inherit pkgs; })
+
+    # Autostart programs (so yes, needed!), some are imported below!
+    maestral # Dropbox 
+    maestral-gui
+    bluez-tools # bluez e.g. bluetooth enabled is handled by main config with hardware.bluetoothe.enable = true 
+    bluez-experimental
     wl-clipboard
     upower # unsure if this is needed
     networkmanagerapplet
@@ -147,43 +126,28 @@
     wl-gammactl # wayland contrast, brightness and gamma adjustments
 		brightnessctl # brightness control
 
-#		xdg-utils # XDG utility, not sure if it should stay here
-
-	  grim #  needed for flameshot on wayland
-
     ######################
     # HYPRLAND ECOSYSTEM #
     ######################
     hyprdim # Automatically dim windows when switching between them
     hyprshot # Hyprland screen shot utility
-
     hyprsunset # Application to enable a blue-light filter on Hyprland
-
     hyprsysteminfo # A tiny qt6/qml application to display information about the running system
-
     hyprland-qtutils # Hyprland QT/qml utility apps
     hyprland-protocols # Wayland protocol extensions for Hyprland
     hyprland-qt-support # A Qt6 QML provider for hypr* apps
     hyprland-activewindow # Multi-monitor-aware Hyprland workspace widget helper
-
     hyprpicker # Wlroots-compatible Wayland color picker that does not suck
     hyprcursor # Hyprland cursor format, library and utilities
 
-
-    ######################
-    # THEMING OR RELATED #
-    ######################
+    # Toolkit Integration Frameworks
     qt5.qtwayland
-    
-    # Ensure plasma-applications.menu appears (to help mime associations in dolphin)
-    kdePackages.plasma-workspace
-
-    # QT theming
+    kdePackages.plasma-workspace # Ensure plasma-applications.menu appears (to help mime associations in dolphin)
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum
-
+    # may be superfluous
     kdePackages.breeze
     kdePackages.breeze-gtk
     kdePackages.breeze-icons
