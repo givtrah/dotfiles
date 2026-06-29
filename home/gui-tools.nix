@@ -106,6 +106,10 @@
   vlc
 
 
+
+  # IMAGE VIEWERS
+  oculante
+
       # Videorip encoding etc.
   mkvtoolnix
   

@@ -25,6 +25,12 @@
 		portalPackage = pkgs.xdg-desktop-portal-hyprland ; 
 	};
 
+  security.polkit.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    hyprpolkitagent
+  ];
+
 
   # required for noctalia
 
