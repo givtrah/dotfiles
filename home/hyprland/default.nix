@@ -38,7 +38,7 @@
     };
 
     configFile = {
-      # ENVIRONMENT
+       # ENVIRONMENT
       "uwsm/env".text = builtins.readFile ./uwsm-env;
 
       # HYPRLAND CONFIG
@@ -59,6 +59,60 @@
           else builtins.readFile ./monitors-default.lua;
       };
     };
+
+
+    dconf.settings = { 
+      "org/gtk/settings/file-chooser" = {
+        sort-directories-first = true;
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Breeze-Dark";
+        package = pkgs.kdePackages.breeze-gtk;
+      };
+      gtk4.theme = config.gtk.theme; # home-manager update
+    };
+
+    qt = {
+      enable = true;
+      platformTheme.name = "qtct"; # Tells Qt apps to look at qt5ct/qt6ct configurations
+      style = {
+        name = "breeze-dark";      # Uses the breeze-dark style engine
+        package = pkgs.kdePackages.breeze;
+      };
+    };
+
+  home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    hyprcursor.enable = true; # Enables native Hyprland cursor support
+    package = pkgs.catppuccin-cursors.mochaSapphire;
+    name = "catppuccin-mocha-sapphire-cursors";
+    size = 24; # Highly recommended for standard scaling; 48 can be massive on non-4K screens
+  };
+ #   home.pointerCursor = {
+  #    x11.enable = true;
+  #    gtk.enable = true;
+  #    package = pkgs.catppuccin-cursors.mochaSapphire;
+  #    name = "catppuccin-mocha-sapphire-cursors";
+  #    size = 48;
+  #  };
+
+
+
+
+
+
+
+
+
+
 
     # Import configured helper programs
     imports = [

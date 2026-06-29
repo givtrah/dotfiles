@@ -1,18 +1,5 @@
 { config, pkgs, ...}: {
 
-  gtk = {
-    enable = true;
-    };
-
-
-home.pointerCursor = {
-  x11.enable = true;
-  gtk.enable = true;
-  package = pkgs.catppuccin-cursors.mochaSapphire;
-  name = "catppuccin-mocha-sapphire-cursors";
-  size = 48;
-};
-
 
 
 
