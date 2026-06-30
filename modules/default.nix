@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, ... }:
+{ config, lib, pkgs, username, hostName, ... }:
 
 {
   # COMMON MODULES FOR ALL HOSTS
@@ -10,7 +10,6 @@
     ./users.nix
     ./locale_tz.nix
 
-
     # Desktop environments or Window managers and related
     ./sddm.nix
     ./uwsm.nix
@@ -20,7 +19,12 @@
     # Misc
 #    ./llm.nix
     ./libs.nix
-  ];
+  ]
+
+  ++ lib.optional (hostName == "taupa") ./llm.nix;
+
+
+  # ;
 
   # Options considered always enabled regardless of host
   

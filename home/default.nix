@@ -1,4 +1,4 @@
-{ config, pkgs, username, ...}: {
+{ config, pkgs, lib, username, hostName, ...}: {
 
    # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -15,7 +15,7 @@
   };
 
   imports = [
-  ./hyprland/default.nix
+  ./hyprland
 
   ./bash.nix
   ./kitty.nix
@@ -34,7 +34,12 @@
 
   ./mimetypes.nix
 
-  ];
+  ]
+
+  ++ lib.optional (hostName == "taude") ./gaming.nix; 
+
+
+
 
  	programs.git.signing.format = "openpgp";  # Legacy: openpgp, new default: null. Changed in 26.05
 

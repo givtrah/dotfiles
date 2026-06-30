@@ -18,10 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -39,7 +35,6 @@
 
       # 2. Base set of settings shared across all systems
       shared-modules = [
-        inputs.mangowm.nixosModules.mango
         inputs.home-manager.nixosModules.home-manager 
         ({ config, ... }: {
           home-manager.useGlobalPkgs = true;
@@ -61,7 +56,7 @@
       nixosConfigurations = nixpkgs.lib.mapAttrs (hostName: hostData: nixpkgs.lib.nixosSystem {
         system = hostData.system;
         
-        specialArgs = { inherit inputs nixpkgs username; } 
+        specialArgs = { inherit inputs nixpkgs username hostName; } 
           // nixpkgs.lib.optionalAttrs (hostName == "taumac") { inherit (inputs) apple-silicon; }
           // nixpkgs.lib.optionalAttrs (hostName == "tausurf") { inherit (inputs) nixos-hardware; };
 
