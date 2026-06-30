@@ -8,6 +8,8 @@
 
   [
 
+  steam
+
 # remoteplay
 #  moonlight-qt
 #  sunshine
