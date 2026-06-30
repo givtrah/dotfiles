@@ -36,7 +36,7 @@
 
   ]
 
-  ++ lib.optional (hostName == "taude") ./gaming.nix; 
+  ++ lib.optional (builtins.elem hostName [ "taude" "taupa" ]) ./gaming.nix; 
 
 
 

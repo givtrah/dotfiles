@@ -1,14 +1,9 @@
 { config, pkgs, ...}: {
 
-
-
-
-
   home.packages = with pkgs; 
 
   [
 
-  steam
 
 # remoteplay
 #  moonlight-qt

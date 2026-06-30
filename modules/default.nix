@@ -21,9 +21,11 @@
     ./libs.nix
   ]
 
-  ++ lib.optional (hostName == "taupa") ./llm.nix;
+  ++ lib.optional (hostName == "taupa") ./llm.nix
+  
+  ++ lib.optional (builtins.elem hostName [ "taude" "taupa" ]) ./gaming.nix;
 
-
+  
   # ;
 
   # Options considered always enabled regardless of host
@@ -87,6 +89,9 @@
   # also needs package gnome.adwaita-icon-theme
 
   programs.dconf.enable = true;
+
+  # Enable the possibility of gamemode as default (should be fine for all hosts?)
+  programs.gamemode.enable = true;
 
   environment.variables.EDITOR = "nvim"; # default editor is neovim
   
