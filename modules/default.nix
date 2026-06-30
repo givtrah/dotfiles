@@ -101,6 +101,7 @@
   programs.bash = {
     enable = true;
     completion.enable = true;
+################ THIS COMPLETELY BREAKS THE SYSTEM!    blesh.enable = true;
   };
 
 	# Garbage collection
