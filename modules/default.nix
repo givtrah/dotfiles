@@ -21,7 +21,9 @@
     ./libs.nix
   ]
 
-  ++ lib.optional (hostName == "taupa") ./llm.nix
+  ++ lib.optionals (hostName == "taupa") [ ./llm.nix ./work.nix ]
+
+  ++ lib.optional (hostName == "taude") ./home.nix
   
   ++ lib.optional (builtins.elem hostName [ "taude" "taupa" ]) ./gaming.nix;
 
@@ -35,8 +37,8 @@
     "loglevel=8"
     ];
 
-  systemd.watchdog.runtimeTime = "30s";
-  systemd.watchdog.rebootTime = "30s";
+  systemd.settings.Manager.RebootWatchdogSec = "30s";
+  systemd.settings.Manager.RuntimeWatchdogSec = "30s";
 
   ############
   # HARDWARE #

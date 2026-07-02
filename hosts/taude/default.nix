@@ -13,8 +13,7 @@
 
       ../../modules/default.nix
 
-      # This host is placed at home
-      ../../modules/work.nix
+ #     ../../modules/work.nix
     ];
 
   networking.hostName = "taude"; # Define your hostname.

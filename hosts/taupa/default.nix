@@ -13,8 +13,7 @@
       
       ../../modules/default.nix
 
-      # This host is placed at work
-      ../../modules/work.nix
+#      ../../modules/work.nix
     ];
 
   networking.hostName = "taupa"; # Define your hostname.
