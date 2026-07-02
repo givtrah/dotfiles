@@ -127,6 +127,7 @@
     wl-gammactl # wayland contrast, brightness and gamma adjustments
 		brightnessctl # brightness control
     libappindicator-gtk3 # required for tray icons (I think?)
+
     ######################
     # HYPRLAND ECOSYSTEM #
     ######################
