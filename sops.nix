@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   sops = {
@@ -12,8 +12,8 @@
     
     # Secrets definition
     secrets = {
-      api_token = {
-        owner = "ohm";
+      test = {
+        owner = "${username}";
       };
     };
   };
