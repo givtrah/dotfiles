@@ -35,6 +35,7 @@
     zstd
     gnupg
     caligula # TUI disk-imaging tool
+    age # Modern encryption tool used for SOPS-NIX
 
     # Systeminfo utils
     fastfetch

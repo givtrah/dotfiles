@@ -1,2 +1,5 @@
-
+# .gitignore
+.sops/
+**/keys.txt
+.username
 

@@ -17,12 +17,50 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
+
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      username = "ohm"; 
+      lib = nixpkgs.lib;
+    keyFilePath = "/var/lib/sops-nix/keys.txt";
+
+    # 1. Read the key file if it exists
+    keyFileContent = if builtins.pathExists keyFilePath
+                     then builtins.readFile keyFilePath
+                     else throw ''
+                       [SOPS ERROR] Target file '${keyFilePath}' not found.
+                       Please create this file locally and format it like:
+                       # username: your_username
+                       AGE-SECRET-KEY-1...
+                     '';
+
+    # 2. Split the file into lines
+    lines = lib.strings.splitString "\n" keyFileContent;
+
+    # 3. Find the line that specifies the username
+    usernameLine = lib.lists.findFirst 
+      (line: lib.strings.hasPrefix "# username:" line) 
+      (throw "Could not find '# username:' line in ${keyFilePath}") 
+      lines;
+
+    # 4. Strip the prefix to leave just the clean username string
+    username = lib.strings.removeSuffix "\n" (
+      lib.strings.removePrefix "# username: " usernameLine
+    );
+
+debugMessage = ''
+      ======================================
+      Extracted Username: '${username}'
+      ======================================
+    '';
+
+#      username = "ohm"; 
 
       # 1. Host data dictionary with explicitly named state versions
       # system.stateVersion is defined inside each individual host directory!
@@ -36,6 +74,7 @@
       # 2. Base set of settings shared across all systems
       shared-modules = [
         inputs.home-manager.nixosModules.home-manager 
+        inputs.sops-nix.nixosModules.sops
         ({ config, ... }: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -46,12 +85,14 @@
           };
           home-manager.users.${username}.imports = [ 
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
+            inputs.sops-nix.homeManagerModules.sops
             ./home/default.nix
           ];
         })
       ];
-    in {
-      
+    in 
+
+builtins.trace debugMessage {
       # 3. Auto-generate the complete configuration for every device.
       nixosConfigurations = nixpkgs.lib.mapAttrs (hostName: hostData: nixpkgs.lib.nixosSystem {
         system = hostData.system;
