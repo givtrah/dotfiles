@@ -30,6 +30,14 @@
 
   # Options considered always enabled regardless of host
   
+# DEBUGGIN
+  boot.kernelParams = [
+    "loglevel=8"
+    ];
+
+  systemd.watchdog.runtimeTime = "30s";
+  systemd.watchdog.rebootTime = "30s";
+
   ############
   # HARDWARE #
   ############
