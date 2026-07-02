@@ -3,68 +3,53 @@
   home.packages = with pkgs; 
 
   [
-
-
-
-    tldr      # better man
-    gptfdisk  # sgdisk
-
-    luarocks
-    nnn # terminal file manager
-  
-
-		rename # perl-rename to use with regex
-
-    htop
-
-    # replacements
+    # Standard utility replacements
     eza # ls replacement (exa, maintained, aliased to ls)
     bat # cat replacement (aliased to cat)
-    ripgrep # grep replacement (not aliased)
+    ripgrep # recursively searches directories for a regex pattern (grep replacement - rg)
     zoxide # cd replacement (aliased to cd)
     fd # find replacement (not aliased)
-    
 
-    # replacements end
-
-
-    lame # mp3 encoder
-
-    amdgpu_top
-
-    rmapi # remarkable interface?
-
-
-    lazygit # git helper
-
-    dua # du improved / interactive version
-
-    kew # command-line music player
-
-    yt-dlp # youtube downloader
-
-    hugo
-    ffmpeg
-    streamlink
-
+    # various utilities
+    tmux # terminal multiplexer 
+    tldr      # better man
+    gptfdisk  # sgdisk
+		rename # perl-rename to use with regex
     killall
-
-    lm_sensors
-
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
-    unrar
-#    rar   # does not exist on aarch64
-
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
+    nnn # terminal file manager
+    yazi # terminal file manager
+    nfs-utils
+    autossh # FW passthrough
+    glow # markdown previewer in terminal
+    libusb1 # for printing
+    xdg-utils
+    bluetui # cli bluetooth manager (if needed)
     jq # A lightweight and flexible command-line JSON processor
     yq-go # yaml processor https://github.com/mikefarah/yq
-#    eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
+    file # provides file information (-i = mime info) 
+    which
+    gnused
+    gnutar
+    gawk
+    zstd
+    gnupg
+    caligula # TUI disk-imaging tool
+
+    # Systeminfo utils
+    fastfetch
+    htop
+    btop
+    amdgpu_top
+    dua # du improved / interactive version
+    smartmontools # for smartctl
+    lm_sensors # temps / sensor command
+    btop  # replacement of htop/nmon
+    iotop # io monitoring
+    iftop # network monitoring
+    strace # system call monitoring
+    ltrace # library call monitoring
+    lsof # list open files
 
     # networking tools
     mtr # A network diagnostic tool
@@ -76,99 +61,53 @@
     nmap # A utility for network discovery and security auditing
     ipcalc  # it is a calculator for the IPv4/v6 addresses
 
-    # misc
-    cowsay
-    file
-    which
-#    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    # productivity
-    hugo # static site generator
-    glow # markdown previewer in terminal
-
-#    btop  # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
-
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
-    lsof # list open files
-
-    # system tools
+    # System tools
+    dmidecode # for hardware information
+    inxi # for hardware information
     sysstat
-    lm_sensors # for `sensors` command
     ethtool
     pciutils # lspci
     usbutils # lsusb
 
+    # Sound
+    pulsemixer
+    lame # mp3 encoder
+    kew # command-line music player
+
+    # Images
 
 
-#    maestral
-#    maestral-gui
+    # Video
+    ffmpeg
+    yt-dlp # youtube downloader
+    streamlink
+    v4l-utils
 
-    fastfetch
+    # Development
+    rmapi # remarkable interface?
+    lazygit # git helper
+    hugo # static site generator
+    luarocks
+    yarn # Javascript package manager
+    devenv # python development
+    direnv
+    nodejs
+    bun
+    gnumake
+    cmake
+    gcc
 
+    # archives
+    zip
+    xz
+    unzip
+    p7zip
+    unrar
 
+    # nix related
+    nix-output-monitor # provides the command 'nom' that works just like 'nix' with more detailed log output
 
-
-  btop
-  tmux
-
-  yarn # Javascript package manager
-  devenv # python development
-  direnv
-
-  nodejs
-  bun
   
-  gnumake
-  cmake
-  gcc
-
-  
-
-  nfs-utils
-
-
-# v4l-utils
-#  guvcview
-
-
-  smartmontools
-#  gsmartcontrol
-  # productivity / work
-  
-  autossh # FW passthrough
-
-
-  # System tools
-  dmidecode # for hardware information
-  inxi # for hardware information
-  lm_sensors # temps
-
-
-  # for printing
-  libusb1
-
-  yazi
-  pulsemixer
-
-  xdg-utils
-
-    bluetui # cli bluetooth manager (if needed)
-
   ];
 
 

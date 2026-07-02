@@ -13,7 +13,7 @@
       "x-scheme-handler/about" = "firefox.desktop";
       "x-scheme-handler/unknown" = "firefox.desktop";
 
-      # Automatically map all common image types to Gwenview
+      # Automatically map all common image types to Oculante
      } // (lib.genAttrs [
        "image/png"
        "image/jpeg"
@@ -27,7 +27,8 @@
        "image/vnd.adobe.photoshop" # PSD files
        "image/heic"           # Apple photos
        "image/avif"           # Next-gen web images
-     ] (name: "org.kde.gwenview.desktop"))
+#     ] (name: "org.kde.gwenview.desktop"))
+      ] (name: "oculante.desktop"))
 
     # Automatically map all common office files to OnlyOffice
      // (lib.genAttrs [
@@ -64,8 +65,37 @@
        "application/xml"             # XML files
        "application/x-shellscript"   # Bash/Shell scripts (.sh)
        "text/x-python"               # Python files (.py)
-     ] (name: "org.kde.kate.desktop"));
+     ] (name: "org.kde.kate.desktop"))
 
+# Automatically map common archive formats to Ark
+     // (lib.genAttrs [
+       "application/zip"             # .zip
+       "application/x-7z-compressed" # .7z
+       "application/vnd.rar"         # .rar
+       "application/x-rar"           # Fallback .rar
+       "application/x-tar"           # .tar
+       "application/x-compressed-tar" # .tar.gz / .tgz
+       "application/x-bzip2-compressed-tar" # .tar.bz2
+       "application/x-xz-compressed-tar" # .tar.xz
+       "application/x-gzip"          # .gz
+       "application/x-bzip2"         # .bz2
+       "application/x-xz"            # .xz
+       "application/x-cpio"          # .cpio
+     ] (name: "org.kde.ark.desktop"))
+
+# Automatically map common video types to mpv
+     // (lib.genAttrs [
+       "video/mp4"                   # .mp4
+       "video/webm"                  # .webm
+       "video/x-matroska"            # .mkv
+       "video/quicktime"             # .mov
+       "video/x-msvideo"             # .avi
+       "video/x-flv"                 # .flv
+       "video/ogg"                   # .ogv
+       "video/mp2t"                  # .ts
+       "video/mpeg"                  # .mpeg / .mpg
+       "video/x-ms-wmv"              # .wmv
+     ] (name: "mpv.desktop"));                                          
 
   };
 

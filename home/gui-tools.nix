@@ -14,10 +14,11 @@
 #    };
   };
 
+  programs.mpv.enable = true;
+
   home.packages = with pkgs; 
 
   [
-
     ################
     ### BROWSERS ###
     ################
@@ -28,8 +29,6 @@
     # google-chrome (added as x86_64 only package at the bottom)
     # microsoft-edge (added as x86_64 only package at the bottom)
 
-
-
     ######################
     ### OFFICE-RELATED ###
     ######################
@@ -38,83 +37,65 @@
     hunspellDicts.da_DK
     hunspellDicts.en_US
 
-    
-    # TODO: Do some sort of sorting!
-
-    libappindicator-gtk3 # required for tray icon?
-
     zathura # pdf viewer
-    mpv
-    imv # simple image viewer
+    inkscape
+    zotero # reference manager
 
-    calibre # ebook management
-
+    #####################
+    ### IMAGE RELATED ###
+    #####################
     qview # fast af image viewer
     rapidraw # gpu accel raw image editor
-#    oculante # minimalistic image viewer written in rust
-
-
-#    ocrmypdf # convert image only pdf to pdf+text that's searchable
-
-
-		projectm-sdl-cpp # milkdrop audio visualizer
-
-
+    oculante # fast, minimalistic image viewer written in rust
+    kdePackages.gwenview
+    imv # simple image viewer
     gimp3-with-plugins
-#    deskflow
+    grim
 
-#    amarok
+    #####################
+    ### SOUND RELATED ###
+    #####################
     clementine
     asunder # cd ripper
     kid3 # mp3 tagger
+		projectm-sdl-cpp # milkdrop audio visualizer
+    # amarok # mp3 player - currently broken?
 
-    lact # GPU configuration
-    piper
-
-    gnome-multi-writer
-
-    qbittorrent
-
-    telegram-desktop
-    kdePackages.kcalc
+    #####################
+    ### VIDEO RELATED ###
+    #####################
+    vlc
+    mkvtoolnix
+    guvcview
+    jellyfin-media-player 
     
-#    legcord      # uses electron! (electron-unwrapped)
-  obsidian
-  jellyfin-media-player # insecure 2025-08-30 since it uses qtwebengine 5.15.19 based on old chromium
-  mesa-demos # includes everything in glxinfo
-  vulkan-tools
-  adwaita-icon-theme # fix gnome window decorations
-  v4l-utils
-#  guvcview
+    #########################
+    ### MESSAGING RELATED ###
+    #########################
+    telegram-desktop
+    signal-desktop
 
-  inkscape
+    ########################
+    ### HARDWARE RELATED ###
+    ########################
+    lact # GPU configuration
+    piper # gaming mouse configuration (needs ratbagd)
+    mesa-demos # includes everything in glxinfo
+    vulkan-tools
+    gsmartcontrol
 
-  gsmartcontrol
-  # productivity / work
+    ############
+    ### MISC ###
+    ############
+    calibre # ebook management
+    gnome-multi-writer
+    qbittorrent
+    kdePackages.kcalc # ensures kcalc is installed
+    obsidian # Note taking app (non-free)
+    remmina # remote desktop client
 
-
-  signal-desktop
-#  zettlr
-  remmina
-#  libsForQt5.kcalc
-#  libsForQt5.kate
-
-  grim
-
-  # Multimedia
-  mpv
-  vlc
-
-
-
-  # IMAGE VIEWERS
-  oculante
-
-      # Videorip encoding etc.
-  mkvtoolnix
-  
-
-  zotero
+    # ocrmypdf # convert image only pdf to pdf+text that's searchable
+    # deskflow # share mouse/keyboard with nearby computers - unused atm
 
   ]
 
@@ -122,10 +103,11 @@
 # Packages only for x86_64 Linux
   ++ (lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
     google-chrome
+    makemkv
     microsoft-edge
-    zoom-us
     steam-run
     upscayl
+    zoom-us
   ])
 
   # Packages only for aarch64 Linux
