@@ -6,8 +6,7 @@
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
-#    Not needed, it should inherit the info from system-wide SOPS config
-#    age.keyFile = "/var/lib/sops-nix/keys.txt"; 
+    age.keyFile = "/var/lib/sops-nix/keys.txt"; # must be readable by the user!
    
 
     # Personal user space secrets definitions
@@ -20,13 +19,11 @@
       # Copies your private identity key as a flat file to bypass symlink checks
       ssh_external_key = {
         path = "${config.home.homeDirectory}/.ssh/external_key";
-        changeOwner = true;
       };
 
       # Copies your public identity key as a flat file
       ssh_external_pub = {
         path = "${config.home.homeDirectory}/.ssh/external_key.pub";
-        changeOwner = true;
       };
     };
   };
