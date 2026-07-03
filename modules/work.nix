@@ -1,10 +1,10 @@
 { pkgs, config, lib, options, ... }:
 
 {
-  # 1. Fully disable timesyncd so it stops trying to evaluate during compilation
+  # Disable timesyncd so it stops trying to evaluate during compilation
   services.timesyncd.enable = false;
 
-  # 2. Enable Chrony to handle the secret file at runtime
+  # Enable Chrony to handle the secret NTP server from SOPS
   services.chrony = {
     enable = true;
     

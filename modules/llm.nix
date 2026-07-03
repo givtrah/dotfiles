@@ -7,10 +7,6 @@
   lmstudio
 	llama-cpp-vulkan
 #	ollama-vulkan
-
-#  rocmPackages.rocm-smi
-
-
   ];
 
 	services.ollama = {
@@ -28,9 +24,4 @@
   };
 		host = "0.0.0.0";
 	};
-
-
-
-
-
 }

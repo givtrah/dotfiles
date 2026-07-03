@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   # disable default sound module. see https://nixos.wiki/wiki/PipeWire
-#  sound.enable = false; # sound.enable only meant for alsa sound
+  #  sound.enable = false; # sound.enable only meant for alsa sound
   services.pulseaudio.enable = false; 
 
   security.rtkit.enable = true;
@@ -13,7 +13,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
       
-# Prevents idle suspend AND stops aggressive bluetooth microphone auto-switching
+      # Prevents idle suspend AND stops aggressive bluetooth microphone auto-switching
       wireplumber.extraConfig."99-disable-suspend" = {
         "wireplumber.settings" = {
           # STOP the system from automatically hijacking audio quality for the mic

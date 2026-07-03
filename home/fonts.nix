@@ -12,8 +12,8 @@
   	fira-code
   	fira-code-symbols
   	mplus-outline-fonts.githubRelease
-  	dina-font
-  	proggyfonts
+#  	dina-font # included from somewhere else?
+#  	proggyfonts # included from somewhere else?
 		nerd-fonts.jetbrains-mono
 		nerd-fonts.fira-code
 		nerd-fonts.droid-sans-mono

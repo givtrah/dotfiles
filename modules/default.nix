@@ -19,8 +19,7 @@
     ./plasma6.nix
     ./nemo.nix
   
-    # Misc
-#    ./llm.nix
+    # Misc - test if this is needed!
     ./libs.nix
   ]
 
@@ -30,16 +29,9 @@
   
   ++ lib.optional (builtins.elem hostName [ "taude" "taupa" ]) ./gaming.nix;
 
-  
-  # ;
-
   # Options considered always enabled regardless of host
   
-# DEBUGGIN
-  boot.kernelParams = [
-    "loglevel=8"
-    ];
-
+  # Try to prevent long reboot waits
   systemd.settings.Manager.RebootWatchdogSec = "30s";
   systemd.settings.Manager.RuntimeWatchdogSec = "30s";
 

@@ -15,8 +15,6 @@
 
 #  programs.mango.enable = true;
 
-
-
   # Enable Hyprland
   programs.hyprland = {
 		enable = true;
@@ -30,7 +28,6 @@
   environment.systemPackages = with pkgs; [
     hyprpolkitagent
   ];
-
 
   # required for noctalia
 
