@@ -21,7 +21,10 @@ hl.config({
     gestures = {
         -- workspace_swipe = false,
     },
-
+    
+    xwayland = {
+      force_zero_scaling = true
+    },
 
     -- --------------------------------------
     -- MISCELLANEOUS & DIAGNOSTICS
