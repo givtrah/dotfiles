@@ -3,6 +3,9 @@
 {
   # COMMON MODULES FOR ALL HOSTS
   imports = [
+    # systemwide secrets
+    ./sops.nix
+
     # hardware or related
     ./sound.nix
 

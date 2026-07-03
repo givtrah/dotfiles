@@ -13,8 +13,13 @@
       pulse.enable = true;
       wireplumber.enable = true;
       
-      # Prevents Bluetooth audio nodes from suspending when idle
+# Prevents idle suspend AND stops aggressive bluetooth microphone auto-switching
       wireplumber.extraConfig."99-disable-suspend" = {
+        "wireplumber.settings" = {
+          # STOP the system from automatically hijacking audio quality for the mic
+          "bluetooth.autoswitch-to-headset-profile" = false;
+        };
+
         "monitor.bluez.rules" = [
           {
             matches = [
@@ -23,13 +28,13 @@
             ];
             actions = {
               update-props = {
-                "session.suspend-timeout-seconds" = 0; # 0 disables suspend completely
+                # Keeps the speaker alive when silent
+                "session.suspend-timeout-seconds" = 0; 
               };
             };
           }
         ];
       };
     };
-
   environment.systemPackages = builtins.attrValues { inherit (pkgs) pavucontrol alsa-utils; };
 }

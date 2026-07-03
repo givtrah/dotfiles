@@ -75,7 +75,6 @@ debugMessage = ''
       shared-modules = [
         inputs.home-manager.nixosModules.home-manager 
         inputs.sops-nix.nixosModules.sops
-        ./sops.nix
         ({ config, ... }: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

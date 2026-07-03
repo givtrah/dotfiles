@@ -3,7 +3,7 @@
 {
   sops = {
     # This is the default secret file for everything in this module
-    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
     # This will automatically import the host's ssh key as an age key 
