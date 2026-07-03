@@ -12,16 +12,24 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       wireplumber.enable = true;
-  };
-
-#  environment.etc."wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
-#      bluez_monitor.properties = {
-#        ["bluez5.enable-sbc-xq"] = true,
-#        ["bluez5.enable-msbc"] = true,
-#        ["bluez5.enable-hw-volume"] = true,
-#        ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-#      }
-#  '';
+      
+      # Prevents Bluetooth audio nodes from suspending when idle
+      wireplumber.extraConfig."99-disable-suspend" = {
+        "monitor.bluez.rules" = [
+          {
+            matches = [
+              { "node.name" = "~bluez_input.*"; }
+              { "node.name" = "~bluez_output.*"; }
+            ];
+            actions = {
+              update-props = {
+                "session.suspend-timeout-seconds" = 0; # 0 disables suspend completely
+              };
+            };
+          }
+        ];
+      };
+    };
 
   environment.systemPackages = builtins.attrValues { inherit (pkgs) pavucontrol alsa-utils; };
 }
