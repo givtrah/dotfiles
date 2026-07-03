@@ -15,6 +15,11 @@
       test = {
         owner = "${username}";
       };
+      hosts = { mode = "0444"; }; # world readable (safe because its just local IPs/hostnames)
+      work_timeserver = { mode = "0444"; }; # safe because its just a timeserver hostname
     };
   };
+
+  environment.systemPackages = with pkgs; [ sops ];
+
 }
