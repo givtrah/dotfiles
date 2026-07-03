@@ -15,6 +15,7 @@
   };
 
   imports = [
+  ./sops.nix # userspace secrets
   ./hyprland
 
   ./bash.nix
