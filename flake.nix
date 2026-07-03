@@ -27,42 +27,31 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
+      # Obtain username from SOPS keyfile
       lib = nixpkgs.lib;
-    keyFilePath = "/var/lib/sops-nix/keys.txt";
+      keyFilePath = "/var/lib/sops-nix/keys.txt";
+      # Read SOPS key file if it exists
+      keyFileContent = if builtins.pathExists keyFilePath
+        then builtins.readFile keyFilePath
+        else throw ''
+          [SOPS ERROR] Target file '${keyFilePath}' not found.
+          Please create this file locally and format it like:
+          # username: your_username
+          AGE-SECRET-KEY-1...
+        '';
+      # split file into lines and find line with username
+      lines = lib.strings.splitString "\n" keyFileContent; 
+      usernameLine = lib.lists.findFirst 
+        (line: lib.strings.hasPrefix "# username:" line) 
+        (throw "Could not find '# username:' line in ${keyFilePath}") 
+        lines;
+      # strip prefix leaving just the username
+      username = lib.strings.removeSuffix "\n" ( 
+        lib.strings.removePrefix "# username: " usernameLine
+      );
+      debugMessage = ''=== Extracted Username: '${username}' === '';
 
-    # 1. Read the key file if it exists
-    keyFileContent = if builtins.pathExists keyFilePath
-                     then builtins.readFile keyFilePath
-                     else throw ''
-                       [SOPS ERROR] Target file '${keyFilePath}' not found.
-                       Please create this file locally and format it like:
-                       # username: your_username
-                       AGE-SECRET-KEY-1...
-                     '';
-
-    # 2. Split the file into lines
-    lines = lib.strings.splitString "\n" keyFileContent;
-
-    # 3. Find the line that specifies the username
-    usernameLine = lib.lists.findFirst 
-      (line: lib.strings.hasPrefix "# username:" line) 
-      (throw "Could not find '# username:' line in ${keyFilePath}") 
-      lines;
-
-    # 4. Strip the prefix to leave just the clean username string
-    username = lib.strings.removeSuffix "\n" (
-      lib.strings.removePrefix "# username: " usernameLine
-    );
-
-debugMessage = ''
-      ======================================
-      Extracted Username: '${username}'
-      ======================================
-    '';
-
-#      username = "ohm"; 
-
-      # 1. Host data dictionary with explicitly named state versions
+      # Host dictionary with explicitly named Home-Manager state versions
       # system.stateVersion is defined inside each individual host directory!
       hosts = {
         taumac  = { system = "aarch64-linux"; homeManagerStateVersion = "24.05"; extraModules = [ inputs.apple-silicon.nixosModules.apple-silicon-support ]; };
@@ -71,7 +60,7 @@ debugMessage = ''
         taude   = { system = "x86_64-linux";  homeManagerStateVersion = "25.11"; extraModules = []; };
       };
 
-      # 2. Base set of settings shared across all systems
+      # Settings shared across all systems
       shared-modules = [
         inputs.home-manager.nixosModules.home-manager 
         inputs.sops-nix.nixosModules.sops
@@ -91,12 +80,12 @@ debugMessage = ''
         })
       ];
     in 
-
-builtins.trace debugMessage {
-      # 3. Auto-generate the complete configuration for every device.
+      # Sanity check: Print out username everytime a rebuild is done
+      builtins.trace debugMessage { 
+      # Auto-generate the configuration for every host defined above
       nixosConfigurations = nixpkgs.lib.mapAttrs (hostName: hostData: nixpkgs.lib.nixosSystem {
         system = hostData.system;
-        
+        # Some systems require special module inherits 
         specialArgs = { inherit inputs nixpkgs username hostName; } 
           // nixpkgs.lib.optionalAttrs (hostName == "taumac") { inherit (inputs) apple-silicon; }
           // nixpkgs.lib.optionalAttrs (hostName == "tausurf") { inherit (inputs) nixos-hardware; };
@@ -105,12 +94,10 @@ builtins.trace debugMessage {
           ./hosts/${hostName} 
           {
             nixpkgs.overlays = [];
-            
-            # Explicitly assigning the dictionary value to Home Manager's stateVersion
+            # Assign the dictionary Home-manager state version
             home-manager.users.${username}.home.stateVersion = hostData.homeManagerStateVersion;
           }
         ];
       }) hosts;
-
     };
 }
