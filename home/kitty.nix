@@ -80,7 +80,6 @@
 #      themeFile = "OneHalfDark"; # kinda stupid to do when using pywal16
 
       # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
-
       #        env.TERM = "xterm-256color";
 
   };

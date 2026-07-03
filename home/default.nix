@@ -3,11 +3,14 @@
    # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Needed settings due to old Home-Manager StateVersion for some hosts
+ 	programs.git.signing.format = "openpgp";  # Legacy: openpgp, new default: null. Changed in 26.05
+
   # Home-manager user configuration
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
-  # basic git configuration
+  # Basic git configuration
   programs.git = {
     enable = true;
     settings.user.name = "givtrah";
@@ -30,26 +33,16 @@
 
   ./gui-tools.nix
 
-	./neovim/nvim.nix
+	./neovim
 
   ./mimetypes.nix
 
   ]
 
+  # Gaming hosts
   ++ lib.optional (builtins.elem hostName [ "taude" "taupa" ]) ./gaming.nix; 
 
-
-
-
- 	programs.git.signing.format = "openpgp";  # Legacy: openpgp, new default: null. Changed in 26.05
-
-# Packages that should be installed to the user profile.
-  home.packages = with pkgs; 
-
-  [
-
-  ];
-
-
+  # Packages that should be installed to the user profile.
+  home.packages = with pkgs; [ ]; 
 
 }

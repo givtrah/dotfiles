@@ -19,12 +19,9 @@
 
     vi = "nvim"; # yes!
     sudo = "sudo "; # fix aliases not working with sudo - the space means carry over aliases
-
-
-    # ripgrep = "grep";
-
     };
 
+    # fix bun path
     initExtra = ''
       export PATH="$HOME/.cache/.bun/bin:$PATH"
       '';

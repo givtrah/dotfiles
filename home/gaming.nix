@@ -2,106 +2,64 @@
 
   home.packages = with pkgs; 
 
+  # FOR NOW THIS ASSUMES AN X86_X64 HOST!
+
   [
+    # Emulators
+    fsuae           # Amiga
+    fsuae-launcher  # FSUAE front-end
+    stella          # Atari 2600 
 
 
-# remoteplay
-#  moonlight-qt
-#  sunshine
 
-  rusty-path-of-building
-  
-  eden # switch 1 emu
+    mupen64plus     # Nintendo 64
+    desmume         # Nintendo DS
+    melonds         # Nintendo DS
+    dolphin-emu     # Nintendo Gamecube / Wii / triforce
+    nanoboyadvance  # Nintendo Gameboy Advance
+    mgba            # Nintendo Gameboy Advance
+    sameboy         # Nintendo Gameboy, Gameboy color, Super Gameboy
 
+    eden            # Nintendo Switch 1
+    ryubing         # Nintendo Switch 1
+    cemu            # Nintendo Wii
 
-  # Emulation
-  
-#  retroarchFull # multi system with all cores (should be changed to NOT mame, but everything else)
+    fceux-qt6       # NES
+    punes-qt6       # NES
+    snes9x          # SNES - does not build
+    zsnes           # SNES
 
-  mednafen # multisystem emulator
-  mednaffe # frontend for mednafen
+    mednafen        # Multisystem (incl. PSX/PS1)
+    mednaffe        # Frontend for mednafen
+    mesen           # Multisystem
+    retroarch-full  # Multisystem
 
-#  desmume # Nintendo DS - not compiling 2024-12-29
-  melonds # Nintendo DS
-#  lime3ds # Nintendo 3DS
-  mgba # Nintendo Gameboy Advance
-  sameboy # Nintendo Gameboy, Gameboy color, Super Gameboy
-#  fceux # NES
-#  punes-qt6 # NES
-#  snes9x-gtk # SNES
-#  nanoboyadvance # Nintendo Gameboy Advance - not compiling 2024-12-29
-  dolphin-emu # Nintendo Gamecube / Wii / triforce
-  ryubing # Nintendo Switch
+    flycast         # SEGA Dreamcast, Naomi and Atomiswave
+    dgen-sdl        # SEGA Genesis / Megadrive
+    dosbox          # DOS games
 
-#  duckstation # PS1 # moved to x86 only as it does not compile on aarch64 2024-12-31
-#  pcsxr # PS1
-  ppsspp-sdl-wayland # Playstation portable (wayland)
-#  rpcs3 # PS3 not working 2026-06-08
-  
-  maxcso # compression from iso to cso for psp and ps2 emus
- 
-  dosbox # Dos games
- 
-#  xemu # original xbox - not compiling 2025-09-09
- 
-  dgen-sdl # Sega Genesis / Megadrive
-#  flycast # Sega Dreamcast, Naomi and Atomiswave emulator - broken 2025-01-06
+    xemu            # Original xbox
+    xenia-canary    # Xbox 360
 
-  stella # Atari 2600
+    scummvm         # SCUMM games
+
+    pcsx2           # PS2
+    # rpcs3           # PS3 - not building 2026-07-03
+
+    ppsspp-sdl-wayland # Playstation portable (wayland)
+
+    # Game utilities
+    rusty-path-of-building # POE1 and POE2 build planner
+    maxcso # compression from iso to cso for psp and ps2 emulators
+    mangohud    
+
+    # Remote play
+    # moonlight-qt
+    # sunshine
+
 #  openmsx # MSX - not compiling 2025-08-23
-#  fsuae # Amiga, not working right now
-#  uae # Amiga - failed to build on 2024-12-29
 #  vice # C-64
 
-#  emulationstation # Frontend currently with security issues
-
-
-#  heroic # heroic launcher
-#  gogdl # gog downloader for heroic
-
-  scummvm
-
-  mangohud
-
-
-
-  ]
-
-  ++
-   
-    (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
-    then [ ]
-  else
-    (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
-      then [ 
-	#steam
-        mupen64plus # Nintendo 64
-        pcsx2 # PS2
-        cemu # Wii x86 only
-#        zsnes # SNES x86 only - broken 2025-01-05
-#        duckstation # does not compile on aarch64 2024-12-31
-#        heroic - failed to build 2024-12-29
-
-
-
-      ]
-      else []));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  ];
 
 }

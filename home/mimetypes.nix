@@ -13,7 +13,7 @@
       "x-scheme-handler/about" = "firefox.desktop";
       "x-scheme-handler/unknown" = "firefox.desktop";
 
-      # Automatically map all common image types to Oculante
+      # Map common image types to Oculante
      } // (lib.genAttrs [
        "image/png"
        "image/jpeg"
@@ -30,7 +30,7 @@
 #     ] (name: "org.kde.gwenview.desktop"))
       ] (name: "oculante.desktop"))
 
-    # Automatically map all common office files to OnlyOffice
+     # Map common office files to OnlyOffice
      // (lib.genAttrs [
        # Microsoft Office formats
        "application/msword"                                                      # .doc
@@ -50,7 +50,7 @@
        "text/csv"                                                                # Comma-separated values
      ] (name: "org.onlyoffice.desktopeditors.desktop"))
 
-    # Automatically map generic text and code files to Kate
+     # Map generic text and code files to Kate
      // (lib.genAttrs [
        "text/plain"                  # Standard text files (.txt)
        "text/markdown"               # Markdown files (.md)
@@ -67,7 +67,7 @@
        "text/x-python"               # Python files (.py)
      ] (name: "org.kde.kate.desktop"))
 
-# Automatically map common archive formats to Ark
+     # Map archive formats to Ark
      // (lib.genAttrs [
        "application/zip"             # .zip
        "application/x-7z-compressed" # .7z
@@ -83,7 +83,7 @@
        "application/x-cpio"          # .cpio
      ] (name: "org.kde.ark.desktop"))
 
-# Automatically map common video types to mpv
+     # Map video types to mpv
      // (lib.genAttrs [
        "video/mp4"                   # .mp4
        "video/webm"                  # .webm
@@ -98,5 +98,4 @@
      ] (name: "mpv.desktop"));                                          
 
   };
-
 }

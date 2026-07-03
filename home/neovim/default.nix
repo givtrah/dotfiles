@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
-
-{
+{ config, pkgs, ... }:{
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped; # normal neovim from unstable
@@ -20,14 +12,13 @@
 
 
     extraPackages = with pkgs; [
-# LANGUAGE SERVERS GOES HERE (NO MASON! YAY)
+      # LANGUAGE SERVERS GOES HERE (NO MASON! YAY)
 		  lua-language-server # lua
 			pyright # python
 			rPackages.languageserver # R
 			tinymist # typst
 
-# Misc stuff that might be needed for dev shit (should prob go somewhere else)
-
+      # Misc stuff that might be needed for dev shit (should prob go somewhere else)
 			doq
       sqlite
       cargo
@@ -43,14 +34,4 @@
 
     extraLuaPackages = ls: with ls; [ luarocks ];
   };
-
-
-# home.file."${config.home.homeDirectory}/.config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/nvim";
-#config.lib.file.mkOutOfStoreSymlink
- #   "${config.home.homeDirectory}/.dotfiles/config/nvim";
-
-
-
-
-
 }
