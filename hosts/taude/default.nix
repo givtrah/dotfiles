@@ -32,7 +32,7 @@
   # might need to be done still
 
   # Enable KVM and sg (for cdrom/dvd/bluray)
-  boot.kernelModules = [ "kvm-amd" "kvm-intel" "sg" ]; #consider ntsync in the future... (for Wine, causes crashes in steam?)
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" "sg" "ntsync" ]; #consider ntsync in the future... (for Wine, causes crashes in steam?)
   
   # Enable mounting nfs at boot?
 	boot.supportedFilesystems = [ "nfs" ];
