@@ -14,18 +14,18 @@
 
     extraPackages = with pkgs; [
       # LANGUAGE SERVERS GOES HERE (NO MASON! YAY)
+      gopls # Go
 		  lua-language-server # lua
+      marksman # Markdown
 			pyright # python
 			rPackages.languageserver # R
+      rust-analyzer # rust
 			tinymist # typst
-      yaml-language-server
-
+      typescript-language-server
+      yaml-language-server # YAML
 
       # Treesitter bindings
       vimPlugins.nvim-treesitter-parsers.r
-
-
-
 
       # Misc stuff that might be needed for dev shit (should prob go somewhere else)
 			doq

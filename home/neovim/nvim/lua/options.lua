@@ -1,5 +1,12 @@
 vim.g.netrw_banner = 0 -- disable file explorer banner
 
+vim.opt.termguicolors = true -- Neovim uses 24bit color instead of just 256 colors
+
+-- Silence providers I don't need (assuming I don't need plugins written in node js, perl or python)
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+
 vim.opt.number = true -- line numbers
 vim.opt.relativenumber = true -- relative line numbers
 
@@ -42,10 +49,69 @@ vim.opt.colorcolumn = "0" -- show a column at X position chars (0 = off)
 vim.opt.signcolumn = 'yes' -- always show a sign column
 vim.opt.cmdheight = 0 -- Hide command line when unused (1 = single line)
 
-
-
 vim.opt.autoindent = true -- copy indent from current line
 vim.opt.breakindent = true -- break indent (for wrapped text)
+
+-- fixes statusline and general transparency
+local function set_transparent() -- set UI component to transparent
+	local groups = {
+		"Normal",
+		"NormalNC",
+		"EndOfBuffer",
+		"NormalFloat",
+		"FloatBorder",
+		"SignColumn",
+		"StatusLine",
+		"StatusLineNC",
+		"TabLine",
+		"TabLineFill",
+		"TabLineSel",
+		"ColorColumn",
+	}
+	for _, g in ipairs(groups) do
+		vim.api.nvim_set_hl(0, g, { bg = "none" })
+	end
+	vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none", fg = "#767676" })
+end
+
+set_transparent()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- from radley lewis, consider which ones should be passed to above
+
+
+
+
+
+
+
+
+
 
 
 
