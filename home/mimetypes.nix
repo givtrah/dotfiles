@@ -2,9 +2,9 @@
 
   xdg.mimeApps = {
     enable = true;
+
     defaultApplications = {
       "application/pdf" = "okularApplication_pdf.desktop";
-
 
 			# Default browser
 			"text/html" = "firefox.desktop";
@@ -97,24 +97,25 @@
        "video/x-ms-wmv"              # .wmv
      ] (name: "mpv.desktop"))           
 
-      # Map audio files to fooyin
-      // (lib.genAttrs [
-        "audio/mp4"                    # AAC / MP4 Audio (.m4a)
-        "audio/mpeg"                   # MP3 Audio (.mp3)
-        "audio/mp3"                    # MP3 audio again?
-        "audio/cue"                    # cue files
-        "audio/ogg"                    # Ogg Vorbis (.ogg)
-        "application/x-cue"            # cue files
-        "audio/x-flac"                 # FLAC Audio (.flac)
-        "audio/x-mp3"                  # Alternative MP3 Mimetype
-        "audio/x-mpeg"                 # Alternative MPEG Audio Mimetype
-        "audio/x-vorbis+ogg"           # Alternative Ogg Vorbis Mimetype
-        "audio/x-wav"                  # Waveform Audio (.wav)
-        "audio/x-opus+ogg"             # Opus Audio (.opus)
-        "audio/x-m4a"                  # Alternative M4A Mimetype
-        "audio/x-matroska"             # Matroska Audio (.mka)
-        "audio/aac"                    # Raw AAC stream (.aac)
-      ] (name: "fooyin.desktop")); 
+     # Map audio files to fooyin
+     // (lib.genAttrs [
+       "audio/mp4"                    # AAC / MP4 Audio (.m4a)
+       "audio/mpeg"                   # MP3 Audio (.mp3)
+       "audio/mp3"                    # MP3 audio again
+       "audio/cue"                    # cue files
+       "audio/ogg"                    # Ogg Vorbis (.ogg)
+       "application/x-cue"            # cue files
+       "audio/x-flac"                 # FLAC Audio (.flac)
+       "audio/x-mp3"                  # Alternative MP3 Mimetype
+       "audio/x-mpeg"                 # Alternative MPEG Audio Mimetype
+       "audio/x-vorbis+ogg"           # Alternative Ogg Vorbis Mimetype
+       "audio/x-wav"                  # Waveform Audio (.wav)
+       "audio/x-opus+ogg"             # Opus Audio (.opus)
+       "audio/x-m4a"                  # Alternative M4A Mimetype
+       "audio/x-matroska"             # Matroska Audio (.mka)
+       "audio/aac"                    # Raw AAC stream (.aac)
+       "audio/*"                      # Global fallback override
+     ] (name: "org.fooyin.fooyin.desktop")); 
 
   };
 }
