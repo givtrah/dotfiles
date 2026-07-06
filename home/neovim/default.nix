@@ -18,6 +18,14 @@
 			pyright # python
 			rPackages.languageserver # R
 			tinymist # typst
+      yaml-language-server
+
+
+      # Treesitter bindings
+      vimPlugins.nvim-treesitter-parsers.r
+
+
+
 
       # Misc stuff that might be needed for dev shit (should prob go somewhere else)
 			doq
@@ -33,7 +41,11 @@
       sqlite
     ];
 
-    extraLuaPackages = ls: with ls; [ luarocks ];
+    extraLuaPackages = ls: with ls; [ 
+    luarocks 
+    tree-sitter-cli
+
+    ];
   };
   # Symlinks ./nvim folder directly into ~/.config/nvim
 #  xdg.configFile."nvim".source = ./nvim;
