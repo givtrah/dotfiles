@@ -56,6 +56,7 @@
     ### SOUND RELATED ###
     #####################
     clementine
+    fooyin # foobar2k alternative
     asunder # cd ripper
     kid3 # mp3 tagger
 		projectm-sdl-cpp # milkdrop audio visualizer
