@@ -83,7 +83,7 @@
        "application/x-cpio"          # .cpio
      ] (name: "org.kde.ark.desktop"))
 
-     # Map video types to mpv
+     # Map video files to mpv
      // (lib.genAttrs [
        "video/mp4"                   # .mp4
        "video/webm"                  # .webm
@@ -95,7 +95,23 @@
        "video/mp2t"                  # .ts
        "video/mpeg"                  # .mpeg / .mpg
        "video/x-ms-wmv"              # .wmv
-     ] (name: "mpv.desktop"));                                          
+     ] (name: "mpv.desktop"))           
+
+      # Map audio files to fooyin
+      // (lib.genAttrs [
+        "audio/mp4"                    # AAC / MP4 Audio (.m4a)
+        "audio/mpeg"                   # MP3 Audio (.mp3)
+        "audio/ogg"                    # Ogg Vorbis (.ogg)
+        "audio/x-flac"                 # FLAC Audio (.flac)
+        "audio/x-mp3"                  # Alternative MP3 Mimetype
+        "audio/x-mpeg"                 # Alternative MPEG Audio Mimetype
+        "audio/x-vorbis+ogg"           # Alternative Ogg Vorbis Mimetype
+        "audio/x-wav"                  # Waveform Audio (.wav)
+        "audio/x-opus+ogg"             # Opus Audio (.opus)
+        "audio/x-m4a"                  # Alternative M4A Mimetype
+        "audio/x-matroska"             # Matroska Audio (.mka)
+        "audio/aac"                    # Raw AAC stream (.aac)
+      ] (name: "fooyin.desktop")); 
 
   };
 }
