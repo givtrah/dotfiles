@@ -37,6 +37,8 @@
 
   ./mimetypes.nix
 
+  ./agents.nix
+
   ]
 
   # Gaming hosts
