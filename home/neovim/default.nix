@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:{
+{ config, pkgs, username, ... }:{
+  
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped; # normal neovim from unstable
@@ -35,7 +36,13 @@
     extraLuaPackages = ls: with ls; [ luarocks ];
   };
   # Symlinks ./nvim folder directly into ~/.config/nvim
-  xdg.configFile."nvim".source = ./nvim;
+#  xdg.configFile."nvim".source = ./nvim;
+
+#home.file."/home/{$username}/.config/nvim".source =
+#config.lib.file.mkOutOfStoreSymlink
+#    "${config.home.homeDirectory}/.dotfiles/home/neovim/nvim";
+
+  xdg.configFile.nvim = { source = ./nvim; recursive = true;};
 
 
 }
