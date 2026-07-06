@@ -3,8 +3,15 @@
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
 
-  # Select internationalisation properties.
+   # Default internationalisation properties
   i18n.defaultLocale = "en_DK.UTF-8";
+
+ # Supported internationalisation properties.
+   i18n.extraLocales = [ 
+    "en_US.UTF-8/UTF-8"
+    "da_DK.UTF-8/UTF-8"
+    "en_DK.UTF-8/UTF-8" 
+  ];
 
   i18n.extraLocaleSettings = {                                                                                                
   LC_ADDRESS = "en_DK.UTF-8";                                                                     
@@ -17,9 +24,6 @@
   LC_TELEPHONE = "en_DK.UTF-8";                                                                   
   LC_TIME = "en_DK.UTF-8";                                                                        
   };     
-
-
-
 
   # Configure console keymap
   console.keyMap = "dk-latin1";

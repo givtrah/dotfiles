@@ -20,8 +20,9 @@
   services.open-webui  = {
 		enable = true;
 		environment = {
- #   OLLAMA_HOST = "0.0.0.0"; # used to be necessary, but doesn't seem to anymore
-  };
+      HOME = "/var/lib/open-webui";
+ #   OLLAMA_HOST = "0.0.0.0"; # used to be necessary, but doesn't seem to anymor
+    };
 		host = "0.0.0.0";
 	};
 }
