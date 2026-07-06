@@ -3,9 +3,15 @@
 local ensure_installed = {
     "go", "rust", "typescript", "javascript", "tsx",
     "html", "css", "json", "bash",
-    "http", "dockerfile", "r",
+    "http", "dockerfile", "r", "csv", "yaml", "rnoweb", "typst",
 }
 
 require("tree-sitter-manager").setup({
    ensure_installed = ensure_installed,
+
 })
+
+
+
+
+

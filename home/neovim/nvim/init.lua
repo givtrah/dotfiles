@@ -10,6 +10,7 @@ require("keymaps")
 require("autocommands")
 require("commands")
 require("statusline")
+require("pack")
 require("treesitter")
 require("lsp")
 

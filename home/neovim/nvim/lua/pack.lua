@@ -3,7 +3,7 @@ vim.pack.add({
   
   "https://github.com/nvim-mini/mini.nvim",
   "https://github.com/rafamadriz/friendly-snippets",
-  { src = "https://github.com/romus204/tree-sitter-manager.nvim" }
+  { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
   "https://github.com/neovim/nvim-lspconfig",
 --  "https://github.com/mason-org/mason.nvim",
   "https://github.com/tpope/vim-fugitive",

@@ -18,13 +18,20 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+vim.lsp.config("yaml_language-server", {})
+vim.lsp.config("tsserver", {})
+vim.lsp.config("r_languageserver", {})
+
+
+
 vim.lsp.enable({
     "gopls",
     "lua_ls",
     "marksman",
     "pyright",
-    "r-languageserver",
+    "r_languageserver",
     "rust_analyzer",
     "tinymist",
     "tsserver",
+    "yamlls",
 })

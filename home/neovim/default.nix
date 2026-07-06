@@ -18,14 +18,23 @@
 		  lua-language-server # lua
       marksman # Markdown
 			pyright # python
-			rPackages.languageserver # R
       rust-analyzer # rust
 			tinymist # typst
       typescript-language-server
       yaml-language-server # YAML
 
+			# rPackages.languageserver # R
+      
+      (rWrapper.override {
+        packages = with rPackages; [ languageserver ];
+      })
+
       # Treesitter bindings
-      vimPlugins.nvim-treesitter-parsers.r
+      # vimPlugins.nvim-treesitter-parsers.r
+
+
+      # 
+      tree-sitter
 
       # Misc stuff that might be needed for dev shit (should prob go somewhere else)
 			doq
@@ -43,7 +52,6 @@
 
     extraLuaPackages = ls: with ls; [ 
     luarocks 
-    tree-sitter-cli
 
     ];
   };
