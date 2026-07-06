@@ -26,7 +26,7 @@
   ./gaming.nix
   ./flatpak.nix
 
-#  ./features/r.nix
+  ./r.nix
 
   ./cli-tools.nix
   ./fonts.nix
