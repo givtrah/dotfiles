@@ -101,7 +101,10 @@
       // (lib.genAttrs [
         "audio/mp4"                    # AAC / MP4 Audio (.m4a)
         "audio/mpeg"                   # MP3 Audio (.mp3)
+        "audio/mp3"                    # MP3 audio again?
+        "audio/cue"                    # cue files
         "audio/ogg"                    # Ogg Vorbis (.ogg)
+        "application/x-cue"            # cue files
         "audio/x-flac"                 # FLAC Audio (.flac)
         "audio/x-mp3"                  # Alternative MP3 Mimetype
         "audio/x-mpeg"                 # Alternative MPEG Audio Mimetype
