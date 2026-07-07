@@ -13,6 +13,7 @@ require("statusline")
 require("pack")
 require("treesitter")
 require("lsp")
+require("r-config")
 
 -- colorscheme
 vim.cmd.colorscheme("habamax") -- alternatives: tokyonight, tokyonight-storm, evening, unokai, habamax
