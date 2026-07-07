@@ -46,7 +46,7 @@
     "d /var/lib/sops-nix 0755 root root - -"
     
     # Make username the sole owner of keys.txt file (this requires username to be in users, which is default)
-    "f /var/lib/sops-nix/keys.txt 0600 ${username} users - -"
+    "f /var/lib/sops-nix/keys.txt 0600 ${username} root - -"
   ];
 
   # point userspace (for all users.. sic, not sure how to fix this) to the key file
