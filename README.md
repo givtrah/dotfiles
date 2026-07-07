@@ -142,9 +142,9 @@ nixos-rebuild switch --flake ./#HOSTNAME-WANTED --impure
 # SOPS HOWTO
 Generate quantum-safe SOPS private encryption key (yes, to prevent "store now, decrypt later")
 ```
-mkdir -p ~/.config/sops/age
-age-keygen -pq -o ~/.config/sops/age/keys.txt
-chmod 0600 ~/.config/sops/age/keys.txt
+mkdir -p ~/var/lib/sops-nix
+sudo age-keygen -pq -o var/lib/sops-nix/keys.txt
+chmod 0600 /var/lib/sops-nix/keys.txt
 ```
 Make sure this is stored safely!
 
@@ -152,7 +152,7 @@ At the top of this file, add: "username: USER" (without the quotes and where USE
 
 If the public key gets lots you can get it back using the private key:
 ```
-age-keygen -y ~/.config/sops/age/keys.txt
+age-keygen -y ~/var/lib/sops-nix/keys.txt
 ```
 
 Create ".sops.yaml" in the root of the config:
@@ -166,7 +166,7 @@ creation_rules:
       - *primary
 ```
 
-You can now edit secrets using:
+After rebuilding you can now (may require a relogin) edit secrets using:
 ```
 sops secrets/secrets.yaml
 ```
