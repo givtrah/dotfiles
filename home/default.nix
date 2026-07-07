@@ -17,6 +17,13 @@
     settings.user.email = "givtrah@givtrah.org";
   };
 
+# setup TS hosts from sops
+home.file.".hosts".source = "/run/secrets/hosts";
+home.sessionVariables = {
+    HOSTALIASES = "${config.home.homeDirectory}/.hosts";
+  };
+
+
   imports = [
   ./hyprland
 
