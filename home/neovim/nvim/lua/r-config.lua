@@ -1,10 +1,9 @@
 local r = require("r")
 
 r.setup({
-  -- Hook configuration allows setting up buffer-specific settings
+  -- Custom keybindings specifically for your R script buffers
   hook = {
     on_filetype = function()
-      -- Custom keybindings specifically for R files
       local opts = { silent = true, buffer = true }
 
       -- Send current line to R console
@@ -16,19 +15,22 @@ r.setup({
     end
   },
 
-  -- Configuration Options
-  R_args = {"--no-save", "--no-restore"}, -- Clean R startup args
+  -- Clear runtime startup arguments
+  R_args = {"--no-save", "--no-restore"},
 
-  min_version = "0.1.0",
+  -- Sizing variables recognized by modern versions of R.nvim 
+  -- to automatically handle the internal console layout split
+  min_editor_width = 80,
+  rconsole_width = 60,
+  -- Tell R.nvim to use httpgd for graphic rendering output
+  -- important, add the following to your ~/.Rprofile:
+  -- # If running inside Neovim, default plotting actions to httpgd
+  -- if (interactive() && Sys.getenv("NVIMR_TMPDIR") != "") {
+  -- options(device = function(...) httpgd::hgd(...))
+  -- }
 
-  -- Terminal orientation configuration
-  -- "v" for vertical split, "h" for horizontal split
-  split_orientation = "v",
-
-  -- Width of the vertical split window when R starts
-  split_width = 60,
-
-  -- Automatically look for custom package documentation web view
-  rich_documentation = false,
+  view_df = "httpgd",
+  -- Performance tweaks:
+  sync_attributes = false,   -- Disables heavy real-time text attribute syncing
+  update_user_env = false,   -- Stops Neovim from checking R's RAM variables on every keypress
 })
-
