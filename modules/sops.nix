@@ -39,6 +39,10 @@
       };
     };
   };
+  
+  # Setup hosts
+  networking.extraHostsFile = config.sops.secrets.hosts.path;
+
 
   # Ensure permissions on keys.txt are fine
   systemd.tmpfiles.rules = [
