@@ -4,7 +4,7 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    age.keyFile = "/var/lib/sops-nix/keys.txt";
 
     # Register secrets first so the placeholders exist!
     secrets = {
@@ -39,15 +39,19 @@
       };
     };
   };
-
-# Declaratively enforce strict, minimal single-user permissions
+  
   systemd.tmpfiles.rules = [
-    # 1. Ensure the parent directory is root-owned and secure
+    # Allow root and system processes to traverse the sops-nix folder, but keep it clean
     "d /var/lib/sops-nix 0755 root root - -"
     
-    # 2. Force the key file to be owned directly by your user (ohm)
-    # 0600 means Read/Write for you, and absolutely NO access for anyone else
+    # Make username the absolute owner of the actual key file (this requires username to be in users, which is default)
     "f /var/lib/sops-nix/keys.txt 0600 ${username} users - -"
+    
+    # Create the home configuration directory structure for your user
+    "d /home/${username}/.config/sops/age 0700 ${username} users - -"
+    
+    # 4. Create the declarative symlink pointing back to your user-owned /var/lib file
+    "L+ /home/${username}/.config/sops/age/keys.txt - - - - /var/lib/sops-nix/keys.txt"
   ];
 
 
