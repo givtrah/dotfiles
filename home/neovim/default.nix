@@ -25,9 +25,9 @@
 
 			# rPackages.languageserver # R
       
-      (rWrapper.override {
-        packages = with rPackages; [ languageserver ];
-      })
+#      (rWrapper.override {
+#        packages = with rPackages; [ languageserver ];
+#      })
 
       # Treesitter bindings
       # vimPlugins.nvim-treesitter-parsers.r

@@ -138,9 +138,9 @@ vim.opt.cursorcolumn = true -- vertical cursor highlight line
 vim.opt.winborder = 'rounded' -- rounded borders (e.g. split screens)
 
 
-
+vim.opt.timeout = true
 vim.opt.updatetime = 250 -- Decrease update time
-vim.opt.timeoutlen = 300 -- Decrease mapped sequence wait time
+vim.opt.timeoutlen = 1000 -- Mapped sequence wait time (1000 ms is default)
 vim.opt.autoread = true -- auto-reload changes if outside of neovim
 vim.opt.autowrite = false -- do not auto-save
 vim.opt.confirm = true -- Ask to save changes if just quitting and not saving

@@ -1,29 +1,20 @@
-{ config, lib, pkgs, nixpkgs, ...}: {
-
-
-  home.packages = with pkgs; 
-
-# https://discourse.nixos.org/t/is-there-a-way-to-add-r-packages-straight-from-github/17871
-# https://rgoswami.me/posts/nix-r-devtools/
-
-
-# Found rev for version 1.3.0 by doing git ls-remote https://github.com/jalvesaq/colorout
+{ config, lib, pkgs, nixpkgs, ...}: 
 
 let 
+  # Compile colorout directly from its GitHub source
   colorout = pkgs.rPackages.buildRPackage {
     name = "colorout";
     src = pkgs.fetchFromGitHub {
       owner = "jalvesaq";
       repo = "colorout";
-      rev = "838488283bbc0dbbce0a716db48b90b1ac6ff857";
-      sha256 = "j18mKqcIMS9ph9uJquweEMGJhmp5lsw7jko9nszBcUA=";
+      rev = "v1.3-3";
+      sha256 = "sha256-1aWDrvW1+X5bxJEZlm3RLy8Urx6UlYX7BqJwNF2bNYA=";
     };
   };
 
-# let
-  # Define your desired packages here
-  myRPackages = with rPackages; [
-        #    colorout
+  # Define your custom package list using R packages from pkgs
+  myRPackages = with pkgs.rPackages; [
+    colorout
     tidyverse
     pastecs
     jtools
@@ -31,41 +22,37 @@ let
     officer
     tableone
     data_table
-    languageserver
-
-#    HDF5Array # failed to build on 2024-12-29
     ggvenn
     ggpubr
     limma
     KEGGREST
     S4Vectors
     GEOquery
+    HDF5Array
     mogene10sttranscriptcluster_db
     mogene11sttranscriptcluster_db
 
+    # Needed for neovim integration
+    languageserver
+    httpgd
+    terminalgraphics
   ];
 
-  R-with-my-packages = rWrapper.override {
+  # Wrap standard R with your configured package list
+  R-with-my-packages = pkgs.rWrapper.override {
     packages = myRPackages;
   };
 
-  RStudio-with-my-packages = rstudioWrapper.override {
+  # Wrap RStudio with your configured package list
+  RStudio-with-my-packages = pkgs.rstudioWrapper.override {
     packages = myRPackages;
   };
 
-  in
+in {
+  # Install R packages safely across architectures
+  home.packages = [ R-with-my-packages ] 
+    ++ lib.optional (pkgs.stdenv.hostPlatform.system == "aarch64-linux" || pkgs.stdenv.hostPlatform.system == "x86_64-linux") RStudio-with-my-packages;
 
-  # Conditionally include RStudio-with-my-packages based on the architecture
-
-
-  [ R-with-my-packages ] ++
-   
-    (if (pkgs.stdenv.hostPlatform.system == "aarch64-linux")
-    then [ RStudio-with-my-packages ] # if rstudio is not working with aarch64 remove  "Studio"
-  else
-    (if (pkgs.stdenv.hostPlatform.system == "x86_64-linux")
-      then [ RStudio-with-my-packages ]
-      else []));
-
-
+  # Reference your external standalone configuration file cleanly
+  home.file.".Rprofile".source = ./Rprofile;
 }

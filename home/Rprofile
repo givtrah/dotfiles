@@ -1,0 +1,92 @@
+options(
+    nvimcom.verbose = 2,
+    setWidthOnResize = TRUE,
+
+    # Disable languageserver features
+    languageserver.server_capabilities = list(
+        hoverProvider = FALSE,
+        signatureHelpProvider = FALSE,
+        completionProvider = FALSE,
+        completionItemResolve = FALSE,
+        definitionProvider = FALSE,
+        referencesProvider = FALSE,
+        documentHighlightProvider = FALSE,
+        documentSymbolProvider = FALSE,
+        workspaceSymbolProvider = FALSE,
+        renameProvider = FALSE,
+
+        # Use tree-sitter
+        semanticTokensProvider = FALSE,
+        foldingRangeProvider = FALSE,
+        selectionRangeProvider = FALSE,
+
+        # Use air (conform plugin)
+        documentFormattingProvider = FALSE,
+        documentRangeFormattingProvider = FALSE,
+        documentOnTypeFormattingProvider = FALSE,
+
+        documentLinkProvider = FALSE,
+        colorProvider = FALSE,
+        callHierarchyProvider = FALSE,
+        typeHierarchyProvider = FALSE,
+
+        # Use the languageserver
+        codeActionProvider = TRUE
+    )
+)
+
+.First <- function() {
+    if (interactive() || isatty(stdout())) {
+        nc <- Sys.getenv("COLUMNS")
+        if (nc != "") {
+            options(width = as.integer(nc))
+        }
+        rm(nc)
+        options(
+            colorout.anyterm = TRUE,
+            colorout.force = TRUE,
+            colorout.verbose = 1,
+            colorout.noninteractive = TRUE
+        )
+        Sys.setenv("NO_COLOR" = TRUE)
+        .ok <- require(colorout, quietly = TRUE)
+        if (.ok) {
+            addPattern("<fct>", 244)
+            addPattern("<chr>", 244)
+            addPattern("<int>", 244)
+            addPattern("<dbl>", 244)
+            addPattern("<lgl>", 244)
+            addPattern("<dbl+l>", 244)
+            addPattern("<dbl+lbl>", 244)
+        }
+        rm(.ok)
+    }
+
+    if (interactive()) {
+        if (Sys.getenv("RNVIM_TMPDIR") != "") {
+            options(
+                prompt = "» ",
+                continue = "… "
+            )
+            if (Sys.getenv("RTERM") == "external") {
+                options(
+                    term_background = "#000000",
+                    term_foreground = "#dddddd",
+                    term_palette = c(
+                        "#cc0403",
+                        "#19cb00",
+                        "#cecb00",
+                        "#0d73cc",
+                        "#cb1ed1",
+                        "#0dcdcd",
+                        "#dddddd",
+                        "#767676",
+                        "#f2201f"
+                    ),
+                    term_col = TRUE,
+                    device = terminalgraphics::tgp
+                )
+            }
+        }
+    }
+}
