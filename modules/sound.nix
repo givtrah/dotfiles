@@ -1,40 +1,43 @@
 { pkgs, ... }:
 {
-  # disable default sound module. see https://nixos.wiki/wiki/PipeWire
-  #  sound.enable = false; # sound.enable only meant for alsa sound
   services.pulseaudio.enable = false; 
-
   security.rtkit.enable = true;
 
   services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      wireplumber.enable = true;
-      
-      # Prevents idle suspend AND stops aggressive bluetooth microphone auto-switching
-      wireplumber.extraConfig."99-disable-suspend" = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    
+    # WirePlumber 0.5+ syntax for settings and monitor rules
+    wireplumber.extraConfig = {
+      "10-bluetooth-settings" = {
         "wireplumber.settings" = {
-          # STOP the system from automatically hijacking audio quality for the mic
-          "bluetooth.autoswitch-to-headset-profile" = false;
+          # allows auto-switching when an application requests input
+          "bluetooth.autoswitch-to-headset-profile" = true;
         };
+      };
 
+      "99-disable-suspend" = {
         "monitor.bluez.rules" = [
           {
             matches = [
-              { "node.name" = "~bluez_input.*"; }
               { "node.name" = "~bluez_output.*"; }
             ];
             actions = {
               update-props = {
-                # Keeps the speaker alive when silent
-                "session.suspend-timeout-seconds" = 0; 
+                "session.suspend-timeout-seconds" = 0; # Keeps the streams alive
               };
             };
           }
         ];
       };
     };
-  environment.systemPackages = builtins.attrValues { inherit (pkgs) pavucontrol alsa-utils; };
+  };
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+    alsa-utils
+  ];
 }
