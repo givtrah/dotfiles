@@ -1,38 +1,38 @@
 options(
-    nvimcom.verbose = 2,
-    setWidthOnResize = TRUE,
+  nvimcom.verbose = 2,
+  setWidthOnResize = TRUE,
 
-    # Disable languageserver features
-    languageserver.server_capabilities = list(
-        hoverProvider = FALSE,
-        signatureHelpProvider = FALSE,
-        completionProvider = FALSE,
-        completionItemResolve = FALSE,
-        definitionProvider = FALSE,
-        referencesProvider = FALSE,
-        documentHighlightProvider = FALSE,
-        documentSymbolProvider = FALSE,
-        workspaceSymbolProvider = FALSE,
-        renameProvider = FALSE,
+  # Disable languageserver features
+  languageserver.server_capabilities = list(
+    hoverProvider = FALSE,
+    signatureHelpProvider = FALSE,
+    completionProvider = FALSE,
+    completionItemResolve = FALSE,
+    definitionProvider = FALSE,
+    referencesProvider = FALSE,
+    documentHighlightProvider = FALSE,
+    documentSymbolProvider = FALSE,
+    workspaceSymbolProvider = FALSE,
+    renameProvider = FALSE,
 
-        # Use tree-sitter
-        semanticTokensProvider = FALSE,
-        foldingRangeProvider = FALSE,
-        selectionRangeProvider = FALSE,
+    # Use tree-sitter
+    semanticTokensProvider = FALSE,
+    foldingRangeProvider = FALSE,
+    selectionRangeProvider = FALSE,
 
-        # Use air (conform plugin)
-        documentFormattingProvider = FALSE,
-        documentRangeFormattingProvider = FALSE,
-        documentOnTypeFormattingProvider = FALSE,
+    # Use air (conform plugin)
+    documentFormattingProvider = FALSE,
+    documentRangeFormattingProvider = FALSE,
+    documentOnTypeFormattingProvider = FALSE,
 
-        documentLinkProvider = FALSE,
-        colorProvider = FALSE,
-        callHierarchyProvider = FALSE,
-        typeHierarchyProvider = FALSE,
+    documentLinkProvider = FALSE,
+    colorProvider = FALSE,
+    callHierarchyProvider = FALSE,
+    typeHierarchyProvider = FALSE,
 
-        # Use the languageserver
-        codeActionProvider = TRUE
-    )
+    # Use the languageserver
+    codeActionProvider = TRUE
+  )
 )
 
 .First <- function() {
