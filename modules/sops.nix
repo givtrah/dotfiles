@@ -1,6 +1,19 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, ... }:{
+  
+  # Ensure permissions on keys.txt are fine
+  systemd.tmpfiles.rules = [
+    # Allow root and system processes to traverse the sops-nix folder
+    "d /var/lib/sops-nix 0755 root root - -"
+    
+    # Make username the sole owner of keys.txt file (this requires username to be in users, which is default)
+    "f /var/lib/sops-nix/keys.txt 0600 ${username} root - -"
+  ];
 
-{
+  # point userspace to the key file (secured by above), needs a restart to work
+  environment.sessionVariables = {
+    SOPS_AGE_KEY_FILE = "/var/lib/sops-nix/keys.txt";
+  };
+
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
@@ -39,22 +52,25 @@
       };
     };
   };
-  
+  # Add TS hosts to /etc/hosts 
+  # Force NixOS to write a real, mutable file /etc/hosts instead of a read-only symlink
+  environment.etc.hosts.mode = "0644";
 
-  # Ensure permissions on keys.txt are fine
-  systemd.tmpfiles.rules = [
-    # Allow root and system processes to traverse the sops-nix folder
-    "d /var/lib/sops-nix 0755 root root - -"
-    
-    # Make username the sole owner of keys.txt file (this requires username to be in users, which is default)
-    "f /var/lib/sops-nix/keys.txt 0600 ${username} root - -"
-  ];
+  # Append private SOPS TS hosts directly into the file at switch-time!
+  system.activationScripts.appendSopsHosts = { 
+    deps = [ "etc" ]; # wait for /etc to be populated
+    text = ''
+      if [ -f "${config.sops.secrets.hosts.path}" ]; then
+        # Wipe any old block to keep the file clean on repeat switches
+        ${pkgs.gnused}/bin/sed -i '/# SOPS START/,/# SOPS END/d' /etc/hosts
 
-  # point userspace to the key file (secured by above), needs a restart to work
-  environment.sessionVariables = {
-    SOPS_AGE_KEY_FILE = "/var/lib/sops-nix/keys.txt";
+        # Append the secret path contents directly
+        echo "# SOPS START" >> /etc/hosts
+        ${pkgs.coreutils}/bin/cat "${config.sops.secrets.hosts.path}" >> /etc/hosts
+        echo "# SOPS END" >> /etc/hosts
+      fi
+    '';
   };
-
-
+  
   environment.systemPackages = with pkgs; [ sops ];
 }
