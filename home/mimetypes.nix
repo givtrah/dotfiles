@@ -17,7 +17,6 @@
      } // (lib.genAttrs [
        "image/png"
        "image/jpeg"
-       "image/jpg"
        "image/gif"
        "image/webp"
        "image/bmp"
@@ -114,7 +113,6 @@
        "audio/x-m4a"                  # Alternative M4A Mimetype
        "audio/x-matroska"             # Matroska Audio (.mka)
        "audio/aac"                    # Raw AAC stream (.aac)
-       "audio/*"                      # Global fallback override
      ] (name: "org.fooyin.fooyin.desktop")); 
 
   };
