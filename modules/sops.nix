@@ -50,7 +50,7 @@
     "f /var/lib/sops-nix/keys.txt 0600 ${username} root - -"
   ];
 
-  # point userspace (for all users.. sic, not sure how to fix this) to the key file
+  # point userspace to the key file (secured by above), needs a restart to work
   environment.sessionVariables = {
     SOPS_AGE_KEY_FILE = "/var/lib/sops-nix/keys.txt";
   };
