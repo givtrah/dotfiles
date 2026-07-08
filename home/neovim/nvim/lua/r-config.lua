@@ -86,9 +86,9 @@ M.init = function()
     opts.objbr_auto_start = true
     opts.objbr_w = 60
     opts.rconsole_height = 24
-    if vim.env.WEZTERM_PANE then
+    if vim.env.KITTY_WINDOW_ID then
       vim.env.RTERM = "external"
-      opts.external_term = "wezterm_split"
+      opts.external_term = "kitty"
     end
   elseif vim.o.columns > 140 then
     opts.objbr_auto_start = false

@@ -7,9 +7,6 @@
     [
     kitty-themes
     kitty-img
-
-#    kitty # added here because I take care of configuration in normal dotfiles
-
     ];
 
     programs.kitty =
@@ -63,6 +60,9 @@
         hide_window_decorations = "titlebar-only";
         window_padding_width = "10";
 
+        # Allow splits needed for R.nvim
+        enabled_layouts = "splits,stack,fat,tall,grid";
+
         # Tab bar
         tab_bar_edge = "top";
         tab_bar_style = "powerline";
@@ -71,8 +71,8 @@
         inactive_tab_font_style = "normal";
         tab_activity_symbol = "";
 
-       allow_remote_control = "socket-only";
-        listen_on = "unix:/tmp/kitty";
+       allow_remote_control = "yes";
+       listen_on = "unix:/tmp/kitty";
       };
 
       shellIntegration.enableBashIntegration = true;
