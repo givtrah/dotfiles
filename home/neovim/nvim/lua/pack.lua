@@ -1,6 +1,6 @@
 vim.pack.add({
 -- just color-theme    "https://github.com/bluz71/vim-moonfly-colors",
-  
+
   "https://github.com/nvim-mini/mini.nvim",
   "https://github.com/rafamadriz/friendly-snippets",
   { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
@@ -18,7 +18,7 @@ MiniFiles.setup({})
 require("mini.notify").setup({})
 
 --- mini cmdline completion ---
-require("mini.cmdline").setup({ 
+require("mini.cmdline").setup({
     autocorrect = { enable = false }
 })
 
