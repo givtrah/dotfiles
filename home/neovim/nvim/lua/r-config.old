@@ -7,10 +7,9 @@ local ed_ft = ""
 local M = {}
 
 M.init = function()
-  -- Safely look up the R binary path using native Neovim C functions
-  -- If it returns empty early on, we pass nil so R.nvim uses its runtime fallback
-  local r_binary = vim.fn.exepath("R")
-  local r_path = (r_binary and r_binary ~= "") and vim.fs.dirname(r_binary) or nil
+  -- Automatically calculate the R binary path dynamically
+  local r_binary = vim.fn.system("which R"):gsub("%s+", "")
+  local r_path = vim.fs.dirname(r_binary)
 
   -- Baseline options dictionary
   local opts = {
@@ -35,6 +34,29 @@ M.init = function()
     },
 
     hook = {
+      on_filetype = function()
+        local map_opts = { silent = true, buffer = true, remap = true }
+
+        -- Your original keybindings
+        -- vim.keymap.set("n", "<LocalLeader>l", "<Plug>RDSendLine", map_opts)
+        vim.keymap.set("n", "<leader>l", "<Plug>RDSendLine", { noremap = true })
+--        vim.api.nvim_buf_set_keymap(0, "v", "<LocalLeader>l", "<Plug>RSendSelection", { noremap = true })
+        vim.keymap.set("v", "<leader>l", "<Plug>RSendSelection", map_opts )
+
+
+        vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", map_opts)
+
+        vim.keymap.set("n", "<LocalLeader>f", "<Plug>RSendFunction", map_opts)
+
+        -- Integrated keybindings from the other config
+        vim.api.nvim_buf_set_keymap("n", "<LocalLeader>cw", "<Cmd>lua require('r.send').cmd('dev.off()')<CR>", map_opts)
+        vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<Plug>RDSendLine", { noremap = true} )
+        vim.api.nvim_buf_set_keymap("v", "<Enter>", "<Plug>RSendSelection", map_opts)
+        vim.api.nvim_buf_set_keymap("n", "<LocalLeader>gn", "<Plug>RNextRChunk zz", map_opts)
+        vim.api.nvim_buf_set_keymap("n", "<LocalLeader>gN", "<Plug>RPreviousRChunk zz", map_opts)
+        vim.api.nvim_buf_set_keymap("i", "<C-.>", "<Plug>RInsertPipe", map_opts)
+      end,
+
       -- Sets the values required by the object browser hook
       after_R_start = function()
         ed_win = vim.api.nvim_get_current_win()
@@ -43,6 +65,7 @@ M.init = function()
 
       -- Automatically links Quarto files with Aerial outlines inside the Object Browser
       after_ob_open = function()
+        vim.cmd("CccHighlighterDisable")
         local ob_win = vim.api.nvim_get_current_win()
         local ob_buf = vim.api.nvim_get_current_buf()
         vim.schedule(function()
@@ -107,28 +130,10 @@ M.init = function()
   r.setup(opts)
 end
 
--- 1. Initialize R.nvim immediately so its internal structures map normally
-M.init()
-
--- 2. Native, bulletproof Neovim FileType autocommand.
--- This forces the mappings to apply to the buffer regardless of startup race conditions.
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "r", "rmd", "quarto" },
+-- Safely defer initialization until Neovim paths lock down
+vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    local map_opts = { silent = true, buffer = true, remap = true }
-
-    -- Core Keybindings (Maps both 'v' and 'x' to thoroughly cover visual mode variations)
-    vim.keymap.set("n", "<leader>l", "<Plug>RDSendLine", map_opts)
-    vim.keymap.set({ "v", "x" }, "<leader>l", "<Plug>RSendSelection", map_opts)
-    vim.keymap.set("n", "<LocalLeader>f", "<Plug>RSendFunction", map_opts)
-
-    -- Integrated keybindings
-    vim.keymap.set("n", "<LocalLeader>cw", "<Cmd>lua require('r.send').cmd('dev.off()')<CR>", map_opts)
-    vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine", map_opts)
-    vim.keymap.set({ "v", "x" }, "<Enter>", "<Plug>RSendSelection", map_opts)
-    vim.keymap.set("n", "<LocalLeader>gn", "<Plug>RNextRChunk zz", map_opts)
-    vim.keymap.set("n", "<LocalLeader>gN", "<Plug>RPreviousRChunk zz", map_opts)
-    vim.keymap.set("i", "<C-.>", "<Plug>RInsertPipe", map_opts)
+    M.init()
   end,
 })
 
