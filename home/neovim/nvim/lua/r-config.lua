@@ -7,14 +7,8 @@ local ed_ft = ""
 local M = {}
 
 M.init = function()
-  -- Safely look up the R binary path using native Neovim C functions
-  -- If it returns empty early on, we pass nil so R.nvim uses its runtime fallback
-  local r_binary = vim.fn.exepath("R")
-  local r_path = (r_binary and r_binary ~= "") and vim.fs.dirname(r_binary) or nil
-
   -- Baseline options dictionary
   local opts = {
-    R_path = r_path,
     objbr_place = "script,left",
     min_editor_width = 80,
     rconsole_width = 80,
@@ -80,6 +74,15 @@ M.init = function()
       "RSaveClose", "RSendMotion", "RViewDFa", "RViewDFs", "RViewDFv",
     },
   }
+  -- Safely check and inject R_path if it exists
+  -- local r_binary = vim.fn.exepath("R")
+  -- if r_binary and r_binary ~= "" then
+--    local r_dir = vim.fs.dirname(r_binary)
+--    if r_dir and r_dir ~= "" then
+--      opts.R_path = r_dir
+--    end
+--  end
+
 
   -- Dynamic window adjustments based on terminal window widths
   if vim.o.columns > 200 then

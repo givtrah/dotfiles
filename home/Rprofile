@@ -36,57 +36,65 @@ options(
 )
 
 .First <- function() {
-    if (interactive() || isatty(stdout())) {
-        nc <- Sys.getenv("COLUMNS")
-        if (nc != "") {
-            options(width = as.integer(nc))
-        }
-        rm(nc)
-        options(
-            colorout.anyterm = TRUE,
-            colorout.force = TRUE,
-            colorout.verbose = 1,
-            colorout.noninteractive = TRUE
-        )
-        Sys.setenv("NO_COLOR" = TRUE)
-        .ok <- require(colorout, quietly = TRUE)
-        if (.ok) {
-            addPattern("<fct>", 244)
-            addPattern("<chr>", 244)
-            addPattern("<int>", 244)
-            addPattern("<dbl>", 244)
-            addPattern("<lgl>", 244)
-            addPattern("<dbl+l>", 244)
-            addPattern("<dbl+lbl>", 244)
-        }
-        rm(.ok)
+  if (interactive() || isatty(stdout())) {
+    nc <- Sys.getenv("COLUMNS")
+    if (nc != "") {
+      options(width = as.integer(nc))
     }
+    rm(nc)
+    options(
+      colorout.anyterm = TRUE,
+      colorout.force = TRUE,
+      colorout.verbose = 1,
+      colorout.noninteractive = TRUE
+    )
+    Sys.setenv("NO_COLOR" = TRUE)
+    .ok <- require(colorout, quietly = TRUE)
+    if (.ok) {
+      addPattern("<fct>", 244)
+      addPattern("<chr>", 244)
+      addPattern("<int>", 244)
+      addPattern("<dbl>", 244)
+      addPattern("<lgl>", 244)
+      addPattern("<dbl+l>", 244)
+      addPattern("<dbl+lbl>", 244)
+    }
+    rm(.ok)
+  }
 
-    if (interactive()) {
-        if (Sys.getenv("RNVIM_TMPDIR") != "") {
-            options(
-                prompt = "» ",
-                continue = "… "
-            )
-            if (Sys.getenv("RTERM") == "external") {
-                options(
-                    term_background = "#000000",
-                    term_foreground = "#dddddd",
-                    term_palette = c(
-                        "#cc0403",
-                        "#19cb00",
-                        "#cecb00",
-                        "#0d73cc",
-                        "#cb1ed1",
-                        "#0dcdcd",
-                        "#dddddd",
-                        "#767676",
-                        "#f2201f"
-                    ),
-                    term_col = TRUE,
-                    device = terminalgraphics::tgp
-                )
-            }
-        }
+  if (interactive()) {
+    if (Sys.getenv("RNVIM_TMPDIR") != "") {
+      options(
+        prompt = "» ",
+        continue = "… "
+      )
+      if (Sys.getenv("RTERM") == "external") {
+        options(
+          term_background = "#000000",
+          term_foreground = "#dddddd",
+          term_palette = c(
+            "#cc0403",
+            "#19cb00",
+            "#cecb00",
+            "#0d73cc",
+            "#cb1ed1",
+            "#0dcdcd",
+            "#dddddd",
+            "#767676",
+            "#f2201f"
+          ),
+          term_col = TRUE,
+       #   browser = function(url) {
+       #     system2("firefox", args = c("--new-window", url), wait = FALSE)
+       #   },
+       #   browser = "xdg-open",
+          device = function(...)  {
+            httpgd::hgd(...)
+         #   httpgd::hgd_browse()
+            httpgd::hgd_view()
+          }
+        )
+      }
     }
+  }
 }
