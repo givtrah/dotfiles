@@ -110,10 +110,10 @@ M.init = function()
   r.setup(opts)
 end
 
--- 1. Initialize R.nvim immediately so its internal structures map normally
+-- Initialize R.nvim immediately so its internal structures map normally
 M.init()
 
--- 2. Native, bulletproof Neovim FileType autocommand.
+-- Native, bulletproof Neovim FileType autocommand.
 -- This forces the mappings to apply to the buffer regardless of startup race conditions.
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "r", "rmd", "quarto" },
