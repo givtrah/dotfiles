@@ -90,6 +90,7 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     x11.enable = true;
     gtk.enable = true;
     hyprcursor.enable = true; # Enables native Hyprland cursor support

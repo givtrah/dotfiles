@@ -25,7 +25,8 @@
   # HARDWARE SPECIFIC STUFF
 
 
-  # enable Asahi audio
+  # enable Asahi hardware and audio
+  hardware.asahi.enable = true;
   hardware.asahi.setupAsahiSound = true;
 
   # Enable zram
