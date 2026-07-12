@@ -18,10 +18,10 @@
   };
 
 # setup TS hosts from sops
-home.file.".hosts".source = "/run/secrets/hosts";
-home.sessionVariables = {
-    HOSTALIASES = "${config.home.homeDirectory}/.hosts";
-  };
+#home.file.".hosts".source = "/run/secrets/hosts";
+#home.sessionVariables = {
+#    HOSTALIASES = "${config.home.homeDirectory}/.hosts";
+#  };
 
 
   imports = [
@@ -30,7 +30,6 @@ home.sessionVariables = {
   ./bash.nix
   ./kitty.nix
 
-  ./gaming.nix
   ./flatpak.nix
 
   ./r.nix
