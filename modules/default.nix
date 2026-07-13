@@ -134,7 +134,7 @@
   sshfs
   unzip
 
-  inputs.koofr-nixos.packages.${pkgs.stdenv.hostPlatform.system}.default
+#  inputs.koofr-nixos.packages.${pkgs.stdenv.hostPlatform.system}.default
 
   ];
 
