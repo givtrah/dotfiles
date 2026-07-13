@@ -1,7 +1,15 @@
 -- ==========================================
 -- FALLBACK DEFAULT MONITOR CONFIGURATION
 -- ==========================================
-hl.monitor({ name = "", resolution = "preferred", position = "auto", scale = "auto" })
+--
+hl.monitor({
+   output = "eDP-1",
+   mode = "2560x1600",
+   position = "0x0",
+   scale = 1
+ })
+
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
 for i = 1, 7 do
   hl.workspace_rule({ workspace = tostring(i), persistent = true })
