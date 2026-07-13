@@ -32,6 +32,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    koofr-nixos.url = "github:givtrah/koofr-nixos";
     llm-agents.url = "github:numtide/llm-agents.nix";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };

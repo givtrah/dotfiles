@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, hostName, ... }:
+{ config, lib, pkgs, inputs, username, hostName, ... }:
 
 {
   # COMMON MODULES FOR ALL HOSTS
@@ -18,7 +18,7 @@
     ./uwsm.nix
     ./plasma6.nix
     ./nemo.nix
-  
+ 
     # Misc - test if this is needed!
     ./libs.nix
   ]
@@ -133,6 +133,9 @@
   wireguard-tools
   sshfs
   unzip
+
+  inputs.koofr-nixos.packages.${pkgs.stdenv.hostPlatform.system}.default
+
   ];
 
 
