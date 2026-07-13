@@ -1,6 +1,19 @@
-{ config, lib, pkgs, nixpkgs, ...}: 
+{ config, lib, pkgs, inputs, ...}: 
 
 let 
+
+  # Initialize the stable package set for the current system
+  pkgsStable = import inputs.nixpkgs-stable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config = { 
+      allowUnfree = true; 
+      permittedInsecurePackages = [
+        "electron-38.8.4"
+      ];
+    }; 
+  };
+
+
   # Compile colorout directly from its GitHub source
   colorout = pkgs.rPackages.buildRPackage {
     name = "colorout";
@@ -44,7 +57,7 @@ let
   };
 
   # Wrap RStudio with your configured package list
-  RStudio-with-my-packages = pkgs.rstudioWrapper.override {
+  RStudio-with-my-packages = pkgsStable.rstudioWrapper.override {
     packages = myRPackages;
   };
 
