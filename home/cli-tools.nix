@@ -83,6 +83,7 @@
     yt-dlp # youtube downloader
     streamlink
     v4l-utils
+    jellycli
 
     # Development
     rmapi # remarkable interface?
