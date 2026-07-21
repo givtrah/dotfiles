@@ -84,6 +84,7 @@
     streamlink
     v4l-utils
     # jellycli - broken 2026-07-21
+    jellytui
 
     # Development
     rmapi # remarkable interface?

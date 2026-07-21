@@ -70,6 +70,9 @@
     guvcview
     jellyfin-media-player 
     delfin # simple gnome jellyfin player
+    plezy # jellyfin and plex player
+    jellyflix
+
     #########################
     ### MESSAGING RELATED ###
     #########################
