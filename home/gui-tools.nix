@@ -69,7 +69,7 @@
     mkvtoolnix
     guvcview
     jellyfin-media-player 
-    
+    delfin # simple gnome jellyfin player
     #########################
     ### MESSAGING RELATED ###
     #########################
