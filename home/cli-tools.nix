@@ -83,7 +83,7 @@
     yt-dlp # youtube downloader
     streamlink
     v4l-utils
-    jellycli
+    # jellycli - broken 2026-07-21
 
     # Development
     rmapi # remarkable interface?
