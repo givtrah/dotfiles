@@ -11,11 +11,11 @@
       };
       listener = [
         {
-          timeout = 900;
+          timeout = 1200;
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 1200;
+          timeout = 1500;
           on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = 'disable' })'";
           on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = 'enable' })' && brightnessctl -r";
         }
