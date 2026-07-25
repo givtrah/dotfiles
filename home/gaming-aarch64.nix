@@ -16,6 +16,8 @@
 
   [
 
+    rusty-path-of-building # POE1 and POE2 build planner
+
   ];
 
 }
