@@ -24,7 +24,7 @@
     ryubing         # Nintendo Switch 1
     cemu            # Nintendo Wii
 
-    fceux-qt6       # NES
+#    fceux-qt6       # NES
     punes-qt6       # NES
     snes9x          # SNES - does not build
     zsnes           # SNES
