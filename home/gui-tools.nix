@@ -107,7 +107,7 @@
 # Packages only for x86_64 Linux
   ++ (lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
     google-chrome
-    makemkv
+    # makemkv
     microsoft-edge
     steam-run
     upscayl
