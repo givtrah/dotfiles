@@ -11,7 +11,7 @@
   	liberation_ttf
   	fira-code
   	fira-code-symbols
-  	mplus-outline-fonts.githubRelease
+  	# should be in google-fonts mplus-outline-fonts.githubRelease
 #  	dina-font # included from somewhere else?
 #  	proggyfonts # included from somewhere else?
 		nerd-fonts.jetbrains-mono
