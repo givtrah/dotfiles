@@ -38,6 +38,7 @@ let
     data_table
     ggvenn
     ggpubr
+    Hmisc
     limma
     KEGGREST
     S4Vectors
