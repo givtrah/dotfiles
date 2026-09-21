@@ -16,7 +16,8 @@ let
 
   # Compile colorout directly from its GitHub source
   colorout = pkgs.rPackages.buildRPackage {
-    name = "colorout";
+    pname = "colorout";
+    version = "1.3-3";
     src = pkgs.fetchFromGitHub {
       owner = "jalvesaq";
       repo = "colorout";
