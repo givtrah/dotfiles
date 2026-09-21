@@ -41,6 +41,7 @@ let
     Hmisc
     limma
     KEGGREST
+    COMBAT
     S4Vectors
     GEOquery
     HDF5Array
