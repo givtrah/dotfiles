@@ -53,6 +53,9 @@
     maxcso # compression from iso to cso for psp and ps2 emulators
     mangohud    
 
+
+    furmark
+
     # Remote play
     # moonlight-qt
     # sunshine

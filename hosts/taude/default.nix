@@ -81,5 +81,8 @@
   # Firewall disabled by default
   networking.firewall.enable = false;
 
+  services.lact.enable = true;
+
+
 }
 
