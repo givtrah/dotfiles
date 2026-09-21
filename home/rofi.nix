@@ -3,8 +3,8 @@
 {
   programs.rofi = {
     enable = true;
-    
-    extraConfig = {
+
+    settings = {
       modi = "drun,run,window";
       icon-theme = "Papirus";
       show-icons = true;
