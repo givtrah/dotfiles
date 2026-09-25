@@ -13,7 +13,8 @@
 		"org.libreoffice.LibreOffice" # should work on both x86_64 and aarch64
 #		"com.valvesoftware.Steam"
     "com.heroicgameslauncher.hgl"
-    "org.freedesktop.Platform.VulkanLayer.MangoHud"
+   # "org.freedesktop.Platform.VulkanLayer.MangoHud"; # for some reason currently not working with flatpak.nix (2026-09-25)
+   
   ];
 
 
