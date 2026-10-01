@@ -133,6 +133,7 @@
   wireguard-tools
   sshfs
   unzip
+  cifs-utils # needed for cifs/smb mounts to work properly
 
 #  inputs.koofr-nixos.packages.${pkgs.stdenv.hostPlatform.system}.default
 

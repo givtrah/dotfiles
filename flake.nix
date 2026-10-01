@@ -15,7 +15,11 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    
+
+    # pin Zotero to 9.0.6 as version 10.X is not working (2026-10-01)
+    nixpkgs-zotero.url = "github:NixOS/nixpkgs/4c448105b24f5ff0b8d1bc512e488120123c047e";
+
+
     home-manager = { 
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,6 +68,16 @@
       );
       debugMessage = ''=== Extracted Username: '${username}' === '';
 
+      # Zotero overlay / pin to version 9.0.6
+      zoteroOverlay = final: prev: {
+        zotero = (import inputs.nixpkgs-zotero {
+          system = prev.stdenv.hostPlatform.system;
+          config.allowUnfree = true; # Ensures unfree dependencies resolve cleanly if needed
+        }).zotero;
+      };
+
+
+
       # Host dictionary with explicitly named Home-Manager state versions
       # system.stateVersion is defined inside each individual host directory!
       hosts = {
@@ -106,7 +120,7 @@
         modules = shared-modules ++ hostData.extraModules ++ [
           ./hosts/${hostName} 
           {
-            nixpkgs.overlays = [];
+            nixpkgs.overlays = [ zoteroOverlay ];
             # Assign the dictionary Home-manager state version
             home-manager.users.${username}.home.stateVersion = hostData.homeManagerStateVersion;
           }

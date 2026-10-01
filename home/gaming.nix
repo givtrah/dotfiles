@@ -6,8 +6,8 @@
 
   [
     # Emulators
-    fsuae           # Amiga
-    fsuae-launcher  # FSUAE front-end
+    # fsuae           # Amiga - not working 2026-10-01
+    # fsuae-launcher  # FSUAE front-end
     stella          # Atari 2600 
 
 
@@ -25,7 +25,7 @@
     cemu            # Nintendo Wii
 
 #    fceux-qt6       # NES
-    punes-qt6       # NES
+#    punes-qt6       # NES - not working 2026-10-01
     snes9x          # SNES - does not build
     zsnes           # SNES
 

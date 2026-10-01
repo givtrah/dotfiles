@@ -49,7 +49,7 @@
     iotop # io monitoring
     iftop # network monitoring
     strace # system call monitoring
-    ltrace # library call monitoring
+    # ltrace # library call monitoring - not working 2026-10-01
     lsof # list open files
 
     # networking tools
