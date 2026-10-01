@@ -49,7 +49,7 @@
     ppsspp-sdl-wayland # Playstation portable (wayland)
 
     # Game utilities
-    rusty-path-of-building # POE1 and POE2 build planner
+    # rusty-path-of-building # POE1 and POE2 build planner
     maxcso # compression from iso to cso for psp and ps2 emulators
     mangohud    
 
