@@ -25,8 +25,8 @@
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Disable nvme autonomous power states (e.g. power saving) to prevent driver failure
-  boot.kernelParams = [ "nvme_core.default_ps_max_latency_us=0" ];
+  # Disable nvme autonomous power states (e.g. power saving) to prevent driver failure - as well as disable PCIe power management
+  boot.kernelParams = [ "nvme_core.default_ps_max_latency_us=0" "pcie_aspm=off" "pcie_port_pm=off" ];
 
 
   # early modules
