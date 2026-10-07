@@ -52,6 +52,9 @@ let
     languageserver
     httpgd
     terminalgraphics
+    rlang
+    readxl
+
   ];
 
   # Wrap standard R with your configured package list
