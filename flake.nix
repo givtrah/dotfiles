@@ -17,7 +17,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # pin Zotero to 9.0.6 as version 10.X is not working (2026-10-01)
-    nixpkgs-zotero.url = "github:NixOS/nixpkgs/4c448105b24f5ff0b8d1bc512e488120123c047e";
+#    nixpkgs-zotero.url = "github:NixOS/nixpkgs/4c448105b24f5ff0b8d1bc512e488120123c047e";
 
 
     home-manager = { 
@@ -69,12 +69,12 @@
       debugMessage = ''=== Extracted Username: '${username}' === '';
 
       # Zotero overlay / pin to version 9.0.6
-      zoteroOverlay = final: prev: {
-        zotero = (import inputs.nixpkgs-zotero {
-          system = prev.stdenv.hostPlatform.system;
-          config.allowUnfree = true; # Ensures unfree dependencies resolve cleanly if needed
-        }).zotero;
-      };
+#      zoteroOverlay = final: prev: {
+#        zotero = (import inputs.nixpkgs-zotero {
+#          system = prev.stdenv.hostPlatform.system;
+#          config.allowUnfree = true; # Ensures unfree dependencies resolve cleanly if needed
+#        }).zotero;
+#      };
 
 
 
@@ -120,7 +120,7 @@
         modules = shared-modules ++ hostData.extraModules ++ [
           ./hosts/${hostName} 
           {
-            nixpkgs.overlays = [ zoteroOverlay ];
+            nixpkgs.overlays = [ ]; # zoteroOverlay ];
             # Assign the dictionary Home-manager state version
             home-manager.users.${username}.home.stateVersion = hostData.homeManagerStateVersion;
           }

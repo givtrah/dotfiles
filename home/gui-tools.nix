@@ -39,7 +39,7 @@
 
     zathura # pdf viewer
     inkscape
-    zotero # reference manager
+#    zotero # reference manager
 
     #####################
     ### IMAGE RELATED ###
