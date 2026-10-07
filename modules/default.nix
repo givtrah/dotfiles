@@ -23,7 +23,7 @@
     ./libs.nix
   ]
 
-  ++ lib.optionals (hostName == "taupa") [ ./llm.nix ./work.nix ]
+  ++ lib.optionals (hostName == "taupa") [ ./work.nix ]
 
   ++ lib.optional (hostName == "taude") ./home.nix
   
