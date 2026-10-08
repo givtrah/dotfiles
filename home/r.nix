@@ -63,8 +63,11 @@ let
   };
 
   # Wrap RStudio with your configured package list
-  RStudio-with-my-packages = pkgsStable.rstudioWrapper.override {
-    packages = myRPackages;
+ 
+#  RStudio-with-my-packages = pkgsStable.rstudioWrapper.override {
+  RStudio-with-my-packages = rstudioWrapper.override {
+  
+  packages = myRPackages;
   };
 
 in {
