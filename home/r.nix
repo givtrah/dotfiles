@@ -1,21 +1,8 @@
 { config, lib, pkgs, inputs, ...}: 
 
 let 
-
-  # Initialize the stable package set for the current system
-  pkgsStable = import inputs.nixpkgs-stable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config = { 
-      allowUnfree = true; 
-      permittedInsecurePackages = [
-        "electron-38.8.4"
-      ];
-    }; 
-  };
-
-
-  # Compile colorout directly from its GitHub source
-  colorout = pkgs.rPackages.buildRPackage {
+  # Custom package compilation from GitHub
+  getColorout = rPkgs: rPkgs.buildRPackage {
     pname = "colorout";
     version = "1.3-3";
     src = pkgs.fetchFromGitHub {
@@ -26,9 +13,8 @@ let
     };
   };
 
-  # Define your custom package list using R packages from pkgs
-  myRPackages = with pkgs.rPackages; [
-    colorout
+  # Unstable R package set
+  myRPackages = (with pkgs.rPackages; [
     tidyverse
     pastecs
     jtools
@@ -48,33 +34,29 @@ let
     mogene10sttranscriptcluster_db
     mogene11sttranscriptcluster_db
 
-    # Needed for neovim integration
+    # Tooling
     languageserver
     httpgd
-    terminalgraphics
     rlang
     readxl
+  ]) ++ [ (getColorout pkgs.rPackages) ];
 
-  ];
-
-  # Wrap standard R with your configured package list
-  R-with-my-packages = pkgs.rWrapper.override {
+  # Unstable R binary wrapper managing compiled libraries
+  myR = pkgs.rWrapper.override {
     packages = myRPackages;
   };
 
-  # Wrap RStudio with your configured package list
- 
-#  RStudio-with-my-packages = pkgsStable.rstudioWrapper.override {
-  RStudio-with-my-packages = rstudioWrapper.override {
-  
-  packages = myRPackages;
+  # Import the standalone source derivation
+  customRStudio = import ./rstudio-custom.nix {
+    inherit pkgs myR;
   };
 
 in {
-  # Install R packages safely across architectures
-  home.packages = [ R-with-my-packages ] 
-    ++ lib.optional (pkgs.stdenv.hostPlatform.system == "aarch64-linux" || pkgs.stdenv.hostPlatform.system == "x86_64-linux") RStudio-with-my-packages;
+  home.packages = [
+    myR
+#    customRStudio
+  ];
 
-  # Reference your external standalone configuration file cleanly
   home.file.".Rprofile".source = ./Rprofile;
 }
+
