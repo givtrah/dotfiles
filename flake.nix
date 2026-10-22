@@ -41,7 +41,6 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-
   outputs = { self, nixpkgs, ... }@inputs:
     let
       # Obtain username from SOPS keyfile
@@ -68,6 +67,13 @@
       );
       debugMessage = ''=== Extracted Username: '${username}' === '';
 
+      # Overlay to expose stable packages under `pkgs.stable`
+      overlay-stable = final: prev: {
+        stable = import inputs.nixpkgs-stable {
+          system = prev.stdenv.hostPlatform.system;
+          config.allowUnfree = prev.config.allowUnfree or true;
+        };
+      };
       # Zotero overlay / pin to version 9.0.6
 #      zoteroOverlay = final: prev: {
 #        zotero = (import inputs.nixpkgs-zotero {
@@ -120,7 +126,7 @@
         modules = shared-modules ++ hostData.extraModules ++ [
           ./hosts/${hostName} 
           {
-            nixpkgs.overlays = [ ]; # zoteroOverlay ];
+            nixpkgs.overlays = [ overlay-stable ]; # zoteroOverlay ];
             # Assign the dictionary Home-manager state version
             home-manager.users.${username}.home.stateVersion = hostData.homeManagerStateVersion;
           }

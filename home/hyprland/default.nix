@@ -116,8 +116,8 @@
     (import ./scripts/waybar-reload.nix { inherit pkgs; })
 
     # Autostart programs (so yes, needed!), some are imported below!
-    maestral # Dropbox 
-    maestral-gui
+    pkgs.stable.maestral # Dropbox 
+    pkgs.stable.maestral-gui
     bluez-tools # bluez e.g. bluetooth enabled is handled by main config with hardware.bluetoothe.enable = true 
     bluez-experimental
     wl-clipboard
