@@ -5,7 +5,7 @@ pkgs.writeShellApplication {
 
   # Nix ensures these are available in the script's PATH at runtime
   runtimeInputs = with pkgs; [
-    cwal          # for the 'cwal' command (pywal16 compatible)
+    pkgs.stable.pywal16          # for the 'cwal' command (pywal16 compatible)
     findutils      # for 'find'
     coreutils      # for 'echo', 'test', etc.
     waypaper       # for 'waypaper'
@@ -33,7 +33,7 @@ pkgs.writeShellApplication {
 
     if [ -n "$IMG" ]; then
       waypaper --backend swaybg --wallpaper "$IMG"
-      cwal -n -i "$IMG"
+      wal -n --cols16 lighten -i "$IMG"
     else
       echo "No files found in $DIR"
       exit 1

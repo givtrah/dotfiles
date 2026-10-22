@@ -83,7 +83,7 @@
     ### HARDWARE RELATED ###
     ########################
     lact # GPU configuration
-    # piper # gaming mouse configuration (needs ratbagd) - broken 2026-10-22
+    pkgs.stable.piper # gaming mouse configuration (needs ratbagd) - broken 2026-10-22
     mesa-demos # includes everything in glxinfo
     vulkan-tools
     gsmartcontrol
@@ -91,7 +91,7 @@
     ############
     ### MISC ###
     ############
-    # calibre # ebook management - broken 2026-10-22
+    pkgs.stable.calibre # ebook management - broken 2026-10-22
     gnome-multi-writer
     qbittorrent
     kdePackages.kcalc # ensures kcalc is installed
