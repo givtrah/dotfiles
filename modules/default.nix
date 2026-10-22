@@ -30,7 +30,7 @@
   ++ lib.optional (builtins.elem hostName [ "taude" "taupa" ]) ./gaming.nix;
 
   # Options considered always enabled regardless of host
-  
+
   # Try to prevent long reboot waits
   systemd.settings.Manager.RebootWatchdogSec = "30s";
   systemd.settings.Manager.RuntimeWatchdogSec = "30s";
@@ -61,6 +61,8 @@
 
   # SECURITY OVERRIDES (BEWARE!)
   nixpkgs.config.permittedInsecurePackages = [
+    "firefox-esr-140-bin-unwrapped-140.17.0esr"
+
 
 		];
 
