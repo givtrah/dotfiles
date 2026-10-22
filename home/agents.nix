@@ -4,7 +4,13 @@
   home.packages = 
     (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     opencode
+    opencode-desktop
+
+    opencode2
+    opencode2-desktop
+
     pi
+    omp # oh-my-pi
     
     hermes-agent
     hermes-desktop
