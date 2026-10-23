@@ -53,20 +53,6 @@
    ];
  };
 
-  # Enable CUPS, ipp-usb and avahi to print documents (CUPS may not be necessary!).
-  services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ gutenprint canon-cups-ufr2 ];
-  services.printing.logLevel = "debug";
-  services.ipp-usb.enable = true;
-    services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
