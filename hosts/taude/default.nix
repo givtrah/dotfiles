@@ -49,6 +49,33 @@
 
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+
+  # Make use of second network port for other computers (e.g. act as a bridge)
+networking = {
+  useDHCP = false;
+
+  # 1. Define the bridge and attach physical slave ports
+  bridges = {
+    "br0" = {
+      interfaces = [ "enp69s0f0" "enp69s0f1" ];
+    };
+  };
+
+  # 2. Configure the bridge interface and set its MAC address here
+  interfaces = {
+    "br0" = {
+      useDHCP = true;
+      macAddress = "ac:1f:6b:2c:08:48"; # MAC address goes under interfaces.br0!
+    };
+
+    # Disable IP/DHCP on raw physical ports
+    "enp69s0f0".useDHCP = false;
+    "enp69s0f1".useDHCP = false;
+  };
+};
+
+
+
   # mount additional drives (that I created myself)
 
 #  fileSystems."/mnt/emu8tb" =
