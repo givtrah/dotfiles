@@ -136,7 +136,7 @@
     hyprshot # Hyprland screen shot utility
     hyprsunset # Application to enable a blue-light filter on Hyprland
     hyprsysteminfo # A tiny qt6/qml application to display information about the running system
-    hyprland-qtutils # Hyprland QT/qml utility apps
+    hyprland-guiutils # Hyprland QT/qml utility apps
     hyprland-protocols # Wayland protocol extensions for Hyprland
     hyprland-qt-support # A Qt6 QML provider for hypr* apps
     hyprland-activewindow # Multi-monitor-aware Hyprland workspace widget helper
