@@ -82,8 +82,7 @@
   # NOTE3: ioniceClass = let other demands take priority
   services.btrfs.autoScrub = {
     enable = true;
-    extraArgs = [ "-r" "500M" ];
-    ioniceClass = "idle";
+    limit = "500M";
   };
 
   # Enable timesync (ntp) using default (nix) servers
