@@ -78,7 +78,13 @@
   
   # Enable periodic scrub on btrfs (default once per month) as well as periodic trim (default once per week)
   # NOTE: If host does not have btrfs drives, use an override to disable: services.btrfs.autoScrub.enable = lib.mkForce false;
-  services.btrfs.autoScrub.enable = true;
+  # NOTE2: extraargs = max rate limit is 500mb/s to prevent time outs.
+  # NOTE3: ioniceClass = let other demands take priority
+  services.btrfs.autoScrub = {
+    enable = true;
+    extraArgs = [ "-r" "500M" ];
+    ioniceClass = "idle";
+  };
 
   # Enable timesync (ntp) using default (nix) servers
   services.timesyncd.enable = true;
