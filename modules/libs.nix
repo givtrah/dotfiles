@@ -35,7 +35,7 @@
         
         # Required
         glib
-        gtk2
+#        gtk2
         bzip2
         
         # again old xorg libs # Without these it silently fails
