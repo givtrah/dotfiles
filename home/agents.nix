@@ -4,7 +4,7 @@
   home.packages = 
     (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     opencode
-    opencode-desktop
+#    opencode-desktop
 
     opencode2
     opencode2-desktop
