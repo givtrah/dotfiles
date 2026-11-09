@@ -24,7 +24,7 @@
     ################
     # firefox (added above as a program with options)
     floorp-bin # std youtube profile
-    brave
+#    brave
     chromium
     # google-chrome (added as x86_64 only package at the bottom)
     # microsoft-edge (added as x86_64 only package at the bottom)
