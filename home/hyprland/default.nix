@@ -33,7 +33,8 @@
       ];
       config = { 
         common = {
-          default = [ "hyprland" ];
+          # Hyprland handles screensharing, GTK handles settings / scaling / file choice
+          default = [ "hyprland" "gtk" ];
           };
         };
     };
